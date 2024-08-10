@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "914511310794",
+    "project_id": "improwave-2a5f4",
+    "storage_bucket": "improwave-2a5f4.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:914511310794:android:b83d00437b9c9bbab22933",
+        "android_client_info": {
+          "package_name": "com.example.app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBMtgSKDR_t9bgZeju8yaPMsOPpQuhtawU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
