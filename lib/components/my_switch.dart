@@ -1,19 +1,21 @@
-// import 'package:flutter/cupertino.dart';
-// import 'package:flutter/material.dart';
+import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 
-// class MyWidget extends StatefulWidget {
-//   const MyWidget({super.key});
+class MySwitch extends StatelessWidget {
+  final bool value;
+  final ValueChanged<bool> onChanged;
 
-//   @override
-//   State<MyWidget> createState() => _MyWidgetState();
-// }
+  const MySwitch({
+    super.key,
+    required this.value,
+    required this.onChanged,
+  });
 
-// class _MyWidgetState extends State<MyWidget> {
-//   @override
-//   Widget build(BuildContext context) {
-//     return CupertinoSwitch(
-//       value: forIos,
-//       onChanged: (value) => setState(() => forIos = value),
-//     );
-//   }
-// }
+  @override
+  Widget build(BuildContext context) {
+    return CupertinoSwitch(
+      value: value,
+      onChanged: onChanged,
+    );
+  }
+}

@@ -2,7 +2,6 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:improwave/components/my_button.dart';
 import 'package:improwave/components/my_textfield.dart';
-// import 'package:improwave/components/square_tile.dart';
 
 class LoginPage extends StatefulWidget {
   final Function()? onTap;
@@ -69,6 +68,10 @@ class _LoginPageState extends State<LoginPage> {
 
   @override
   Widget build(BuildContext context) {
+    // Get screen height and width
+    final screenWidth = MediaQuery.of(context).size.width;
+    final screenHeight = MediaQuery.of(context).size.height;
+
     return Scaffold(
       backgroundColor: Theme.of(context).colorScheme.surface,
       body: SafeArea(
@@ -77,7 +80,7 @@ class _LoginPageState extends State<LoginPage> {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                const SizedBox(height: 30),
+                SizedBox(height: screenHeight * 0.01),
 
                 // logo
                 // Image.asset(
@@ -87,28 +90,30 @@ class _LoginPageState extends State<LoginPage> {
 
                 Icon(
                   Icons.lock,
-                  size: 100,
+                  size: screenWidth * 0.25,
                   color: Theme.of(context).colorScheme.secondary,
                 ),
 
-                const SizedBox(height: 20),
+                SizedBox(height: screenHeight * 0.025),
 
                 // welcome back message
                 Text(
                   'Welcome back!',
                   style: TextStyle(
                     color: Theme.of(context).colorScheme.tertiaryFixed,
-                    fontSize: 16,
+                    fontSize: screenWidth * 0.04,
                   ),
                 ),
 
-                const SizedBox(height: 30),
+                SizedBox(height: screenHeight * 0.04),
 
                 // Error message
                 if (_errorMessage.isNotEmpty)
                   Padding(
-                    padding: const EdgeInsets.symmetric(
-                        horizontal: 25.0, vertical: 5.0),
+                    padding: EdgeInsets.symmetric(
+                      horizontal: screenWidth * 0.06,
+                      vertical: screenHeight * 0.006,
+                    ),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.start,
                       children: [
@@ -116,7 +121,7 @@ class _LoginPageState extends State<LoginPage> {
                           _errorMessage,
                           style: TextStyle(
                             color: Theme.of(context).colorScheme.error,
-                            fontSize: 14,
+                            fontSize: screenWidth * 0.035,
                           ),
                         ),
                       ],
@@ -127,10 +132,10 @@ class _LoginPageState extends State<LoginPage> {
                 MyTextfield(
                   controller: emailController,
                   hintText: 'Email',
-                  obscureText: false,
+                  obscureText: false,                 
                 ),
 
-                const SizedBox(height: 10),
+                SizedBox(height: screenHeight * 0.012),
 
                 // pw textfield
                 MyTextfield(
@@ -139,26 +144,27 @@ class _LoginPageState extends State<LoginPage> {
                   obscureText: true,
                 ),
 
-                const SizedBox(height: 10),
+                SizedBox(height: screenHeight * 0.012),
 
                 // forgot password?
                 Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 25.0),
+                  padding: EdgeInsets.symmetric(horizontal: screenWidth * 0.06),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.end,
                     children: [
                       Text(
                         'Forgot password?',
                         style: TextStyle(
-                            color: Theme.of(context)
-                                .colorScheme
-                                .onTertiaryFixedVariant),
+                          color: Theme.of(context)
+                              .colorScheme
+                              .onTertiaryFixedVariant,
+                        ),
                       ),
                     ],
                   ),
                 ),
 
-                const SizedBox(height: 20),
+                SizedBox(height: screenHeight * 0.02),
 
                 // login button
                 MyButton(
@@ -166,7 +172,7 @@ class _LoginPageState extends State<LoginPage> {
                   text: 'Sign In',
                 ),
 
-                const SizedBox(height: 150),
+                SizedBox(height: screenHeight * 0.3),
 
                 // or continue with
                 // Padding(
@@ -195,10 +201,6 @@ class _LoginPageState extends State<LoginPage> {
                 //     ],
                 //   ),
                 // ),
-
-                // const SizedBox(height: 30),
-
-                // google sign in
                 // const Row(
                 //   mainAxisAlignment: MainAxisAlignment.center,
                 //   children: [
@@ -206,14 +208,14 @@ class _LoginPageState extends State<LoginPage> {
                 //   ],
                 // ),
 
-                const SizedBox(height: 30),
+                SizedBox(height: screenHeight * 0.03),
 
                 // register
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    const Text('Not a memeber?'),
-                    const SizedBox(width: 4),
+                    const Text('Not a member?'),
+                    SizedBox(width: screenWidth * 0.01),
                     GestureDetector(
                       onTap: widget.onTap,
                       child: Text(
