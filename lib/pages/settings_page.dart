@@ -13,6 +13,17 @@ class SettingsPage extends StatefulWidget {
 class _SettingsPageState extends State<SettingsPage> {
   // State variable to store the current theme mode
   bool _isDarkMode = false;
+
+
+  @override
+  void initState() {
+    super.initState();
+    // Initialize _isDarkMode based on the current theme
+    final themeProvider = Provider.of<ThemeProvider>(context, listen: false);
+    _isDarkMode = themeProvider.isDarkMode;
+  }
+
+
   void toggleDarkMode(bool newValue) {
     setState(() {
       _isDarkMode = newValue;
