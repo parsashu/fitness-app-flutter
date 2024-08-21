@@ -44,7 +44,7 @@ class _RegisterPageState extends State<RegisterPage> {
           password: passwordController.text,
         );
       } else {
-        _setError("Passwords don't match.");
+        _setError(".رمز عبور همخوانی ندارد");
       }
       ;
     } on FirebaseAuthException catch (e) {
@@ -81,36 +81,36 @@ class _RegisterPageState extends State<RegisterPage> {
 
     return Scaffold(
       backgroundColor: Theme.of(context).colorScheme.surface,
+      appBar: AppBar(
+        leading: Icon(         
+          Icons.arrow_back_ios,
+          size: 30,
+          color: Theme.of(context).colorScheme.secondary,
+        ),
+      ),
       body: SafeArea(
         child: Center(
           child: SingleChildScrollView(
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                SizedBox(height: screenHeight * 0.04),
-
-                // logo
-                // Image.asset(
-                //   'lib/assets/images/logo.png',
-                //   height: 100,
-                // ),
-
+                // Logo
                 Icon(
                   Icons.lock,
-                  size: screenWidth * 0.25,
+                  size: 150,
                   color: Theme.of(context).colorScheme.secondary,
                 ),
 
                 SizedBox(height: screenHeight * 0.025),
 
-                // // welcome back message
-                // Text(
-                //   '!',
-                //   style: TextStyle(
-                //     color: Colors.grey[700],
-                //     fontSize: 16,
-                //   ),
-                // ),
+                // welcome back message
+                Text(
+                  'ثبت نام',
+                  style: TextStyle(
+                    color: Colors.grey[700],
+                    fontSize: screenWidth * 0.055,
+                  ),
+                ),
 
                 SizedBox(height: screenHeight * 0.04),
 
@@ -138,7 +138,7 @@ class _RegisterPageState extends State<RegisterPage> {
                 // email textfield
                 MyTextfield(
                   controller: emailController,
-                  hintText: 'Email',
+                  hintText: 'شماره تلفن',
                   obscureText: false,
                 ),
 
@@ -147,7 +147,7 @@ class _RegisterPageState extends State<RegisterPage> {
                 // Password textfield
                 MyTextfield(
                   controller: passwordController,
-                  hintText: 'Password',
+                  hintText: 'رمز عبور',
                   obscureText: true,
                 ),
 
@@ -156,7 +156,7 @@ class _RegisterPageState extends State<RegisterPage> {
                 // Confirm password textfield
                 MyTextfield(
                   controller: confirmPasswordController,
-                  hintText: 'Confirm password',
+                  hintText: 'تایید رمز عبور',
                   obscureText: true,
                 ),
 
@@ -165,66 +165,29 @@ class _RegisterPageState extends State<RegisterPage> {
                 // login button
                 MyButton(
                   onTap: signUserUp,
-                  text: 'Sign Up',
+                  text: 'ثبت نام',
                 ),
 
-                SizedBox(height: screenHeight * 0.18),
-
-                // or continue with
-                // Padding(
-                //   padding: const EdgeInsets.symmetric(horizontal: 25.0),
-                //   child: Row(
-                //     children: [
-                //       Expanded(
-                //         child: Divider(
-                //           thickness: 0.8,
-                //           color: Colors.grey[400],
-                //         ),
-                //       ),
-                //       Padding(
-                //         padding: const EdgeInsets.symmetric(horizontal: 10.0),
-                //         child: Text(
-                //           'Continue with',
-                //           style: TextStyle(color: Colors.grey[700]),
-                //         ),
-                //       ),
-                //       Expanded(
-                //         child: Divider(
-                //           thickness: 0.8,
-                //           color: Colors.grey[400],
-                //         ),
-                //       )
-                //     ],
-                //   ),
-                // ),
-
-                // const SizedBox(height: 30),
-
-                // google sign in
-                // const Row(
-                //   mainAxisAlignment: MainAxisAlignment.center,
-                //   children: [
-                //     SquareTile(imagePath: 'lib/assets/images/google.png')
-                //   ],
-                // ),
-
-                SizedBox(height: screenHeight * 0.18),
+                SizedBox(height: screenHeight * 0.25),
 
                 // register
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    const Text('Already have an account?'),
-                    SizedBox(width: screenWidth * 0.01),
                     GestureDetector(
                       onTap: widget.onTap,
                       child: Text(
-                        'Login now',
+                        'ورود',
                         style: TextStyle(
-                          color: Theme.of(context).colorScheme.onTertiary,
-                          fontWeight: FontWeight.bold,
-                        ),
+                            color: Theme.of(context).colorScheme.onTertiary,
+                            fontWeight: FontWeight.bold,
+                            fontSize: 18),
                       ),
+                    ),
+                    SizedBox(width: screenWidth * 0.01),
+                    const Text(
+                      'حساب کاربری دارید؟',
+                      style: TextStyle(fontSize: 18),
                     ),
                   ],
                 )

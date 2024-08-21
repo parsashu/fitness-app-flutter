@@ -32,3 +32,4 @@ ThemeData darkMode = ThemeData(
     error: const Color.fromARGB(255, 202, 23, 23),
   )
 );
+

@@ -74,23 +74,23 @@ class _LoginPageState extends State<LoginPage> {
 
     return Scaffold(
       backgroundColor: Theme.of(context).colorScheme.surface,
+      appBar: AppBar(
+        leading: Icon(
+          Icons.arrow_back_ios,
+          size: 30,
+          color: Theme.of(context).colorScheme.secondary,
+        ),
+      ),
       body: SafeArea(
         child: Center(
           child: SingleChildScrollView(
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                SizedBox(height: screenHeight * 0.01),
-
-                // logo
-                // Image.asset(
-                //   'lib/assets/images/logo.png',
-                //   height: 100,
-                // ),
-
+                // Logo
                 Icon(
                   Icons.lock,
-                  size: screenWidth * 0.25,
+                  size: 150,
                   color: Theme.of(context).colorScheme.secondary,
                 ),
 
@@ -98,10 +98,10 @@ class _LoginPageState extends State<LoginPage> {
 
                 // welcome back message
                 Text(
-                  'Welcome back!',
+                  'خوش آمدید',
                   style: TextStyle(
                     color: Theme.of(context).colorScheme.tertiaryFixed,
-                    fontSize: screenWidth * 0.04,
+                    fontSize: screenWidth * 0.05,
                   ),
                 ),
 
@@ -131,8 +131,8 @@ class _LoginPageState extends State<LoginPage> {
                 // email textfield
                 MyTextfield(
                   controller: emailController,
-                  hintText: 'Email',
-                  obscureText: false,                 
+                  hintText: 'ایمیل',
+                  obscureText: false,
                 ),
 
                 SizedBox(height: screenHeight * 0.012),
@@ -140,7 +140,7 @@ class _LoginPageState extends State<LoginPage> {
                 // pw textfield
                 MyTextfield(
                   controller: passwordController,
-                  hintText: 'Password',
+                  hintText: 'رمز عبور',
                   obscureText: true,
                 ),
 
@@ -150,10 +150,10 @@ class _LoginPageState extends State<LoginPage> {
                 Padding(
                   padding: EdgeInsets.symmetric(horizontal: screenWidth * 0.06),
                   child: Row(
-                    mainAxisAlignment: MainAxisAlignment.end,
+                    mainAxisAlignment: MainAxisAlignment.start,
                     children: [
                       Text(
-                        'Forgot password?',
+                        'فراموشی رمز عبور',
                         style: TextStyle(
                           color: Theme.of(context)
                               .colorScheme
@@ -169,62 +169,29 @@ class _LoginPageState extends State<LoginPage> {
                 // login button
                 MyButton(
                   onTap: signUserIn,
-                  text: 'Sign In',
+                  text: 'ورود',
                 ),
 
                 SizedBox(height: screenHeight * 0.3),
-
-                // or continue with
-                // Padding(
-                //   padding: const EdgeInsets.symmetric(horizontal: 25.0),
-                //   child: Row(
-                //     children: [
-                //       Expanded(
-                //         child: Divider(
-                //           thickness: 0.8,
-                //           color: Colors.grey[400],
-                //         ),
-                //       ),
-                //       Padding(
-                //         padding: const EdgeInsets.symmetric(horizontal: 10.0),
-                //         child: Text(
-                //           'Continue with',
-                //           style: TextStyle(color: Colors.grey[700]),
-                //         ),
-                //       ),
-                //       Expanded(
-                //         child: Divider(
-                //           thickness: 0.8,
-                //           color: Colors.grey[400],
-                //         ),
-                //       )
-                //     ],
-                //   ),
-                // ),
-                // const Row(
-                //   mainAxisAlignment: MainAxisAlignment.center,
-                //   children: [
-                //     SquareTile(imagePath: 'lib/assets/images/google.png')
-                //   ],
-                // ),
-
-                SizedBox(height: screenHeight * 0.03),
 
                 // register
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    const Text('Not a member?'),
-                    SizedBox(width: screenWidth * 0.01),
                     GestureDetector(
                       onTap: widget.onTap,
                       child: Text(
-                        'Register now',
+                        'ثبت نام',
                         style: TextStyle(
-                          color: Theme.of(context).colorScheme.onTertiary,
-                          fontWeight: FontWeight.bold,
-                        ),
+                            color: Theme.of(context).colorScheme.onTertiary,
+                            fontWeight: FontWeight.bold,
+                            fontSize: 18),
                       ),
+                    ),
+                    SizedBox(width: screenWidth * 0.01),
+                    const Text(
+                      'حساب کاربری ندارید؟',
+                      style: TextStyle(fontSize: 18),
                     ),
                   ],
                 )

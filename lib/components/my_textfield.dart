@@ -21,15 +21,20 @@ class MyTextfield extends StatelessWidget {
         obscureText: obscureText,
         decoration: InputDecoration(
           enabledBorder: OutlineInputBorder(
-            borderSide: BorderSide(color: Theme.of(context).colorScheme.outline),
+            borderSide: BorderSide(
+              color: Theme.of(context).colorScheme.outline,
+            ),
           ),
           focusedBorder: OutlineInputBorder(
-            borderSide: BorderSide(color: Theme.of(context).colorScheme.outlineVariant),
+            borderSide: BorderSide(
+              color: Theme.of(context).colorScheme.outlineVariant,
+            ),
           ),
           fillColor: Theme.of(context).colorScheme.secondaryContainer,
           filled: true,
           hintText: hintText,
-          hintStyle: TextStyle(color: Theme.of(context).colorScheme.tertiary)
+          hintTextDirection: TextDirection.rtl,
+          hintStyle: TextStyle(color: Theme.of(context).colorScheme.tertiary),
         ),
       ),
     );
