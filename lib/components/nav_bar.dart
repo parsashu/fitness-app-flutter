@@ -54,8 +54,8 @@ class _NavBarState extends State<NavBar> {
                 text: 'Home',
               ),
               GButton(
-                icon: Icons.chat_bubble_outline,
-                text: 'Chat',
+                icon: Icons.search,
+                text: 'Search',
               ),
               GButton(
                 icon: Icons.person_outlined,

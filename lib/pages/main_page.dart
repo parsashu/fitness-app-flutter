@@ -1,7 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:improwave/components/nav_bar.dart';
-import 'package:improwave/pages/chat_page.dart';
+import 'package:improwave/pages/search_page.dart';
 import 'package:improwave/pages/home_page.dart';
 import 'package:improwave/pages/profile_page.dart';
 import 'package:improwave/pages/settings_page.dart';
@@ -27,7 +27,7 @@ class _MainPageState extends State<MainPage> {
   // page list for nav bar
   final List pagesList = [
     const HomePage(),
-    const ChatPage(),
+    const SearchPage(),
     const ProfilePage(),
     const SettingsPage(),
   ];

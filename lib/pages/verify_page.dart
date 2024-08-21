@@ -11,7 +11,8 @@ class VerifyPage extends StatefulWidget {
 }
 
 class _VerifyPageState extends State<VerifyPage> {
-  int _remainingSeconds = 10;
+  int _remainingSeconds = 60;
+  Timer? _timer;
 
   @override
   void initState() {
@@ -20,7 +21,7 @@ class _VerifyPageState extends State<VerifyPage> {
   }
 
   void _startTimer() {
-    Timer.periodic(
+    _timer = Timer.periodic(
       const Duration(seconds: 1),
       (timer) {
         if (_remainingSeconds > 0) {
@@ -32,6 +33,12 @@ class _VerifyPageState extends State<VerifyPage> {
         }
       },
     );
+  }
+
+  @override
+  void dispose() {
+    _timer?.cancel();
+    super.dispose();
   }
 
   String _formatTimer() {
@@ -91,7 +98,7 @@ class _VerifyPageState extends State<VerifyPage> {
                   ),
                 ),
 
-                const SizedBox(height: 90),
+                const SizedBox(height: 60),
 
                 // Code textfields
                 const Padding(
@@ -107,7 +114,7 @@ class _VerifyPageState extends State<VerifyPage> {
                   ),
                 ),
 
-                const SizedBox(height: 40),
+                const SizedBox(height: 70),
 
                 // verify button
                 MyButton(onTap: () {}, text: 'ثبت نام'),
@@ -137,7 +144,7 @@ class _VerifyPageState extends State<VerifyPage> {
                       ),
                     ),
                     onTap: () {
-                      _remainingSeconds = 10;
+                      _remainingSeconds = 60;
                     },
                   ),
               ],

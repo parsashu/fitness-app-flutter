@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:improwave/pages/auth_page.dart';
-import 'package:improwave/pages/verify_page.dart';
+// import 'package:improwave/pages/verify_page.dart';
 import 'package:improwave/pages/home_page.dart';
 // import 'package:improwave/routing/routes.dart';
 import 'package:improwave/themes/theme_provider.dart';
@@ -41,8 +41,8 @@ class MainApp extends StatelessWidget {
           return Consumer<ThemeProvider>(
             builder: (context, themeProvider, child) {
               return MaterialApp(
-                  // home: const AuthPage(),
-                  home: const VerifyPage(),
+                  home: const AuthPage(),
+                  // home: const VerifyPage(),
                   theme: Provider.of<ThemeProvider>(context).themeData,
                   routes: {
                     '/home': (context) => const HomePage(),

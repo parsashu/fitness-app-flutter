@@ -74,19 +74,13 @@ class _LoginPageState extends State<LoginPage> {
 
     return Scaffold(
       backgroundColor: Theme.of(context).colorScheme.surface,
-      appBar: AppBar(
-        leading: Icon(
-          Icons.arrow_back_ios,
-          size: 30,
-          color: Theme.of(context).colorScheme.secondary,
-        ),
-      ),
       body: SafeArea(
         child: Center(
           child: SingleChildScrollView(
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
+                const SizedBox(height: 40),
                 // Logo
                 Icon(
                   Icons.lock,
@@ -131,7 +125,7 @@ class _LoginPageState extends State<LoginPage> {
                 // email textfield
                 MyTextfield(
                   controller: emailController,
-                  hintText: 'ایمیل',
+                  hintText: 'شماره تلفن',
                   obscureText: false,
                 ),
 

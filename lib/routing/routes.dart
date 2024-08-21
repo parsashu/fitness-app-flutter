@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:improwave/pages/chat_page.dart';
+import 'package:improwave/pages/search_page.dart';
 import 'package:improwave/pages/home_page.dart';
 import 'package:improwave/introduction/pages.dart';
 import 'package:improwave/pages/profile_page.dart';
@@ -25,7 +25,7 @@ class MyRoutes extends StatelessWidget {
         ),
         GoRoute(
           path: '/chat',
-          builder: (context, state) => const ChatPage(),
+          builder: (context, state) => const SearchPage(),
         ),
         GoRoute(
           path: '/profile',
