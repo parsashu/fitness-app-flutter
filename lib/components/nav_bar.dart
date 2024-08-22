@@ -26,7 +26,7 @@ class _NavBarState extends State<NavBar> {
           thickness: 1,
         ),
         Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 10.0, vertical: 10),
+          padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 10),
           child: GNav(
             color: Colors.grey.shade600,
             activeColor: Colors.black,
@@ -35,7 +35,7 @@ class _NavBarState extends State<NavBar> {
             tabBorderRadius: 40,
             tabActiveBorder: Border.all(
               color: Colors.grey.shade700, // Border color
-              width: 2, // Border width
+              width: 1.5, // Border width
             ),
             iconSize: 25,
             textStyle: const TextStyle(
@@ -51,19 +51,15 @@ class _NavBarState extends State<NavBar> {
             tabs: const [
               GButton(
                 icon: Icons.home_outlined,
-                text: 'Home',
+                text: 'خانه',
               ),
               GButton(
                 icon: Icons.search,
-                text: 'Search',
+                text: 'جستجو',
               ),
               GButton(
                 icon: Icons.person_outlined,
-                text: 'Profile',
-              ),
-              GButton(
-                icon: Icons.settings_outlined,
-                text: 'Settings',
+                text: 'پروفایل',
               ),
             ],
           ),

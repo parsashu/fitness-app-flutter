@@ -4,7 +4,6 @@ import 'package:improwave/components/nav_bar.dart';
 import 'package:improwave/pages/search_page.dart';
 import 'package:improwave/pages/home_page.dart';
 import 'package:improwave/pages/profile_page.dart';
-import 'package:improwave/pages/settings_page.dart';
 
 class MainPage extends StatefulWidget {
   const MainPage({super.key});
@@ -14,7 +13,6 @@ class MainPage extends StatefulWidget {
 }
 
 class _MainPageState extends State<MainPage> {
-  final user = FirebaseAuth.instance.currentUser!;
 
   // sign user out method
   void signUserOut() {
@@ -29,7 +27,6 @@ class _MainPageState extends State<MainPage> {
     const HomePage(),
     const SearchPage(),
     const ProfilePage(),
-    const SettingsPage(),
   ];
 
   // Handle index change from NavBar
@@ -43,7 +40,6 @@ class _MainPageState extends State<MainPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Improwave'),
         actions: [
           IconButton(onPressed: signUserOut, icon: const Icon(Icons.logout))
         ],

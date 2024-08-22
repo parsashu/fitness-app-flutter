@@ -98,7 +98,7 @@ class _VerifyPageState extends State<VerifyPage> {
                   ),
                 ),
 
-                const SizedBox(height: 60),
+                const SizedBox(height: 90),
 
                 // Code textfields
                 const Padding(
@@ -114,10 +114,10 @@ class _VerifyPageState extends State<VerifyPage> {
                   ),
                 ),
 
-                const SizedBox(height: 70),
+                const SizedBox(height: 40),
 
                 // verify button
-                MyButton(onTap: () {}, text: 'ثبت نام'),
+                MyButton(onTap: () {}, text: 'ورود'),
 
                 const SizedBox(height: 260),
 

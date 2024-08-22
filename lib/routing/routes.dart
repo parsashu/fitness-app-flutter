@@ -4,7 +4,6 @@ import 'package:improwave/pages/search_page.dart';
 import 'package:improwave/pages/home_page.dart';
 import 'package:improwave/introduction/pages.dart';
 import 'package:improwave/pages/profile_page.dart';
-import 'package:improwave/pages/settings_page.dart';
 
 class MyRoutes extends StatelessWidget {
   final bool introSeen;
@@ -33,7 +32,7 @@ class MyRoutes extends StatelessWidget {
         ),
         GoRoute(
           path: '/settings',
-          builder: (context, state) => const SettingsPage(),
+          builder: (context, state) => const ProfilePage(),
         ),
       ],
     );

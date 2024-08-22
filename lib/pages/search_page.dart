@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:improwave/components/search_bar.dart';
 
 class SearchPage extends StatefulWidget {
   const SearchPage({super.key});
@@ -10,6 +11,6 @@ class SearchPage extends StatefulWidget {
 class _SearchPageState extends State<SearchPage> {
   @override
   Widget build(BuildContext context) {
-    return const Text('Search');
+    return const MySearchBar();
   }
 }

@@ -99,7 +99,7 @@ class _LoginPageState extends State<LoginPage> {
                   ),
                 ),
 
-                SizedBox(height: screenHeight * 0.04),
+                SizedBox(height: screenHeight * 0.08),
 
                 // Error message
                 if (_errorMessage.isNotEmpty)
@@ -129,66 +129,15 @@ class _LoginPageState extends State<LoginPage> {
                   obscureText: false,
                 ),
 
-                SizedBox(height: screenHeight * 0.012),
-
-                // pw textfield
-                MyTextfield(
-                  controller: passwordController,
-                  hintText: 'رمز عبور',
-                  obscureText: true,
-                ),
-
-                SizedBox(height: screenHeight * 0.012),
-
-                // forgot password?
-                Padding(
-                  padding: EdgeInsets.symmetric(horizontal: screenWidth * 0.06),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    children: [
-                      Text(
-                        'فراموشی رمز عبور',
-                        style: TextStyle(
-                          color: Theme.of(context)
-                              .colorScheme
-                              .onTertiaryFixedVariant,
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-
-                SizedBox(height: screenHeight * 0.02),
+                SizedBox(height: screenHeight * 0.03),
 
                 // login button
                 MyButton(
                   onTap: signUserIn,
-                  text: 'ورود',
+                  text: 'تایید',
                 ),
 
                 SizedBox(height: screenHeight * 0.3),
-
-                // register
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    GestureDetector(
-                      onTap: widget.onTap,
-                      child: Text(
-                        'ثبت نام',
-                        style: TextStyle(
-                            color: Theme.of(context).colorScheme.onTertiary,
-                            fontWeight: FontWeight.bold,
-                            fontSize: 18),
-                      ),
-                    ),
-                    SizedBox(width: screenWidth * 0.01),
-                    const Text(
-                      'حساب کاربری ندارید؟',
-                      style: TextStyle(fontSize: 18),
-                    ),
-                  ],
-                )
               ],
             ),
           ),
