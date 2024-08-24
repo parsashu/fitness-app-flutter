@@ -13,7 +13,7 @@ class MySearchBar extends StatelessWidget {
           backgroundColor: WidgetStatePropertyAll(
             Theme.of(context).colorScheme.secondaryContainer,
           ),
-          elevation: WidgetStatePropertyAll(2),
+          elevation: const WidgetStatePropertyAll(2),
           hintText: "جستجو...",
           hintStyle: WidgetStatePropertyAll(
             TextStyle(

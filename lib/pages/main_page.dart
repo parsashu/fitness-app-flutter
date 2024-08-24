@@ -13,7 +13,6 @@ class MainPage extends StatefulWidget {
 }
 
 class _MainPageState extends State<MainPage> {
-
   // sign user out method
   void signUserOut() {
     FirebaseAuth.instance.signOut();
@@ -41,12 +40,18 @@ class _MainPageState extends State<MainPage> {
     return Scaffold(
       appBar: AppBar(
         actions: [
-          IconButton(onPressed: signUserOut, icon: const Icon(Icons.logout))
+          IconButton(
+            onPressed: () {},
+            icon: const Icon(
+              Icons.notifications_none_rounded,
+              size: 30,
+            ),
+          ),
         ],
       ),
       body: Column(
         children: [
-          pagesList[selectedIndex],       
+          pagesList[selectedIndex],
         ],
       ),
       // NavigationBar
