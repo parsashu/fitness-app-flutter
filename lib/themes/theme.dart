@@ -3,17 +3,17 @@ import 'package:flutter/material.dart';
 ThemeData lightMode = ThemeData(
   brightness: Brightness.light,
   colorScheme: ColorScheme.light(
-    surface: Colors.grey.shade300,
+    surface: Colors.grey.shade300,  // Backgound
     primary: Colors.grey.shade800,
-    tertiary: Colors.grey[500],
-    onTertiaryFixedVariant: Colors.grey[600],
-    tertiaryFixed: Colors.grey[700],
+    tertiary: Colors.grey.shade500,  // Hint text
+    onTertiaryFixedVariant: Colors.grey.shade600,
+    tertiaryFixed: Colors.grey.shade700,
     onTertiary: Colors.blue,
     secondary: Colors.black,
-    secondaryContainer: Colors.grey.shade200,
+    secondaryContainer: Colors.grey.shade200, // Textfield background
     outline: Colors.white,
     outlineVariant: Colors.grey.shade400,  
-    error: const Color.fromARGB(255, 202, 23, 23),
+    error: const Color.fromARGB(255, 202, 23, 23),  // Error
   )
 );
 
