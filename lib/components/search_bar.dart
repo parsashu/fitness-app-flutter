@@ -6,7 +6,7 @@ class MySearchBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
+      padding: const EdgeInsets.symmetric(horizontal: 5, vertical: 8),
       child: Directionality(
         textDirection: TextDirection.rtl,
         child: SearchBar(

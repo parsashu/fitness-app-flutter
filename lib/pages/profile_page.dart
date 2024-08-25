@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:improwave/components/my_switch.dart';
+import 'package:improwave/components/nav_bar.dart';
+import 'package:improwave/routing/nav_provider.dart';
 import 'package:improwave/themes/theme_provider.dart';
 import 'package:provider/provider.dart';
 
@@ -14,7 +16,6 @@ class _ProfilePageState extends State<ProfilePage> {
   // State variable to store the current theme mode
   bool _isDarkMode = false;
 
-
   @override
   void initState() {
     super.initState();
@@ -22,7 +23,6 @@ class _ProfilePageState extends State<ProfilePage> {
     final themeProvider = Provider.of<ThemeProvider>(context, listen: false);
     _isDarkMode = themeProvider.isDarkMode;
   }
-
 
   void toggleDarkMode(bool newValue) {
     setState(() {
@@ -33,20 +33,32 @@ class _ProfilePageState extends State<ProfilePage> {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
-      child: Column(
-        children: [
-          Row(     
-            children: [
-              const Text('Dark mode'),
-              MySwitch(
-                value: _isDarkMode,
-                onChanged: toggleDarkMode,
-              )
-            ],
-          ),
-        ],
+    // Provider for NavBar
+    final navProvider = Provider.of<NavProvider>(context);
+
+    return Scaffold(
+      bottomNavigationBar: NavBar(
+        selectedIndex: navProvider.selectedIndex,
+        onTabChange: (index) {
+          navProvider.setIndex(index);
+        },
+      ),
+      body: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+        child: Column(
+          children: [
+            Row(
+              children: [
+                const SizedBox(height: 200),
+                const Text('حالت شب'),
+                MySwitch(
+                  value: _isDarkMode,
+                  onChanged: toggleDarkMode,
+                )
+              ],
+            ),
+          ],
+        ),
       ),
     );
   }
