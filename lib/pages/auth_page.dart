@@ -1,7 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:improwave/pages/home_page.dart';
-import 'package:improwave/pages/login_or_register.dart';
+import 'package:improwave/pages/login_page.dart';
 
 class AuthPage extends StatelessWidget {
   const AuthPage({super.key});
@@ -19,7 +19,7 @@ class AuthPage extends StatelessWidget {
 
           // user is not logged in
           else {
-            return const LoginOrRegisterPage();
+            return const LoginPage();
           }
         },
       ),

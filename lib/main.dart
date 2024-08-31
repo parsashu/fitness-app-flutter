@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:improwave/pages/login_page.dart';
 // import 'package:improwave/pages/auth_page.dart';
-import 'package:improwave/pages/home_page.dart';
 import 'package:improwave/pages/main_page.dart';
-import 'package:improwave/pages/profile_page.dart';
-import 'package:improwave/pages/search_page.dart';
-// import 'package:improwave/routing/routes.dart';
+import 'package:improwave/pages/verify_page.dart';
 import 'package:improwave/themes/theme_provider.dart';
 import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -46,13 +44,14 @@ class MainApp extends StatelessWidget {
             builder: (context, themeProvider, child) {
               return MaterialApp(
                   // home: const AuthPage(),
-                  // home: const VerifyPage(),
-                  home: const MainPage(),
+                  home: const VerifyPage(),
+                  // home: const MainPage(),
                   theme: Provider.of<ThemeProvider>(context).themeData,
                   routes: {
-                    '/home': (context) => const HomePage(),
-                    '/search': (context) => const SearchPage(),
-                    '/profile': (context) => const ProfilePage(),
+                    
+                    '/main': (context) => const MainPage(),
+                    '/login': (context) => const LoginPage(),
+                    '/verify': (context) => const VerifyPage(),
                   },
                   debugShowCheckedModeBanner: false);
             },

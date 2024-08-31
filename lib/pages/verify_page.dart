@@ -51,42 +51,50 @@ class _VerifyPageState extends State<VerifyPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        leading: Icon(
-          Icons.arrow_back_ios,
-          size: 30,
-          color: Theme.of(context).colorScheme.secondary,
+        leading: IconButton(
+          onPressed: () {
+            Navigator.pushReplacementNamed(context, '/login');
+          },
+          icon: Icon(
+            Icons.arrow_back_ios,
+            size: 30,
+            color: Theme.of(context).colorScheme.secondary,
+          ),
         ),
       ),
       body: SafeArea(
-        child: Center(
-          child: SingleChildScrollView(
-            child: Column(
-              children: [
-                // Logo
-                Icon(
-                  Icons.lock,
-                  size: 150,
-                  color: Theme.of(context).colorScheme.secondary,
-                ),
-
-                const SizedBox(height: 40),
-
-                // Info text
-                Text(
-                  'کد تایید چهار رقمی به شماره \u202A0912***546\u202C ارسال شد',
-                  textDirection: TextDirection.rtl,
-                  style: TextStyle(
-                      color: Theme.of(context).colorScheme.tertiaryFixed,
-                      fontSize: 18),
-                ),
-
-                const SizedBox(height: 10),
-
-                // Edit number
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 45),
-                  child: Align(
-                    alignment: Alignment.centerRight,
+        child: SingleChildScrollView(
+          child: Column(
+            children: [
+              // Logo
+              Icon(
+                Icons.lock,
+                size: 150,
+                color: Theme.of(context).colorScheme.secondary,
+              ),
+        
+              const SizedBox(height: 40),
+        
+              // Info text
+              Text(
+                'کد تایید چهار رقمی به شماره \u202A0912***546\u202C ارسال شد',
+                textDirection: TextDirection.rtl,
+                style: TextStyle(
+                    color: Theme.of(context).colorScheme.tertiaryFixed,
+                    fontSize: 18),
+              ),
+        
+              const SizedBox(height: 10),
+        
+              // Edit number
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 45),
+                child: Align(
+                  alignment: Alignment.centerRight,
+                  child: GestureDetector(
+                    onTap: () {
+                      Navigator.pushReplacementNamed(context, '/login');
+                    },
                     child: Text(
                       'تغییر شماره تلفن',
                       style: TextStyle(
@@ -97,58 +105,60 @@ class _VerifyPageState extends State<VerifyPage> {
                     ),
                   ),
                 ),
-
-                const SizedBox(height: 90),
-
-                // Code textfields
-                const Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 24, vertical: 4),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      CodeTextfield(firstBox: true, lastBox: false),
-                      CodeTextfield(firstBox: false, lastBox: false),
-                      CodeTextfield(firstBox: false, lastBox: false),
-                      CodeTextfield(firstBox: false, lastBox: true),
-                    ],
+              ),
+        
+              const SizedBox(height: 70),
+        
+              // Code textfields
+              const Padding(
+                padding: EdgeInsets.symmetric(horizontal: 24, vertical: 4),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    CodeTextfield(firstBox: true, lastBox: false),
+                    CodeTextfield(firstBox: false, lastBox: false),
+                    CodeTextfield(firstBox: false, lastBox: false),
+                    CodeTextfield(firstBox: false, lastBox: true),
+                  ],
+                ),
+              ),
+        
+              const SizedBox(height: 30),
+        
+              // verify button
+              MyButton(onTap: () {
+                Navigator.pushReplacementNamed(context, '/main');
+              }, text: 'ورود'),
+        
+              const SizedBox(height: 310),
+        
+              // Timer
+              if (_remainingSeconds != 0)
+                Text(
+                  'ارسال مجدد کد تایید پس از ${_formatTimer()}',
+                  style: TextStyle(
+                    color:
+                        Theme.of(context).colorScheme.onTertiaryFixedVariant,
+                    fontSize: 16,
                   ),
                 ),
-
-                const SizedBox(height: 40),
-
-                // verify button
-                MyButton(onTap: () {}, text: 'ورود'),
-
-                const SizedBox(height: 260),
-
-                // Timer
-                if (_remainingSeconds != 0)
-                  Text(
-                    'ارسال مجدد کد تایید پس از ${_formatTimer()}',
+        
+              // Send again
+              if (_remainingSeconds == 0)
+                GestureDetector(
+                  child: Text(
+                    'ارسال مجدد کد تایید',
                     style: TextStyle(
-                      color:
-                          Theme.of(context).colorScheme.onTertiaryFixedVariant,
+                      color: Theme.of(context).colorScheme.onTertiary,
+                      fontWeight: FontWeight.bold,
                       fontSize: 16,
                     ),
                   ),
-
-                // Send again
-                if (_remainingSeconds == 0)
-                  GestureDetector(
-                    child: Text(
-                      'ارسال مجدد کد تایید',
-                      style: TextStyle(
-                        color: Theme.of(context).colorScheme.onTertiary,
-                        fontWeight: FontWeight.bold,
-                        fontSize: 16,
-                      ),
-                    ),
-                    onTap: () {
-                      _remainingSeconds = 60;
-                    },
-                  ),
-              ],
-            ),
+                  onTap: () {
+                    _remainingSeconds = 60;
+                  },
+                ),
+            ],
           ),
         ),
       ),

@@ -4,9 +4,7 @@ import 'package:improwave/components/my_button.dart';
 import 'package:improwave/components/my_textfield.dart';
 
 class LoginPage extends StatefulWidget {
-  final Function()? onTap;
-
-  const LoginPage({super.key, required this.onTap});
+  const LoginPage({super.key});
 
   @override
   State<LoginPage> createState() => _LoginPageState();
@@ -80,7 +78,7 @@ class _LoginPageState extends State<LoginPage> {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                const SizedBox(height: 40),
+                const SizedBox(height: 30),
                 // Logo
                 Icon(
                   Icons.lock,
@@ -122,7 +120,7 @@ class _LoginPageState extends State<LoginPage> {
                     ),
                   ),
 
-                // email textfield
+                // Phone number textfield
                 MyTextfield(
                   controller: emailController,
                   hintText: 'شماره تلفن',
@@ -133,7 +131,9 @@ class _LoginPageState extends State<LoginPage> {
 
                 // login button
                 MyButton(
-                  onTap: signUserIn,
+                  onTap: () {
+                    Navigator.pushReplacementNamed(context, '/verify');
+                  },
                   text: 'تایید',
                 ),
 

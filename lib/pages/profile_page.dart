@@ -33,17 +33,36 @@ class _ProfilePageState extends State<ProfilePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+        padding: const EdgeInsets.symmetric(horizontal: 20),
         child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
+            const SizedBox(height: 80),
+
+            // Night mode
             Row(
               children: [
-                const SizedBox(height: 200),
                 const Text('حالت شب'),
                 MySwitch(
                   value: _isDarkMode,
                   onChanged: toggleDarkMode,
                 )
+              ],
+            ),
+
+            const SizedBox(height: 20),
+
+            // Logout
+            Row(
+              children: [
+                const Icon(Icons.login_rounded),
+                const SizedBox(width: 10),
+                GestureDetector(
+                  onTap: () {
+                    Navigator.pushReplacementNamed(context, '/login');
+                  },
+                  child: const Text('خروج'),
+                ),
               ],
             ),
           ],
