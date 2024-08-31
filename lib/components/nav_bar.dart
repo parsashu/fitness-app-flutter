@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
 
-class NavBar extends StatefulWidget {
+class NavBar extends StatelessWidget {
   final int selectedIndex;
   final ValueChanged<int> onTabChange;
 
@@ -11,11 +11,6 @@ class NavBar extends StatefulWidget {
     required this.onTabChange,
   });
 
-  @override
-  State<NavBar> createState() => _NavBarState();
-}
-
-class _NavBarState extends State<NavBar> {
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -35,11 +30,8 @@ class _NavBarState extends State<NavBar> {
           fontSize: 18,
           fontWeight: FontWeight.w600,
         ),
-        onTabChange: (index) {
-          widget.onTabChange(
-              index); // Call the callback function when tab changes
-        },
-        selectedIndex: widget.selectedIndex, // Pass the selectedIndex to GNav
+        selectedIndex: selectedIndex,
+        onTabChange: onTabChange,
         tabs: const [
           GButton(
             icon: Icons.home,

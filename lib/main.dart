@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 // import 'package:improwave/pages/auth_page.dart';
 import 'package:improwave/pages/home_page.dart';
-import 'package:improwave/routing/nav_provider.dart';
+import 'package:improwave/pages/main_page.dart';
+import 'package:improwave/pages/profile_page.dart';
+import 'package:improwave/pages/search_page.dart';
 // import 'package:improwave/routing/routes.dart';
 import 'package:improwave/themes/theme_provider.dart';
 import 'package:provider/provider.dart';
@@ -18,8 +20,6 @@ void main() async {
       providers: [
         // Theme provider
         ChangeNotifierProvider(create: (context) => ThemeProvider()),
-        // NavBar provider
-        ChangeNotifierProvider(create: (_) => NavProvider()),
       ],
       child: const MainApp(),
     ),
@@ -47,10 +47,12 @@ class MainApp extends StatelessWidget {
               return MaterialApp(
                   // home: const AuthPage(),
                   // home: const VerifyPage(),
-                  home: Provider.of<NavProvider>(context).currentPage,
+                  home: const MainPage(),
                   theme: Provider.of<ThemeProvider>(context).themeData,
                   routes: {
                     '/home': (context) => const HomePage(),
+                    '/search': (context) => const SearchPage(),
+                    '/profile': (context) => const ProfilePage(),
                   },
                   debugShowCheckedModeBanner: false);
             },

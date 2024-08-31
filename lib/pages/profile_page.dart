@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:improwave/components/my_switch.dart';
-import 'package:improwave/components/nav_bar.dart';
-import 'package:improwave/routing/nav_provider.dart';
 import 'package:improwave/themes/theme_provider.dart';
 import 'package:provider/provider.dart';
 
@@ -33,16 +31,7 @@ class _ProfilePageState extends State<ProfilePage> {
 
   @override
   Widget build(BuildContext context) {
-    // Provider for NavBar
-    final navProvider = Provider.of<NavProvider>(context);
-
     return Scaffold(
-      bottomNavigationBar: NavBar(
-        selectedIndex: navProvider.selectedIndex,
-        onTabChange: (index) {
-          navProvider.setIndex(index);
-        },
-      ),
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
         child: Column(

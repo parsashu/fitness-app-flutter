@@ -1,9 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:improwave/components/my_box.dart';
-import 'package:improwave/components/nav_bar.dart';
 import 'package:improwave/components/search_bar.dart';
-import 'package:improwave/routing/nav_provider.dart';
-import 'package:provider/provider.dart';
 
 class SearchPage extends StatefulWidget {
   const SearchPage({super.key});
@@ -15,9 +12,6 @@ class SearchPage extends StatefulWidget {
 class _SearchPageState extends State<SearchPage> {
   @override
   Widget build(BuildContext context) {
-    // Provider for NavBar
-    final navProvider = Provider.of<NavProvider>(context);
-
     return Scaffold(
       appBar: PreferredSize(
         preferredSize: const Size.fromHeight(68),
@@ -25,16 +19,10 @@ class _SearchPageState extends State<SearchPage> {
           shadowColor: Colors.grey.shade400,
           surfaceTintColor: Colors.grey.shade900,
           title: const SizedBox(
-            height: 68,         
+            height: 68,
             child: MySearchBar(),
           ),
         ),
-      ),
-      bottomNavigationBar: NavBar(
-        selectedIndex: navProvider.selectedIndex,
-        onTabChange: (index) {
-          navProvider.setIndex(index);
-        },
       ),
       body: const Align(
         alignment: Alignment.center,
