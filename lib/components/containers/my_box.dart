@@ -18,13 +18,8 @@ class MyBox extends StatelessWidget {
     return Container(
       width: 405,
       decoration: BoxDecoration(
-        color: Colors.grey[350],
+        color: Theme.of(context).colorScheme.primaryContainer,
         borderRadius: BorderRadius.circular(18),
-        border: Border.all(
-
-          color: Colors.grey[400]!, //
-          width: 1,
-        ),
       ),
       child: Padding(
         padding: const EdgeInsets.all(16),
@@ -66,7 +61,7 @@ class MyBox extends StatelessWidget {
                 flex: 3,
                 child: Avatar(
                   imagePath: imagePath,
-                )
+                ),
               ),
           ],
         ),
