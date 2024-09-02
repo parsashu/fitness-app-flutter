@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 
 class EditIcon extends StatelessWidget {
-  const EditIcon({super.key});
+  const EditIcon({super.key, required this.iconData});
+
+  final IconData iconData;
 
   @override
   Widget build(BuildContext context) {
@@ -15,7 +17,7 @@ class EditIcon extends StatelessWidget {
             child: Padding(
               padding: const EdgeInsets.all(11),
               child: Icon(
-                Icons.edit,
+                iconData,
                 color: Colors.grey.shade300,
               ),
             ),

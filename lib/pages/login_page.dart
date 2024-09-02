@@ -12,8 +12,7 @@ class LoginPage extends StatefulWidget {
 
 class _LoginPageState extends State<LoginPage> {
   // text editing controllers
-  final emailController = TextEditingController();
-
+  final phoneController = TextEditingController();
   final passwordController = TextEditingController();
 
   // Error message to display
@@ -35,7 +34,7 @@ class _LoginPageState extends State<LoginPage> {
     // try sign in
     try {
       await FirebaseAuth.instance.signInWithEmailAndPassword(
-        email: emailController.text,
+        email: phoneController.text,
         password: passwordController.text,
       );
     } on FirebaseAuthException catch (e) {
@@ -122,9 +121,8 @@ class _LoginPageState extends State<LoginPage> {
 
                 // Phone number textfield
                 MyTextfield(
-                  controller: emailController,
+                  controller: phoneController,
                   hintText: 'شماره تلفن',
-                  obscureText: false,
                 ),
 
                 SizedBox(height: screenHeight * 0.03),

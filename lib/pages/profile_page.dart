@@ -1,9 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:improwave/components/containers/avatar.dart';
 import 'package:improwave/components/buttons/counter_button.dart';
-import 'package:improwave/components/icons/edit_icon.dart';
 import 'package:improwave/components/buttons/my_switch.dart';
+import 'package:improwave/components/containers/editable_profile_pic.dart';
 import 'package:improwave/components/dividers/my_vertical_divider.dart';
 import 'package:improwave/components/containers/setting_container.dart';
 import 'package:improwave/components/containers/setting_section.dart';
@@ -41,85 +40,59 @@ class _ProfilePageState extends State<ProfilePage> {
     return Scaffold(
       body: ListView(
         children: [
-          const SizedBox(height: 30),
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 50),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                // Profile picture
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 90),
-                  child: Stack(
-                    children: [
-                      Container(
-                        padding: const EdgeInsets.all(3),
-                        decoration: BoxDecoration(
-                          shape: BoxShape.circle,
-                          border: Border.all(
-                            color: Theme.of(context).colorScheme.outlineVariant,
-                            width: 1.0,
-                          ),
-                        ),
-                        child: const Avatar(
-                          imagePath: 'assets/images/example_profile.png',
-                        ),
-                      ),
-                      const Positioned(
-                        bottom: 0,
-                        right: 6,
-                        child: EditIcon(),
-                      ),
-                    ],
+          const SizedBox(height: 40),
+          Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              // Profile picture
+              const EditableProfilePic(
+                editIconData: Icons.edit,
+              ),
+          
+              const SizedBox(height: 20),
+          
+              // Username
+              Text(
+                'Farbod Hajian',
+                style: Theme.of(context).textTheme.headlineMedium,
+              ),
+          
+              const SizedBox(height: 5),
+          
+              // Phone number
+              Text(
+                '09919578599',
+                style: Theme.of(context).textTheme.labelLarge,
+              ),
+          
+              const SizedBox(height: 30),
+          
+              // Counters
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  CounterButton(
+                    number: 4.8,
+                    title: 'Ranking',
+                    onPressed: () {},
                   ),
-                ),
-
-                const SizedBox(height: 20),
-
-                // Username
-                Text(
-                  'Farbod Hajian',
-                  style: Theme.of(context).textTheme.headlineMedium,
-                ),
-
-                const SizedBox(height: 5),
-
-                // Phone number
-                Text(
-                  '09919578599',
-                  style: Theme.of(context).textTheme.labelMedium,
-                ),
-
-                const SizedBox(height: 30),
-
-                // Counters
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    CounterButton(
-                      number: 4.8,
-                      title: 'Ranking',
-                      onPressed: () {},
-                    ),
-                    const MyVerticalDivider(),
-                    CounterButton(
-                      number: 35,
-                      title: 'Followers',
-                      onPressed: () {},
-                    ),
-                    const MyVerticalDivider(),
-                    CounterButton(
-                      number: 35,
-                      title: 'Following',
-                      onPressed: () {},
-                    ),
-                  ],
-                ),
-
-                const SizedBox(height: 80),
-
-              ],
-            ),
+                  const MyVerticalDivider(),
+                  CounterButton(
+                    number: 35,
+                    title: 'Followers',
+                    onPressed: () {},
+                  ),
+                  const MyVerticalDivider(),
+                  CounterButton(
+                    number: 35,
+                    title: 'Following',
+                    onPressed: () {},
+                  ),
+                ],
+              ),
+          
+              const SizedBox(height: 80),
+            ],
           ),
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 15),
@@ -127,8 +100,7 @@ class _ProfilePageState extends State<ProfilePage> {
               children: [
                 // A B O U T
                 Container(
-                  padding:
-                      const EdgeInsets.all(15),
+                  padding: const EdgeInsets.all(15),
                   decoration: BoxDecoration(
                       color: Theme.of(context).colorScheme.outline,
                       borderRadius: BorderRadius.circular(15)),
@@ -166,7 +138,9 @@ class _ProfilePageState extends State<ProfilePage> {
                         style: Theme.of(context).textTheme.bodyMedium,
                       ),
                       action: const Icon(Icons.arrow_back_ios),
-                      onTap: () => toggleDarkMode(!_isDarkMode),
+                      onTap: () {
+                        Navigator.pushNamed(context, '/editProfile');
+                      },
                     ),
                   ],
                 ),
@@ -228,9 +202,10 @@ class _ProfilePageState extends State<ProfilePage> {
                       ),
                       onTap: () =>
                           Navigator.pushReplacementNamed(context, '/login'),
-                    )
+                    ),
                   ],
                 ),
+                const SizedBox(height: 10),
               ],
             ),
           ),

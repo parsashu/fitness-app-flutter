@@ -23,19 +23,21 @@ class CodeTextfield extends StatelessWidget {
         style: const TextStyle(fontSize: 22),
         decoration: InputDecoration(
           counterText: '',
+          // Normal
           enabledBorder: OutlineInputBorder(
             borderSide: BorderSide(
               color: Theme.of(context).colorScheme.outlineVariant,
             ),
             borderRadius: BorderRadius.circular(12),
           ),
+          // Focused
           focusedBorder: OutlineInputBorder(
             borderSide: BorderSide(
-              color: Theme.of(context).colorScheme.tertiaryFixed,
+              color: Theme.of(context).colorScheme.tertiary,
             ),
             borderRadius: BorderRadius.circular(12),
           ),
-          fillColor: Theme.of(context).colorScheme.secondaryContainer,
+          fillColor: Theme.of(context).colorScheme.primaryContainer,
           filled: true,
         ),
         inputFormatters: [

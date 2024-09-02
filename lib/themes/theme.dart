@@ -6,6 +6,7 @@ ThemeData lightMode = ThemeData(
   colorScheme: ColorScheme.light(
     surface: Colors.grey.shade300,  // Backgound 
     primary: Colors.grey.shade800,
+    primaryContainer: Colors.white,  // Containers
     tertiary: Colors.grey.shade500,  // Hint text
     onTertiaryFixedVariant: Colors.grey.shade600,
     tertiaryFixed: Colors.grey.shade700,
@@ -13,12 +14,12 @@ ThemeData lightMode = ThemeData(
     secondary: Colors.black,
     onSecondary: Colors.grey,
     secondaryContainer: Colors.grey.shade200, // Textfield background
-    outline: Colors.white,
+    outline: Colors.white,  // Boxes
     outlineVariant: Colors.grey.shade400,  
     error: const Color.fromARGB(255, 202, 23, 23),  // Error
   ),
   textTheme: TextTheme(
-    displayLarge: TextStyle(fontSize: 56.0, fontWeight: FontWeight.bold, color: Colors.grey.shade900),
+    displayLarge: TextStyle(fontSize: 20.0, fontWeight: FontWeight.bold, color: Colors.grey.shade300),  // Black backgroung
     displayMedium: TextStyle(fontSize: 44.0, fontWeight: FontWeight.bold, color: Colors.grey.shade900),
     displaySmall: TextStyle(fontSize: 34.0, fontWeight: FontWeight.bold, color: Colors.grey.shade900),
     headlineLarge: TextStyle(fontSize: 28.0, fontWeight: FontWeight.bold, color: Colors.grey.shade900),
@@ -30,8 +31,8 @@ ThemeData lightMode = ThemeData(
     bodyLarge: TextStyle(fontSize: 24.0, fontWeight: FontWeight.normal, color: Colors.grey.shade900),
     bodyMedium: TextStyle(fontSize: 20.0, fontWeight: FontWeight.normal, color: Colors.grey.shade900),
     bodySmall: TextStyle(fontSize: 16.0, fontWeight: FontWeight.normal, color: Colors.grey.shade900),
-    labelLarge: TextStyle(fontSize: 28.0, fontWeight: FontWeight.bold, color: Colors.grey.shade500),
-    labelMedium: TextStyle(fontSize: 22.0, fontWeight: FontWeight.normal, color: Colors.grey.shade500),
+    labelLarge: TextStyle(fontSize: 22.0, fontWeight: FontWeight.normal, color: Colors.grey.shade500),
+    labelMedium: TextStyle(fontSize: 20.0, fontWeight: FontWeight.normal, color: Colors.grey.shade600),
     labelSmall: TextStyle(fontSize: 16.0, fontWeight: FontWeight.normal, color: Colors.grey.shade500),
   ),
 );
@@ -44,18 +45,19 @@ ThemeData darkMode = ThemeData(
   colorScheme: ColorScheme.dark(
     surface: Colors.grey.shade900,
     primary: Colors.grey.shade800,
+    primaryContainer: const Color.fromARGB(255, 42, 45, 59),
     tertiary: Colors.grey.shade600,  // Hint text
     onTertiaryFixedVariant: Colors.grey[700],
     tertiaryFixed: Colors.grey[800],
     onTertiary: Colors.blueAccent,
-    secondary: Colors.white,
+    secondary: const Color.fromARGB(255, 42, 45, 59),
     outline: const Color.fromARGB(255, 42, 45, 59),
-    outlineVariant: Colors.grey.shade700,
+    outlineVariant: Colors.grey.shade700,   
     error: const Color.fromARGB(255, 207, 88, 88),
   ),
   
   textTheme: TextTheme(
-    displayLarge: TextStyle(fontSize: 56.0, fontWeight: FontWeight.bold, color: Colors.grey.shade200),
+    displayLarge: TextStyle(fontSize: 20.0, fontWeight: FontWeight.bold, color: Colors.grey.shade300),
     displayMedium: TextStyle(fontSize: 44.0, fontWeight: FontWeight.bold, color: Colors.grey.shade200),
     displaySmall: TextStyle(fontSize: 34.0, fontWeight: FontWeight.bold, color: Colors.grey.shade200),
     headlineLarge: TextStyle(fontSize: 28.0, fontWeight: FontWeight.bold, color: Colors.grey.shade200),

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:improwave/components/buttons/my_back_button.dart';
 import 'package:improwave/components/buttons/my_button.dart';
 import 'package:improwave/components/textfields/code_textfield.dart';
 import 'dart:async';
@@ -51,15 +52,10 @@ class _VerifyPageState extends State<VerifyPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        leading: IconButton(
+        leading: MyBackButton(
           onPressed: () {
             Navigator.pushReplacementNamed(context, '/login');
           },
-          icon: Icon(
-            Icons.arrow_back_ios,
-            size: 30,
-            color: Theme.of(context).colorScheme.secondary,
-          ),
         ),
       ),
       body: SafeArea(
@@ -72,9 +68,9 @@ class _VerifyPageState extends State<VerifyPage> {
                 size: 150,
                 color: Theme.of(context).colorScheme.secondary,
               ),
-        
+
               const SizedBox(height: 40),
-        
+
               // Info text
               Text(
                 'کد تایید چهار رقمی به شماره \u202A0912***546\u202C ارسال شد',
@@ -83,9 +79,9 @@ class _VerifyPageState extends State<VerifyPage> {
                     color: Theme.of(context).colorScheme.tertiaryFixed,
                     fontSize: 18),
               ),
-        
+
               const SizedBox(height: 10),
-        
+
               // Edit number
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 45),
@@ -106,9 +102,9 @@ class _VerifyPageState extends State<VerifyPage> {
                   ),
                 ),
               ),
-        
+
               const SizedBox(height: 70),
-        
+
               // Code textfields
               const Padding(
                 padding: EdgeInsets.symmetric(horizontal: 24, vertical: 4),
@@ -122,27 +118,28 @@ class _VerifyPageState extends State<VerifyPage> {
                   ],
                 ),
               ),
-        
+
               const SizedBox(height: 30),
-        
+
               // verify button
-              MyButton(onTap: () {
-                Navigator.pushReplacementNamed(context, '/main');
-              }, text: 'ورود'),
-        
+              MyButton(
+                  onTap: () {
+                    Navigator.pushReplacementNamed(context, '/main');
+                  },
+                  text: 'ورود'),
+
               const SizedBox(height: 310),
-        
+
               // Timer
               if (_remainingSeconds != 0)
                 Text(
                   'ارسال مجدد کد تایید پس از ${_formatTimer()}',
                   style: TextStyle(
-                    color:
-                        Theme.of(context).colorScheme.onTertiaryFixedVariant,
+                    color: Theme.of(context).colorScheme.onTertiaryFixedVariant,
                     fontSize: 16,
                   ),
                 ),
-        
+
               // Send again
               if (_remainingSeconds == 0)
                 GestureDetector(

@@ -2,15 +2,16 @@ import 'package:flutter/material.dart';
 
 class MyTextfield extends StatelessWidget {
   final dynamic controller;
-  final String hintText;
-  final bool obscureText;
+  final String? hintText;
+  final bool numberKeyboard;
+  final bool counter;
 
-  const MyTextfield({
-    super.key,
-    required this.controller,
-    required this.hintText,
-    required this.obscureText,
-  });
+  const MyTextfield(
+      {super.key,
+      required this.controller,
+      this.hintText,
+      this.numberKeyboard = true,
+      this.counter = false});
 
   @override
   Widget build(BuildContext context) {
@@ -18,20 +19,27 @@ class MyTextfield extends StatelessWidget {
       padding: const EdgeInsets.symmetric(horizontal: 25.0),
       child: TextField(
         controller: controller,
-        keyboardType: const TextInputType.numberWithOptions(),
-        obscureText: obscureText,
+        keyboardType: numberKeyboard
+            ? const TextInputType.numberWithOptions()
+            : TextInputType.text,
+        maxLines: null,
+        maxLength: counter ? 140 : null,
+        // Normal
         decoration: InputDecoration(
           enabledBorder: OutlineInputBorder(
-            borderSide: BorderSide(
-              color: Theme.of(context).colorScheme.outline,
-            ),
-          ),
-          focusedBorder: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(15),
             borderSide: BorderSide(
               color: Theme.of(context).colorScheme.outlineVariant,
             ),
           ),
-          fillColor: Theme.of(context).colorScheme.secondaryContainer,
+          // Foucesed
+          focusedBorder: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(15),
+            borderSide: BorderSide(
+              color: Theme.of(context).colorScheme.tertiary,
+            ),
+          ),
+          fillColor: Theme.of(context).colorScheme.primaryContainer,
           filled: true,
           hintText: hintText,
           hintTextDirection: TextDirection.rtl,
