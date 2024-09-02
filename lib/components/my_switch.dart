@@ -16,6 +16,7 @@ class MySwitch extends StatelessWidget {
     return CupertinoSwitch(
       value: value,
       onChanged: onChanged,
+      activeColor: Colors.blue,
     );
   }
 }

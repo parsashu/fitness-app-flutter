@@ -21,6 +21,7 @@ class CounterButton extends StatelessWidget {
           borderRadius: BorderRadius.circular(8.0),
         ),
       ),
+
       child: Column(
         children: [
           // Number
@@ -31,7 +32,7 @@ class CounterButton extends StatelessWidget {
           // Title
           Text(
             title,
-            style: Theme.of(context).textTheme.headlineSmall
+            style: Theme.of(context).textTheme.titleLarge
             
           ),
         ],
