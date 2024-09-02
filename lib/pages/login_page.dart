@@ -1,7 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:improwave/components/my_button.dart';
-import 'package:improwave/components/my_textfield.dart';
+import 'package:improwave/components/buttons/my_button.dart';
+import 'package:improwave/components/textfields/my_textfield.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});

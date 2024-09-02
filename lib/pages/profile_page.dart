@@ -1,12 +1,12 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:improwave/components/avatar.dart';
-import 'package:improwave/components/counter_button.dart';
-import 'package:improwave/components/edit_icon.dart';
-import 'package:improwave/components/my_switch.dart';
-import 'package:improwave/components/my_vertical_divider.dart';
-import 'package:improwave/components/setting_container.dart';
-import 'package:improwave/components/setting_section.dart';
+import 'package:improwave/components/containers/avatar.dart';
+import 'package:improwave/components/buttons/counter_button.dart';
+import 'package:improwave/components/icons/edit_icon.dart';
+import 'package:improwave/components/buttons/my_switch.dart';
+import 'package:improwave/components/dividers/my_vertical_divider.dart';
+import 'package:improwave/components/containers/setting_container.dart';
+import 'package:improwave/components/containers/setting_section.dart';
 import 'package:improwave/themes/theme_provider.dart';
 import 'package:provider/provider.dart';
 

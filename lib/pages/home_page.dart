@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:improwave/components/notification_dot.dart';
+import 'package:improwave/components/icons/notification_label.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});

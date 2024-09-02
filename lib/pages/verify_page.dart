@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:improwave/components/my_button.dart';
-import 'package:improwave/components/code_textfield.dart';
+import 'package:improwave/components/buttons/my_button.dart';
+import 'package:improwave/components/textfields/code_textfield.dart';
 import 'dart:async';
 
 class VerifyPage extends StatefulWidget {

@@ -6,7 +6,6 @@ class EditIcon extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ClipOval(
-      
       child: Container(
         color: Theme.of(context).colorScheme.surface,
         padding: const EdgeInsets.all(5),
@@ -17,7 +16,7 @@ class EditIcon extends StatelessWidget {
               padding: const EdgeInsets.all(11),
               child: Icon(
                 Icons.edit,
-                color: Theme.of(context).colorScheme.surface,
+                color: Colors.grey.shade300,
               ),
             ),
           ),

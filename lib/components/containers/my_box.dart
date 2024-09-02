@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:improwave/components/avatar.dart';
+import 'package:improwave/components/containers/avatar.dart';
 
 class MyBox extends StatelessWidget {
   const MyBox({

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:improwave/components/nav_bar.dart';
+import 'package:improwave/components/bars/nav_bar.dart';
 import 'package:improwave/pages/home_page.dart';
 import 'package:improwave/pages/profile_page.dart';
 import 'package:improwave/pages/search_page.dart';
