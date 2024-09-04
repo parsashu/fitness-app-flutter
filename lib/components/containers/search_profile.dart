@@ -15,10 +15,8 @@ class MyBox extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: 405,
       decoration: BoxDecoration(
-        color: Theme.of(context).colorScheme.primaryContainer,
-        borderRadius: BorderRadius.circular(18),
+        color: Theme.of(context).colorScheme.surfaceBright,
       ),
       child: Padding(
         padding: const EdgeInsets.all(16),
@@ -34,10 +32,7 @@ class MyBox extends StatelessWidget {
                   Text(
                     title,
                     textDirection: TextDirection.rtl,
-                    style: const TextStyle(
-                      fontSize: 20,
-                      fontWeight: FontWeight.bold,
-                    ),
+                    style: Theme.of(context).textTheme.titleLarge
                   ),
 
                   const SizedBox(height: 5),
@@ -46,7 +41,9 @@ class MyBox extends StatelessWidget {
                   Text(
                     subTitle,
                     textDirection: TextDirection.rtl,
-                    maxLines: 3,
+                    maxLines: 2,
+                    overflow: TextOverflow.ellipsis,
+                    style: Theme.of(context).textTheme.bodySmall,
                   ),
                 ],
               ),
@@ -61,7 +58,7 @@ class MyBox extends StatelessWidget {
                 child: CircleAvatar(
                   radius: 38,
                   backgroundImage: backgroundImage,
-                )
+                ),
               ),
           ],
         ),

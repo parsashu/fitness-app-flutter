@@ -9,16 +9,14 @@ class MySearchBar extends StatelessWidget {
       padding: const EdgeInsets.symmetric(horizontal: 5, vertical: 8),
       child: Directionality(
         textDirection: TextDirection.rtl,
-        child: SearchBar(
+        child: SearchBar(               
           backgroundColor: WidgetStatePropertyAll(
-            Theme.of(context).colorScheme.secondaryContainer,
+            Theme.of(context).colorScheme.tertiaryContainer,
           ),
-          elevation: const WidgetStatePropertyAll(2),
+          elevation: const WidgetStatePropertyAll(0),
           hintText: "جستجو...",
           hintStyle: WidgetStatePropertyAll(
-            TextStyle(
-              color: Theme.of(context).colorScheme.tertiary,
-            ),
+            Theme.of(context).textTheme.displayMedium
           ),
           trailing: [
             Icon(

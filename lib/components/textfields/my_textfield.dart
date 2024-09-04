@@ -5,13 +5,16 @@ class MyTextfield extends StatelessWidget {
   final String? hintText;
   final bool numberKeyboard;
   final bool bio;
+  final String? label;
 
-  const MyTextfield(
-      {super.key,
-      required this.controller,
-      this.hintText,
-      this.numberKeyboard = true,
-      this.bio = false});
+  const MyTextfield({
+    super.key,
+    required this.controller,
+    this.hintText,
+    this.numberKeyboard = true,
+    this.bio = false,
+    this.label,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -26,25 +29,34 @@ class MyTextfield extends StatelessWidget {
         maxLength: bio ? 140 : null,
         // Normal
         decoration: InputDecoration(
-          enabledBorder: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(15),
-            borderSide: BorderSide(
-              color: Theme.of(context).colorScheme.outlineVariant,
+            enabledBorder: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(15),
+              borderSide: BorderSide(
+                color: Theme.of(context).colorScheme.outlineVariant,
+              ),
             ),
-          ),
-          // Foucesed
-          focusedBorder: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(15),
-            borderSide: BorderSide(
-              color: Theme.of(context).colorScheme.tertiary,
+            // Foucesed
+            focusedBorder: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(15),
+              borderSide: BorderSide(
+                color: Theme.of(context).colorScheme.tertiary,
+              ),
             ),
-          ),
-          fillColor: Theme.of(context).colorScheme.primaryContainer,
-          filled: true,
-          hintText: hintText,
-          hintTextDirection: TextDirection.rtl,
-          hintStyle: TextStyle(color: Theme.of(context).colorScheme.tertiary),
-        ),
+            fillColor: Theme.of(context).colorScheme.primaryContainer,
+            filled: true,
+            hintText: hintText,
+            label: (label != null)
+                ? Align(
+                    alignment: Alignment.centerRight,
+                    child: Text(
+                      label!,
+                      style: Theme.of(context).textTheme.displaySmall,
+                    ),
+                  )
+                : null,
+            hintTextDirection: TextDirection.rtl,
+            hintStyle: TextStyle(color: Theme.of(context).colorScheme.tertiary),
+            counterStyle: Theme.of(context).textTheme.labelSmall),
       ),
     );
   }

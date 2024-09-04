@@ -5,7 +5,6 @@ import 'package:improwave/components/buttons/my_back_button.dart';
 import 'package:improwave/components/buttons/my_button.dart';
 import 'package:improwave/components/containers/editable_avatar.dart';
 import 'package:improwave/components/textfields/my_textfield.dart';
-import 'package:improwave/components/texts/edit_hint_text.dart';
 import 'package:improwave/utils/select_image.dart';
 
 class EditProfile extends StatefulWidget {
@@ -55,44 +54,43 @@ class _EditProfileState extends State<EditProfile> {
               editIconData: Icons.add_a_photo,
               onPressed: selectImage,
             ),
-        
-            const SizedBox(height: 60),
-        
+
+            const SizedBox(height: 80),
+
             // Name
-            const EditHintText(text: 'نام و نام خانوادگی'),
             MyTextfield(
+              label: 'نام و نام خانوادگی',
               controller: nameController,
               numberKeyboard: false,
             ),
-        
-            const SizedBox(height: 20),
-        
+
+            const SizedBox(height: 50),
+
             // Phone number
-            const EditHintText(text: 'شماره تلفن'),
             MyTextfield(
+              label: 'شماره تلفن',
               controller: phoneController,
               numberKeyboard: true,
             ),
-        
-            const SizedBox(height: 20),
-        
+
+            const SizedBox(height: 50),
+
             // Bio
-            const EditHintText(text: 'درباره'),
             MyTextfield(
+              label: 'درباره',
               controller: bioController,
               numberKeyboard: false,
               bio: true,
             ),
-        
-            const SizedBox(height: 150),
-        
+
+            const SizedBox(height: 180),
+
             MyButton(
               onTap: () {
                 Navigator.pop(context);
               },
               text: 'ذخیره',
             ),
-            const SizedBox(height: 30),
           ],
         ),
       ),
