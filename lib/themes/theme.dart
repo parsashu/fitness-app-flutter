@@ -76,7 +76,7 @@ ThemeData darkMode = ThemeData(
     bodyLarge: TextStyle(fontSize: 24.0, fontWeight: FontWeight.normal, color: Colors.grey.shade400),
     bodyMedium: TextStyle(fontSize: 20.0, fontWeight: FontWeight.normal, color: Colors.grey.shade400),
     bodySmall: TextStyle(fontSize: 18.0, fontWeight: FontWeight.normal, color: Colors.grey.shade500),
-    labelLarge: TextStyle(fontSize: 22.0, fontWeight: FontWeight.bold, color: Colors.grey.shade600),
+    labelLarge: TextStyle(fontSize: 22.0, fontWeight: FontWeight.normal, color: Colors.grey.shade600),
     labelMedium: TextStyle(fontSize: 20.0, fontWeight: FontWeight.normal, color: Colors.grey.shade600),
     labelSmall: TextStyle(fontSize: 18.0, fontWeight: FontWeight.normal, color: Colors.grey.shade600),
   ),

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:improwave/components/buttons/my_back_button.dart';
 import 'package:improwave/components/buttons/my_button.dart';
+import 'package:improwave/components/icons/logo.dart';
 import 'package:improwave/components/textfields/code_textfield.dart';
 import 'dart:async';
 
@@ -63,11 +64,7 @@ class _VerifyPageState extends State<VerifyPage> {
           child: Column(
             children: [
               // Logo
-              Icon(
-                Icons.lock,
-                size: 150,
-                color: Theme.of(context).colorScheme.secondary,
-              ),
+              const Logo(),
 
               const SizedBox(height: 40),
 

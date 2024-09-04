@@ -1,6 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:improwave/components/buttons/my_button.dart';
+import 'package:improwave/components/icons/logo.dart';
 import 'package:improwave/components/textfields/my_textfield.dart';
 
 class LoginPage extends StatefulWidget {
@@ -78,22 +79,16 @@ class _LoginPageState extends State<LoginPage> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 const SizedBox(height: 30),
+
                 // Logo
-                Icon(
-                  Icons.lock,
-                  size: 150,
-                  color: Theme.of(context).colorScheme.secondary,
-                ),
+                const Logo(),
 
                 SizedBox(height: screenHeight * 0.025),
 
                 // welcome back message
                 Text(
                   'خوش آمدید',
-                  style: TextStyle(
-                    color: Theme.of(context).colorScheme.tertiaryFixed,
-                    fontSize: screenWidth * 0.05,
-                  ),
+                  style: Theme.of(context).textTheme.bodyMedium
                 ),
 
                 SizedBox(height: screenHeight * 0.08),
