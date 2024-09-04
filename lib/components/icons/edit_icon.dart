@@ -1,9 +1,14 @@
 import 'package:flutter/material.dart';
 
 class EditIcon extends StatelessWidget {
-  const EditIcon({super.key, required this.iconData});
+  const EditIcon({
+    super.key,
+    required this.iconData,
+    required this.onPressed,
+  });
 
   final IconData iconData;
+  final void Function()? onPressed;
 
   @override
   Widget build(BuildContext context) {
@@ -13,10 +18,14 @@ class EditIcon extends StatelessWidget {
         padding: const EdgeInsets.all(5),
         child: ClipOval(
           child: Container(
+            width: 45,
+            height: 45,
             color: Colors.blue,
-            child: Padding(
-              padding: const EdgeInsets.all(11),
-              child: Icon(
+            child: IconButton(
+              splashColor: Colors.blue,
+              highlightColor: Colors.blue,
+              onPressed: onPressed,
+              icon: Icon(
                 iconData,
                 color: Colors.grey.shade300,
               ),

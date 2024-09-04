@@ -1,11 +1,17 @@
 import 'package:flutter/material.dart';
-import 'package:improwave/components/containers/avatar.dart';
 import 'package:improwave/components/icons/edit_icon.dart';
 
-class EditableProfilePic extends StatelessWidget {
-  const EditableProfilePic({super.key, required this.editIconData});
+class EditableAvatar extends StatelessWidget {
+  const EditableAvatar({
+    super.key,
+    required this.backgroundImage,
+    required this.editIconData,
+    required this.onPressed,
+  });
 
+  final ImageProvider<Object>? backgroundImage;
   final IconData editIconData;
+  final void Function()? onPressed;
 
   @override
   Widget build(BuildContext context) {
@@ -22,14 +28,16 @@ class EditableProfilePic extends StatelessWidget {
                 width: 1.0,
               ),
             ),
-            child: const Avatar(
-              imagePath: 'assets/images/example_profile.png',
+            child: CircleAvatar(
+              radius: 76,
+              backgroundImage: backgroundImage,
             ),
           ),
           Positioned(
             bottom: 0,
-            right: 6,
+            right: 5,
             child: EditIcon(
+              onPressed: onPressed,
               iconData: editIconData,
             ),
           ),

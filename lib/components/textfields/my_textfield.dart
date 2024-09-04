@@ -4,14 +4,14 @@ class MyTextfield extends StatelessWidget {
   final dynamic controller;
   final String? hintText;
   final bool numberKeyboard;
-  final bool counter;
+  final bool bio;
 
   const MyTextfield(
       {super.key,
       required this.controller,
       this.hintText,
       this.numberKeyboard = true,
-      this.counter = false});
+      this.bio = false});
 
   @override
   Widget build(BuildContext context) {
@@ -22,8 +22,8 @@ class MyTextfield extends StatelessWidget {
         keyboardType: numberKeyboard
             ? const TextInputType.numberWithOptions()
             : TextInputType.text,
-        maxLines: null,
-        maxLength: counter ? 140 : null,
+        maxLines: bio ? null : 1,
+        maxLength: bio ? 140 : null,
         // Normal
         decoration: InputDecoration(
           enabledBorder: OutlineInputBorder(

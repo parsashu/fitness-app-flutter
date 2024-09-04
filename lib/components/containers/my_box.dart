@@ -1,17 +1,16 @@
 import 'package:flutter/material.dart';
-import 'package:improwave/components/containers/avatar.dart';
 
 class MyBox extends StatelessWidget {
   const MyBox({
     super.key,
     required this.title,
     required this.subTitle,
-    this.imagePath,
+    this.backgroundImage,
   });
 
   final String title;
   final String subTitle;
-  final String? imagePath;
+  final ImageProvider<Object>? backgroundImage;
 
   @override
   Widget build(BuildContext context) {
@@ -53,15 +52,16 @@ class MyBox extends StatelessWidget {
               ),
             ),
 
-            if (imagePath != null) const SizedBox(width: 20),
+            if (backgroundImage != null) const SizedBox(width: 20),
 
             // Profile picture
-            if (imagePath != null)
+            if (backgroundImage != null)
               Flexible(
                 flex: 3,
-                child: Avatar(
-                  imagePath: imagePath,
-                ),
+                child: CircleAvatar(
+                  radius: 38,
+                  backgroundImage: backgroundImage,
+                )
               ),
           ],
         ),

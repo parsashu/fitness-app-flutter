@@ -38,7 +38,6 @@ ThemeData lightMode = ThemeData(
 );
 
 
-
 // Dark theme
 ThemeData darkMode = ThemeData(
   brightness: Brightness.dark,

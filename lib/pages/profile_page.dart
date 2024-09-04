@@ -2,7 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:improwave/components/buttons/counter_button.dart';
 import 'package:improwave/components/buttons/my_switch.dart';
-import 'package:improwave/components/containers/editable_profile_pic.dart';
+import 'package:improwave/components/containers/editable_avatar.dart';
 import 'package:improwave/components/dividers/my_vertical_divider.dart';
 import 'package:improwave/components/containers/setting_container.dart';
 import 'package:improwave/components/containers/setting_section.dart';
@@ -45,28 +45,32 @@ class _ProfilePageState extends State<ProfilePage> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               // Profile picture
-              const EditableProfilePic(
+              EditableAvatar(
+                backgroundImage:
+                    const AssetImage('assets/images/example_profile.png'),
                 editIconData: Icons.edit,
+                onPressed: () {
+                  Navigator.pushNamed(context, '/editProfile');
+                },
               ),
-          
               const SizedBox(height: 20),
-          
+
               // Username
               Text(
                 'Farbod Hajian',
                 style: Theme.of(context).textTheme.headlineMedium,
               ),
-          
+
               const SizedBox(height: 5),
-          
+
               // Phone number
               Text(
                 '09919578599',
                 style: Theme.of(context).textTheme.labelLarge,
               ),
-          
+
               const SizedBox(height: 30),
-          
+
               // Counters
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
@@ -90,7 +94,7 @@ class _ProfilePageState extends State<ProfilePage> {
                   ),
                 ],
               ),
-          
+
               const SizedBox(height: 80),
             ],
           ),
