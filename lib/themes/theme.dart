@@ -12,7 +12,8 @@ ThemeData lightMode = ThemeData(
     tertiaryContainer: Colors.grey.shade200,  // Search bar
     onTertiaryFixedVariant: Colors.grey.shade600,
     tertiaryFixed: Colors.grey.shade700,
-    onTertiary: Colors.blue,
+    tertiaryFixedDim: Colors.grey.shade700,  // Text with surface background
+    onTertiary: Colors.blue,  // Links
     secondary: Colors.black,
     onSecondary: Colors.grey,
     secondaryContainer: Colors.grey.shade200, // Textfield background
@@ -21,6 +22,7 @@ ThemeData lightMode = ThemeData(
     outlineVariant: Colors.grey.shade400,  
     shadow: Colors.grey.shade200,  // App bar shadow
     error: const Color.fromARGB(255, 202, 23, 23),  // Error
+    
   ),
   textTheme: TextTheme(
     displayLarge: TextStyle(fontSize: 20.0, fontWeight: FontWeight.bold, color: Colors.grey.shade300),  // Black backgroung
@@ -30,8 +32,8 @@ ThemeData lightMode = ThemeData(
     headlineMedium: TextStyle(fontSize: 24.0, fontWeight: FontWeight.bold, color: Colors.grey.shade900),
     headlineSmall: TextStyle(fontSize: 22.0, fontWeight: FontWeight.bold, color: Colors.grey.shade900),
     titleLarge: TextStyle(fontSize: 20.0, fontWeight: FontWeight.bold, color: Colors.grey.shade900),
-    titleMedium: TextStyle(fontSize: 16.0, fontWeight: FontWeight.normal, color: Colors.grey.shade900),
-    titleSmall: TextStyle(fontSize: 14.0, fontWeight: FontWeight.normal, color: Colors.grey.shade900),
+    titleMedium: TextStyle(fontSize: 18.0, fontWeight: FontWeight.normal, color: Colors.grey.shade900),  // verify page
+    titleSmall: TextStyle(fontSize: 16.0, fontWeight: FontWeight.normal, color: Colors.grey.shade900),
     bodyLarge: TextStyle(fontSize: 24.0, fontWeight: FontWeight.normal, color: Colors.grey.shade900),
     bodyMedium: TextStyle(fontSize: 20.0, fontWeight: FontWeight.normal, color: Colors.grey.shade900),
     bodySmall: TextStyle(fontSize: 18.0, fontWeight: FontWeight.normal, color: Colors.grey.shade600),  // bio
@@ -54,7 +56,8 @@ ThemeData darkMode = ThemeData(
     tertiaryContainer: Colors.grey.shade800,  // Search bar
     onTertiaryFixedVariant: Colors.grey.shade700,
     tertiaryFixed: Colors.grey.shade800,
-    onTertiary: Colors.blueAccent,
+    tertiaryFixedDim: Colors.grey.shade500,  // Text with surface background
+    onTertiary: const Color.fromARGB(255, 63, 127, 237),  // Links
     secondary: Colors.grey.shade300,
     secondaryFixed: Colors.grey.shade900,
     outline: Colors.grey.shade800,
@@ -71,8 +74,8 @@ ThemeData darkMode = ThemeData(
     headlineMedium: TextStyle(fontSize: 24.0, fontWeight: FontWeight.bold, color: Colors.grey.shade400),
     headlineSmall: TextStyle(fontSize: 22.0, fontWeight: FontWeight.bold, color: Colors.grey.shade400),
     titleLarge: TextStyle(fontSize: 20.0, fontWeight: FontWeight.bold, color: Colors.grey.shade400),
-    titleMedium: TextStyle(fontSize: 16.0, fontWeight: FontWeight.normal, color: Colors.grey.shade400),
-    titleSmall: TextStyle(fontSize: 14.0, fontWeight: FontWeight.normal, color: Colors.grey.shade400),
+    titleMedium: TextStyle(fontSize: 18.0, fontWeight: FontWeight.normal, color: Colors.grey.shade400),
+    titleSmall: TextStyle(fontSize: 16.0, fontWeight: FontWeight.normal, color: Colors.grey.shade400),
     bodyLarge: TextStyle(fontSize: 24.0, fontWeight: FontWeight.normal, color: Colors.grey.shade400),
     bodyMedium: TextStyle(fontSize: 20.0, fontWeight: FontWeight.normal, color: Colors.grey.shade400),
     bodySmall: TextStyle(fontSize: 18.0, fontWeight: FontWeight.normal, color: Colors.grey.shade500),

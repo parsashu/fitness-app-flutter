@@ -39,7 +39,6 @@ class _LoginPageState extends State<LoginPage> {
         password: passwordController.text,
       );
     } on FirebaseAuthException catch (e) {
-      // Handle FirebaseAuthException
       if (e.code == 'invalid-credential') {
         _setError('Invalid email or password.');
       } else if (e.code == 'invalid-email') {
@@ -48,10 +47,8 @@ class _LoginPageState extends State<LoginPage> {
         _setError('An error occurred. Please try again.');
       }
     } finally {
-      // Pop the loading circle
       if (mounted) {
-        Navigator.of(context, rootNavigator: true)
-            .pop(); // Use rootNavigator to dismiss the dialog
+        Navigator.of(context, rootNavigator: true).pop();
       }
     }
   }
@@ -66,73 +63,69 @@ class _LoginPageState extends State<LoginPage> {
 
   @override
   Widget build(BuildContext context) {
-    // Get screen height and width
-    final screenWidth = MediaQuery.of(context).size.width;
-    final screenHeight = MediaQuery.of(context).size.height;
-
     return Scaffold(
       backgroundColor: Theme.of(context).colorScheme.surface,
       body: SafeArea(
-        child: Center(
-          child: SingleChildScrollView(
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                const SizedBox(height: 30),
+        child: SingleChildScrollView(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              const SizedBox(height: 60),
 
-                // Logo
-                const Logo(),
+              // Logo
+              const Logo(),
 
-                SizedBox(height: screenHeight * 0.025),
+              const SizedBox(height: 34),
 
-                // welcome back message
-                Text(
-                  'خوش آمدید',
-                  style: Theme.of(context).textTheme.bodyMedium
+              // welcome back message
+              Text(
+                'خوش آمدید',
+                style: TextStyle(
+                  fontSize: 20,
+                  fontWeight: FontWeight.bold,
+                  color: Theme.of(context).colorScheme.tertiaryFixedDim,
                 ),
+              ),
 
-                SizedBox(height: screenHeight * 0.08),
+              const SizedBox(height: 140),
 
-                // Error message
-                if (_errorMessage.isNotEmpty)
-                  Padding(
-                    padding: EdgeInsets.symmetric(
-                      horizontal: screenWidth * 0.06,
-                      vertical: screenHeight * 0.006,
-                    ),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      children: [
-                        Text(
-                          _errorMessage,
-                          style: TextStyle(
-                            color: Theme.of(context).colorScheme.error,
-                            fontSize: screenWidth * 0.035,
-                          ),
-                        ),
-                      ],
-                    ),
+              // Error message
+              if (_errorMessage.isNotEmpty)
+                Padding(
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: 80,
+                    vertical: 8,
                   ),
-
-                // Phone number textfield
-                MyTextfield(
-                  controller: phoneController,
-                  hintText: 'شماره تلفن',
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    children: [
+                      Text(
+                        _errorMessage,
+                        style: const TextStyle(
+                          color: Colors.red,
+                          fontSize: 12,
+                        ),
+                      ),
+                    ],
+                  ),
                 ),
 
-                SizedBox(height: screenHeight * 0.03),
+              // Phone number textfield
+              MyTextfield(
+                controller: phoneController,
+                hintText: 'شماره تلفن',
+              ),
 
-                // login button
-                MyButton(
-                  onTap: () {
-                    Navigator.pushReplacementNamed(context, '/verify');
-                  },
-                  text: 'تایید',
-                ),
+              const SizedBox(height: 350),
 
-                SizedBox(height: screenHeight * 0.3),
-              ],
-            ),
+              // login button
+              MyButton(
+                onTap: () {
+                  Navigator.pushReplacementNamed(context, '/verify');
+                },
+                text: 'تایید',
+              ),
+            ],
           ),
         ),
       ),

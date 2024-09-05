@@ -43,7 +43,7 @@ class MainApp extends StatelessWidget {
           return Consumer<ThemeProvider>(
             builder: (context, themeProvider, child) {
               return MaterialApp(
-                  home: const MainPage(),
+                  home: const VerifyPage(),
                   theme: Provider.of<ThemeProvider>(context).themeData,
                   routes: {
                     

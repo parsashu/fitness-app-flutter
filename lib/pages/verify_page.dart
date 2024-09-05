@@ -72,9 +72,7 @@ class _VerifyPageState extends State<VerifyPage> {
               Text(
                 'کد تایید چهار رقمی به شماره \u202A0912***546\u202C ارسال شد',
                 textDirection: TextDirection.rtl,
-                style: TextStyle(
-                    color: Theme.of(context).colorScheme.tertiaryFixed,
-                    fontSize: 18),
+                style: Theme.of(context).textTheme.titleMedium
               ),
 
               const SizedBox(height: 10),
@@ -100,7 +98,7 @@ class _VerifyPageState extends State<VerifyPage> {
                 ),
               ),
 
-              const SizedBox(height: 70),
+              const SizedBox(height: 100),
 
               // Code textfields
               const Padding(
@@ -116,16 +114,17 @@ class _VerifyPageState extends State<VerifyPage> {
                 ),
               ),
 
-              const SizedBox(height: 30),
+              const SizedBox(height: 300),
 
               // verify button
               MyButton(
-                  onTap: () {
-                    Navigator.pushReplacementNamed(context, '/main');
-                  },
-                  text: 'ورود'),
+                onTap: () {
+                  Navigator.pushReplacementNamed(context, '/main');
+                },
+                text: 'ورود',
+              ),
 
-              const SizedBox(height: 310),
+              const SizedBox(height: 25),
 
               // Timer
               if (_remainingSeconds != 0)
