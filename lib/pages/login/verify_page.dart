@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:improwave/components/buttons/my_back_button.dart';
+import 'package:improwave/components/bars/back_app_bar.dart';
 import 'package:improwave/components/buttons/my_button.dart';
 import 'package:improwave/components/icons/logo.dart';
 import 'package:improwave/components/textfields/code_textfield.dart';
@@ -52,13 +52,7 @@ class _VerifyPageState extends State<VerifyPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        leading: MyBackButton(
-          onPressed: () {
-            Navigator.pushReplacementNamed(context, '/login');
-          },
-        ),
-      ),
+      appBar: const BackAppBar(bright: false),
       body: SafeArea(
         child: SingleChildScrollView(
           child: Column(
@@ -119,6 +113,7 @@ class _VerifyPageState extends State<VerifyPage> {
               // verify button
               MyButton(
                 onTap: () {
+                  Navigator.pop(context);
                   Navigator.pushReplacementNamed(context, '/main');
                 },
                 text: 'ورود',

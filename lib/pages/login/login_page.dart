@@ -121,7 +121,7 @@ class _LoginPageState extends State<LoginPage> {
               // login button
               MyButton(
                 onTap: () {
-                  Navigator.pushReplacementNamed(context, '/verify');
+                  Navigator.pushNamed(context, '/verify');
                 },
                 text: 'تایید',
               ),

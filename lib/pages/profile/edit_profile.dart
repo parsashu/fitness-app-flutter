@@ -1,7 +1,7 @@
 import 'dart:typed_data';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
-import 'package:improwave/components/buttons/my_back_button.dart';
+import 'package:improwave/components/bars/back_app_bar.dart';
 import 'package:improwave/components/buttons/my_button.dart';
 import 'package:improwave/components/containers/editable_avatar.dart';
 import 'package:improwave/components/textfields/my_textfield.dart';
@@ -33,16 +33,7 @@ class _EditProfileState extends State<EditProfile> {
     }
 
     return Scaffold(
-      appBar: PreferredSize(
-        preferredSize: const Size.fromHeight(40),
-        child: AppBar(
-          leading: MyBackButton(
-            onPressed: () {
-              Navigator.pop(context);
-            },
-          ),
-        ),
-      ),
+      appBar: const BackAppBar(bright: false),
       body: SingleChildScrollView(
         child: Column(
           children: [

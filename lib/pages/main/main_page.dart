@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:improwave/components/bars/nav_bar.dart';
-import 'package:improwave/pages/home_page.dart';
-import 'package:improwave/pages/profile_page.dart';
-import 'package:improwave/pages/search_page.dart';
+import 'package:improwave/pages/main/home_page.dart';
+import 'package:improwave/pages/profile/profile_page.dart';
+import 'package:improwave/pages/main/search_page.dart';
 
 class MainPage extends StatefulWidget {
   const MainPage({super.key});
@@ -12,7 +12,7 @@ class MainPage extends StatefulWidget {
 }
 
 class _MainPageState extends State<MainPage> {
-  int _selectedIndex = 2;
+  int _selectedIndex = 1;
 
   final List<Widget> _pages = [
     const HomePage(),
