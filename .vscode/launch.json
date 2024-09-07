@@ -5,9 +5,40 @@
     "version": "0.2.0",
     "configurations": [
         {
+            "name": "improwave",
+            "request": "launch",
+            "type": "dart",
+            "program": "lib/main.dart",
+            "cwd": "${workspaceFolder}" 
+        },
+        {
+            "name": "improwave (profile mode)",
+            "request": "launch",
+            "type": "dart",
+            "program": "lib/main.dart",
+            "flutterMode": "profile",
+            "cwd": "${workspaceFolder}"
+        },
+        {
+            "name": "improwave (release mode)",
+            "request": "launch",
+            "type": "dart",
+            "program": "lib/main.dart",
+            "flutterMode": "release",
+            "cwd": "${workspaceFolder}"
+        },
+        {
+            "name": "kkkk",
+            "request": "launch",
+            "type": "dart",
+            "program": "lib/main.dart",
+            "cwd": "kkkk"
+          },
+        {
             "name": "kkkk",
             "cwd": "kkkk",
             "request": "launch",
+            "program": "lib/main.dart",
             "type": "dart"
         },
         {
@@ -15,19 +46,24 @@
             "cwd": "kkkk",
             "request": "launch",
             "type": "dart",
+            "program": "lib/main.dart",
             "flutterMode": "profile"
+            
+            
         },
         {
             "name": "kkkk (release mode)",
             "cwd": "kkkk",
             "request": "launch",
             "type": "dart",
+            "program": "lib/main.dart",
             "flutterMode": "release"
         },
         {
             "name": "fitag",
             "cwd": "@Programing@\\FlutterProject\\fitag",
             "request": "launch",
+            "program": "lib/main.dart",
             "type": "dart"
         },
         {
@@ -35,6 +71,7 @@
             "cwd": "@Programing@\\FlutterProject\\fitag",
             "request": "launch",
             "type": "dart",
+            "program": "lib/main.dart",
             "flutterMode": "profile"
         },
         {

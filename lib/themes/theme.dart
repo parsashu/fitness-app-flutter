@@ -3,6 +3,9 @@ import 'package:flutter/material.dart';
 // Light theme
 ThemeData lightMode = ThemeData(
   brightness: Brightness.light,
+  splashColor: Colors.transparent,
+  highlightColor: Colors.transparent,
+  tabBarTheme: const TabBarTheme(splashFactory: NoSplash.splashFactory),
   colorScheme: ColorScheme.light(
     surface: Colors.grey.shade300,  // Backgound 
     surfaceBright: Colors.white,
@@ -47,6 +50,9 @@ ThemeData lightMode = ThemeData(
 // Dark theme
 ThemeData darkMode = ThemeData(
   brightness: Brightness.dark,
+  splashColor: Colors.transparent,
+  highlightColor: Colors.transparent,
+  tabBarTheme: const TabBarTheme(splashFactory: NoSplash.splashFactory),
   colorScheme: ColorScheme.dark(
     surface: Colors.grey.shade900,
     surfaceBright: Colors.grey.shade900,

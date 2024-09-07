@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
 
-class MyBox extends StatelessWidget {
-  const MyBox({
+class SearchProfile extends StatelessWidget {
+  const SearchProfile({
     super.key,
-    required this.title,
-    required this.subTitle,
-    this.backgroundImage,
+    required this.name,
+    required this.bio,
+    this.avatar,
   });
 
-  final String title;
-  final String subTitle;
-  final ImageProvider<Object>? backgroundImage;
+  final String name;
+  final String bio;
+  final ImageProvider<Object>? avatar;
 
   @override
   Widget build(BuildContext context) {
@@ -30,7 +30,7 @@ class MyBox extends StatelessWidget {
                 children: [
                   // Title
                   Text(
-                    title,
+                    name,
                     textDirection: TextDirection.rtl,
                     style: Theme.of(context).textTheme.titleLarge
                   ),
@@ -39,7 +39,7 @@ class MyBox extends StatelessWidget {
 
                   // Subtitle
                   Text(
-                    subTitle,
+                    bio,
                     textDirection: TextDirection.rtl,
                     maxLines: 2,
                     overflow: TextOverflow.ellipsis,
@@ -49,15 +49,15 @@ class MyBox extends StatelessWidget {
               ),
             ),
 
-            if (backgroundImage != null) const SizedBox(width: 20),
+            if (avatar != null) const SizedBox(width: 20),
 
             // Profile picture
-            if (backgroundImage != null)
+            if (avatar != null)
               Flexible(
                 flex: 3,
                 child: CircleAvatar(
                   radius: 38,
-                  backgroundImage: backgroundImage,
+                  backgroundImage: avatar,
                 ),
               ),
           ],

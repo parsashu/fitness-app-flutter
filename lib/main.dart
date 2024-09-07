@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:improwave/pages/edit_profile.dart';
+import 'package:improwave/pages/followers_page.dart';
 import 'package:improwave/pages/login_page.dart';
 import 'package:improwave/pages/main_page.dart';
 import 'package:improwave/pages/verify_page.dart';
@@ -43,7 +44,7 @@ class MainApp extends StatelessWidget {
           return Consumer<ThemeProvider>(
             builder: (context, themeProvider, child) {
               return MaterialApp(
-                  home: const VerifyPage(),
+                  home: const MainPage(),
                   theme: Provider.of<ThemeProvider>(context).themeData,
                   routes: {
                     
@@ -51,6 +52,7 @@ class MainApp extends StatelessWidget {
                     '/login': (context) => const LoginPage(),
                     '/verify': (context) => const VerifyPage(),
                     '/editProfile': (context) => const EditProfile(),
+                    '/followers': (context) => const FollowersPage(),
                   },
                   debugShowCheckedModeBanner: false);
             },

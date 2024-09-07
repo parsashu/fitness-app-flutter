@@ -40,7 +40,7 @@ class _ProfilePageState extends State<ProfilePage> {
     return Scaffold(
       body: ListView(
         children: [
-          const SizedBox(height: 40),
+          const SizedBox(height: 15),
           Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
@@ -78,19 +78,19 @@ class _ProfilePageState extends State<ProfilePage> {
                   CounterButton(
                     number: 4.8,
                     title: 'Ranking',
-                    onPressed: () {},
+                    onPressed: () => Navigator.pushNamed(context, '/followers'),
                   ),
                   const MyVerticalDivider(),
                   CounterButton(
                     number: 35,
                     title: 'Followers',
-                    onPressed: () {},
+                    onPressed: () => Navigator.pushNamed(context, '/followers'),
                   ),
                   const MyVerticalDivider(),
                   CounterButton(
-                    number: 35,
+                    number: 48,
                     title: 'Following',
-                    onPressed: () {},
+                    onPressed: () => Navigator.pushNamed(context, '/followers'),
                   ),
                 ],
               ),

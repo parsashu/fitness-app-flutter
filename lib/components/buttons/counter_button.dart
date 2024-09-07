@@ -14,28 +14,25 @@ class CounterButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return TextButton(
-      onPressed: onPressed,
-      style: TextButton.styleFrom(
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(8.0),
+    return InkWell(
+      onTap: onPressed,
+      borderRadius: BorderRadius.circular(8.0),
+      child: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: Column(
+          children: [
+            // Number
+            Text(
+              _formatNumber(number),
+              style: Theme.of(context).textTheme.headlineLarge,
+            ),
+            // Title
+            Text(
+              title,
+              style: Theme.of(context).textTheme.titleLarge,
+            ),
+          ],
         ),
-      ),
-
-      child: Column(
-        children: [
-          // Number
-          Text(
-            _formatNumber(number),
-            style: Theme.of(context).textTheme.headlineLarge
-          ),
-          // Title
-          Text(
-            title,
-            style: Theme.of(context).textTheme.titleLarge
-            
-          ),
-        ],
       ),
     );
   }
