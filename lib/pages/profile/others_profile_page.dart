@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:improwave/components/bars/back_app_bar.dart';
+import 'package:improwave/components/buttons/follow_button.dart';
 import 'package:improwave/components/buttons/counter_button.dart';
 import 'package:improwave/components/dividers/my_vertical_divider.dart';
 
@@ -11,6 +12,21 @@ class OthersProfilePage extends StatefulWidget {
 }
 
 class _ProfilePageState extends State<OthersProfilePage> {
+  double followers = 35;
+  double following = 48;
+  bool isFollow = true;
+
+  void toggleFollowButton() {
+    setState(() {
+      isFollow = !isFollow;
+      if (!isFollow) {
+        followers++;
+      } else {
+        followers--;
+      }
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -27,7 +43,7 @@ class _ProfilePageState extends State<OthersProfilePage> {
                 backgroundImage:
                     AssetImage('assets/images/example_profile.png'),
               ),
-              
+
               const SizedBox(height: 20),
 
               // Username
@@ -57,27 +73,35 @@ class _ProfilePageState extends State<OthersProfilePage> {
                   ),
                   const MyVerticalDivider(),
                   CounterButton(
-                    number: 35,
+                    number: followers,
                     title: 'Followers',
                     onPressed: () => Navigator.pushNamed(context, '/followers'),
                   ),
                   const MyVerticalDivider(),
                   CounterButton(
-                    number: 48,
+                    number: following,
                     title: 'Following',
                     onPressed: () => Navigator.pushNamed(context, '/followers'),
                   ),
                 ],
               ),
 
-              const SizedBox(height: 80),
+              const SizedBox(height: 40),
             ],
           ),
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 15),
             child: Column(
               children: [
-                // A B O U T
+                // Follow - Unfollow
+                FollowButton(
+                  isFollow: isFollow,
+                  onTap: toggleFollowButton,
+                ),
+
+                const SizedBox(height: 40),
+
+                // About
                 Container(
                   padding: const EdgeInsets.all(15),
                   decoration: BoxDecoration(

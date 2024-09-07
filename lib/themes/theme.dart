@@ -11,6 +11,7 @@ ThemeData lightMode = ThemeData(
     surfaceBright: Colors.white,
     primary: Colors.grey.shade800,
     primaryContainer: Colors.white,  // Containers
+    inversePrimary: Colors.grey[350],  // Unfollow button
     tertiary: Colors.grey.shade500,  // Hint text
     tertiaryContainer: Colors.grey.shade200,  // Search bar
     onTertiaryFixedVariant: Colors.grey.shade600,
@@ -58,6 +59,7 @@ ThemeData darkMode = ThemeData(
     surfaceBright: Colors.grey.shade900,
     primary: Colors.grey.shade800,
     primaryContainer: Colors.grey.shade800,
+    inversePrimary: Colors.grey.shade800,  // Unfollow button
     tertiary: Colors.grey.shade600,  // Hint text
     tertiaryContainer: Colors.grey.shade800,  // Search bar
     onTertiaryFixedVariant: Colors.grey.shade700,
