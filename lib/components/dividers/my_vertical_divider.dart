@@ -10,7 +10,7 @@ class MyVerticalDivider extends StatelessWidget {
       child: VerticalDivider(
         color: Theme.of(context).colorScheme.tertiary,
         thickness: 1.5,
-        width: 20,
+        width: 140,
       ),
     );
   }

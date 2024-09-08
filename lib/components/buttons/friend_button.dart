@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class FollowButton extends StatelessWidget {
-  const FollowButton({
+class FriendButton extends StatelessWidget {
+  const FriendButton({
     super.key,
     required this.onTap,
     this.isFollow = true,
@@ -26,14 +26,14 @@ class FollowButton extends StatelessWidget {
         child: isFollow
             ? const Center(
                 child: Text(
-                  'Follow',
+                  'اضافه کردن',
                   style: TextStyle(
                     color: Colors.white,
                   ),
                 ),
               )
             : const Center(
-                child: Text('Unfollow'),
+                child: Text('فرستاده شد'),
               ),
       ),
     );

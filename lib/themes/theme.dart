@@ -24,7 +24,7 @@ ThemeData lightMode = ThemeData(
     secondaryFixed: Colors.grey.shade100,
     outline: Colors.white,  // Boxes
     outlineVariant: Colors.grey.shade400,  
-    shadow: Colors.grey.shade200,  // App bar shadow
+    shadow: Colors.grey[50],  // App bar shadow
     error: const Color.fromARGB(255, 202, 23, 23),  // Error
     
   ),

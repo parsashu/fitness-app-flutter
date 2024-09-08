@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:improwave/components/bars/search_bar.dart';
-import 'package:improwave/components/containers/search_profile.dart';
-import 'package:improwave/components/containers/users_list.dart';
+import 'package:improwave/components/bars/search_tab_bar.dart';
+import 'package:improwave/components/user_lists/ath_list_search.dart';
+import 'package:improwave/components/user_lists/tra_list_search.dart';
 
 class SearchPage extends StatefulWidget {
   const SearchPage({super.key});
@@ -13,32 +13,28 @@ class SearchPage extends StatefulWidget {
 class _SearchPageState extends State<SearchPage> {
   @override
   Widget build(BuildContext context) {
-    List<SearchProfile> exampleTrainers = [
-      for (int i = 1; i < 9; i++)
-        SearchProfile(
-          name: 'مربی شماره $i',
-          bio:
-              'مربی شماره $i به شما کمک می کند تا به بدن ایده آل خود رسیده و این کار را بدون تفکر و تحقیق در این زمینه انجام داده پس برنامه های خود را به او بسپارید',
-          avatar: const AssetImage('assets/images/example_profile.png'),
-          onTap: () => Navigator.pushNamed(context, '/othersProfile'),
-        ),
-    ];
+    return DefaultTabController(
+      length: 2,
+      child: Scaffold(
+        backgroundColor: Theme.of(context).colorScheme.surfaceBright,
+        body: const Column(
+          children: [
+            SizedBox(height: 60),
+            SearchTabBar(),
+            Expanded(
+              child: TabBarView(
+                children: [
+                  // Trainers
+                  TraListSearch(),
 
-    return Scaffold(
-      appBar: PreferredSize(
-        preferredSize: const Size.fromHeight(68),
-        child: AppBar(
-          backgroundColor: Theme.of(context).colorScheme.surfaceBright,
-          surfaceTintColor: Theme.of(context).colorScheme.surfaceBright,
-          shadowColor: Theme.of(context).colorScheme.shadow,
-          scrolledUnderElevation: 0.8,
-          title: const SizedBox(
-            height: 68,
-            child: MySearchBar(),
-          ),
+                  // Athletes
+                  AthListSearch(),
+                ],
+              ),
+            ),
+          ],
         ),
       ),
-      body: UsersList(users: exampleTrainers),
     );
   }
 }

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class MyTabBar extends StatelessWidget {
-  const MyTabBar({
+class FollowTabBar extends StatelessWidget {
+  const FollowTabBar({
     super.key,
     required this.followers,
     required this.following,

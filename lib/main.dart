@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:improwave/pages/profile/ath_view_page.dart';
 import 'package:improwave/pages/profile/edit_profile.dart';
-import 'package:improwave/pages/profile/followers_page.dart';
+import 'package:improwave/pages/profile/friends_page.dart';
 import 'package:improwave/pages/login/login_page.dart';
 import 'package:improwave/pages/main/main_page.dart';
 import 'package:improwave/pages/login/verify_page.dart';
-import 'package:improwave/pages/profile/others_profile_page.dart';
+import 'package:improwave/pages/profile/tra_view_page.dart';
 import 'package:improwave/themes/theme_provider.dart';
 import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -53,8 +54,9 @@ class MainApp extends StatelessWidget {
                     '/login': (context) => const LoginPage(),
                     '/verify': (context) => const VerifyPage(),
                     '/editProfile': (context) => const EditProfile(),
-                    '/followers': (context) => const FollowersPage(),
-                    '/othersProfile': (context) => const OthersProfilePage(),
+                    '/friends': (context) => const FriendsPage(),
+                    '/traView': (context) => const TraViewPage(),
+                    '/athView': (context) => const AthViewPage(),
                   },
                   debugShowCheckedModeBanner: false);
             },

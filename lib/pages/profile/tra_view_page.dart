@@ -1,29 +1,22 @@
 import 'package:flutter/material.dart';
 import 'package:improwave/components/bars/back_app_bar.dart';
-import 'package:improwave/components/buttons/follow_button.dart';
+import 'package:improwave/components/buttons/friend_button.dart';
 import 'package:improwave/components/buttons/counter_button.dart';
 import 'package:improwave/components/dividers/my_vertical_divider.dart';
 
-class OthersProfilePage extends StatefulWidget {
-  const OthersProfilePage({super.key});
+class TraViewPage extends StatefulWidget {
+  const TraViewPage({super.key});
 
   @override
-  State<OthersProfilePage> createState() => _ProfilePageState();
+  State<TraViewPage> createState() => _ProfilePageState();
 }
 
-class _ProfilePageState extends State<OthersProfilePage> {
-  double followers = 35;
-  double following = 48;
+class _ProfilePageState extends State<TraViewPage> {
   bool isFollow = true;
 
   void toggleFollowButton() {
     setState(() {
       isFollow = !isFollow;
-      if (!isFollow) {
-        followers++;
-      } else {
-        followers--;
-      }
     });
   }
 
@@ -68,20 +61,14 @@ class _ProfilePageState extends State<OthersProfilePage> {
                 children: [
                   CounterButton(
                     number: 4.8,
-                    title: 'Ranking',
-                    onPressed: () => Navigator.pushNamed(context, '/followers'),
+                    title: 'امتیاز',
+                    onPressed: () {},
                   ),
                   const MyVerticalDivider(),
                   CounterButton(
-                    number: followers,
-                    title: 'Followers',
-                    onPressed: () => Navigator.pushNamed(context, '/followers'),
-                  ),
-                  const MyVerticalDivider(),
-                  CounterButton(
-                    number: following,
-                    title: 'Following',
-                    onPressed: () => Navigator.pushNamed(context, '/followers'),
+                    number: 35,
+                    title: 'شاگرد',
+                    onPressed: () {}
                   ),
                 ],
               ),
@@ -93,8 +80,8 @@ class _ProfilePageState extends State<OthersProfilePage> {
             padding: const EdgeInsets.symmetric(horizontal: 15),
             child: Column(
               children: [
-                // Follow - Unfollow
-                FollowButton(
+                // Friend request button
+                FriendButton(
                   isFollow: isFollow,
                   onTap: toggleFollowButton,
                 ),

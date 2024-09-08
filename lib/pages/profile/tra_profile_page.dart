@@ -77,25 +77,19 @@ class _TraProfilePageState extends State<TraProfilePage> {
                 children: [
                   CounterButton(
                     number: 4.8,
-                    title: 'Ranking',
-                    onPressed: () => Navigator.pushNamed(context, '/followers'),
+                    title: 'امتیاز',
+                    onPressed: () {},
                   ),
                   const MyVerticalDivider(),
                   CounterButton(
                     number: 35,
-                    title: 'Followers',
-                    onPressed: () => Navigator.pushNamed(context, '/followers'),
-                  ),
-                  const MyVerticalDivider(),
-                  CounterButton(
-                    number: 48,
-                    title: 'Following',
-                    onPressed: () => Navigator.pushNamed(context, '/followers'),
+                    title: 'شاگرد',
+                    onPressed: () => Navigator.pushNamed(context, '/friends'),
                   ),
                 ],
               ),
 
-              const SizedBox(height: 80),
+              const SizedBox(height: 60),
             ],
           ),
           Padding(
@@ -142,7 +136,7 @@ class _TraProfilePageState extends State<TraProfilePage> {
                         style: Theme.of(context).textTheme.bodyMedium,
                       ),
                       action: const Icon(Icons.arrow_back_ios),
-                      onTap: () => Navigator.pushNamed(context, '/followers'),
+                      onTap: () => Navigator.pushNamed(context, '/friends'),
                     ),
                   ],
                 ),

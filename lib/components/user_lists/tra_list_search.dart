@@ -2,10 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:improwave/components/bars/search_bar.dart';
 import 'package:improwave/components/containers/search_profile.dart';
 
-class UsersListSearch extends StatelessWidget {
-  const UsersListSearch({super.key, required this.users});
-
-  final List<SearchProfile> users;
+class TraListSearch extends StatelessWidget {
+  const TraListSearch({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -16,7 +14,8 @@ class UsersListSearch extends StatelessWidget {
             child: Column(
               children: [
                 Container(
-                  padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 10),
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: 14, vertical: 10),
                   color: Theme.of(context).colorScheme.surfaceBright,
                   child: const MySearchBar(),
                 ),
@@ -27,7 +26,7 @@ class UsersListSearch extends StatelessWidget {
                         'مربی شماره $i به شما کمک می کند تا به بدن ایده آل خود رسیده و این کار را بدون تفکر و تحقیق در این زمینه انجام داده پس برنامه های خود را به او بسپارید',
                     avatar:
                         const AssetImage('assets/images/example_profile.png'),
-                    onTap: () => Navigator.pushNamed(context, '/othersProfile'),
+                    onTap: () => Navigator.pushNamed(context, '/traView'),
                   ),
               ],
             ),

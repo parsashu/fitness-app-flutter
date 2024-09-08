@@ -25,6 +25,7 @@ class SearchProfile extends StatelessWidget {
         child: Padding(
           padding: const EdgeInsets.all(16),
           child: Row(
+            mainAxisAlignment: MainAxisAlignment.end,
             children: [
               // Text
               Flexible(
