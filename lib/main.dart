@@ -5,8 +5,10 @@ import 'package:improwave/pages/profile/friends_page.dart';
 import 'package:improwave/pages/login/login_page.dart';
 import 'package:improwave/pages/main/main_page.dart';
 import 'package:improwave/pages/login/verify_page.dart';
+import 'package:improwave/pages/profile/pay_page.dart';
 import 'package:improwave/pages/profile/tra_view_page.dart';
 import 'package:improwave/themes/theme_provider.dart';
+import 'package:improwave/utils/is_trainer_provider.dart';
 import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -21,6 +23,7 @@ void main() async {
       providers: [
         // Theme provider
         ChangeNotifierProvider(create: (context) => ThemeProvider()),
+        ChangeNotifierProvider(create: (context) => IsTrainerProvider()),
       ],
       child: const MainApp(),
     ),
@@ -57,6 +60,7 @@ class MainApp extends StatelessWidget {
                     '/friends': (context) => const FriendsPage(),
                     '/traView': (context) => const TraViewPage(),
                     '/athView': (context) => const AthViewPage(),
+                    '/pay': (context) => const PayPage(),
                   },
                   debugShowCheckedModeBanner: false);
             },

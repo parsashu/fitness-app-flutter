@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:improwave/components/buttons/counter_button.dart';
 import 'package:improwave/components/buttons/my_switch.dart';
+import 'package:improwave/components/containers/about_section.dart';
 import 'package:improwave/components/containers/editable_avatar.dart';
 import 'package:improwave/components/dividers/my_vertical_divider.dart';
 import 'package:improwave/components/containers/setting_container.dart';
@@ -97,38 +98,17 @@ class _TraProfilePageState extends State<TraProfilePage> {
             child: Column(
               children: [
                 // A B O U T
-                Container(
-                  padding: const EdgeInsets.all(15),
-                  decoration: BoxDecoration(
-                      color: Theme.of(context).colorScheme.outline,
-                      borderRadius: BorderRadius.circular(15)),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.end,
-                    children: [
-                      // Title
-                      Text(
-                        'درباره',
-                        style: Theme.of(context).textTheme.bodyLarge,
-                      ),
-
-                      const SizedBox(height: 5),
-
-                      // Bio
-                      Text(
-                        textDirection: TextDirection.rtl,
-                        'دارای قهرمانی کشوری و مدرک بین المللی مربی گری.',
-                        style: Theme.of(context).textTheme.headlineSmall,
-                      ),
-                    ],
-                  ),
+                const AboutSection(
+                  text: 'دارای قهرمانی کشوری و مدرک بین المللی مربی گری.',
                 ),
 
                 const SizedBox(height: 40),
 
                 // S E T T I N G S
+
+                // My studens
                 SettingContainer(
                   sections: [
-                    // My studens
                     SettingSection(
                       icon: const Icon(CupertinoIcons.person_2_fill),
                       text: Text(

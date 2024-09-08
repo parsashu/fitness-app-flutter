@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:improwave/components/bars/back_app_bar.dart';
 import 'package:improwave/components/buttons/friend_button.dart';
 import 'package:improwave/components/buttons/counter_button.dart';
+import 'package:improwave/components/containers/about_section.dart';
 import 'package:improwave/components/dividers/my_vertical_divider.dart';
 
 class TraViewPage extends StatefulWidget {
@@ -65,11 +66,7 @@ class _ProfilePageState extends State<TraViewPage> {
                     onPressed: () {},
                   ),
                   const MyVerticalDivider(),
-                  CounterButton(
-                    number: 35,
-                    title: 'شاگرد',
-                    onPressed: () {}
-                  ),
+                  CounterButton(number: 35, title: 'شاگرد', onPressed: () {}),
                 ],
               ),
 
@@ -89,30 +86,8 @@ class _ProfilePageState extends State<TraViewPage> {
                 const SizedBox(height: 40),
 
                 // About
-                Container(
-                  padding: const EdgeInsets.all(15),
-                  decoration: BoxDecoration(
-                      color: Theme.of(context).colorScheme.outline,
-                      borderRadius: BorderRadius.circular(15)),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.end,
-                    children: [
-                      // Title
-                      Text(
-                        'درباره',
-                        style: Theme.of(context).textTheme.bodyLarge,
-                      ),
-
-                      const SizedBox(height: 5),
-
-                      // Bio
-                      Text(
-                        textDirection: TextDirection.rtl,
-                        'دارای قهرمانی کشوری و مدرک بین المللی مربی گری.',
-                        style: Theme.of(context).textTheme.headlineSmall,
-                      ),
-                    ],
-                  ),
+                const AboutSection(
+                  text: 'دارای قهرمانی کشوری و مدرک بین المللی مربی گری.',
                 ),
               ],
             ),

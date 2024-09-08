@@ -1,9 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:improwave/components/buttons/counter_button.dart';
 import 'package:improwave/components/buttons/my_switch.dart';
+import 'package:improwave/components/containers/about_section.dart';
 import 'package:improwave/components/containers/editable_avatar.dart';
-import 'package:improwave/components/dividers/my_vertical_divider.dart';
 import 'package:improwave/components/containers/setting_container.dart';
 import 'package:improwave/components/containers/setting_section.dart';
 import 'package:improwave/themes/theme_provider.dart';
@@ -46,8 +45,8 @@ class _TraProfilePageState extends State<AthProfilePage> {
             children: [
               // Profile picture
               EditableAvatar(
-                backgroundImage:
-                    const AssetImage('assets/images/example_profile.png'),
+                backgroundImage: const AssetImage(
+                    'assets/images/example_athlete_profile.png'),
                 editIconData: Icons.edit,
                 onPressed: () {
                   Navigator.pushNamed(context, '/editProfile');
@@ -57,7 +56,7 @@ class _TraProfilePageState extends State<AthProfilePage> {
 
               // Username
               Text(
-                'Farbod Hajian',
+                'Ehsan Jokar',
                 style: Theme.of(context).textTheme.headlineMedium,
               ),
 
@@ -69,33 +68,7 @@ class _TraProfilePageState extends State<AthProfilePage> {
                 style: Theme.of(context).textTheme.labelLarge,
               ),
 
-              const SizedBox(height: 30),
-
-              // Counters
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  CounterButton(
-                    number: 4.8,
-                    title: 'Ranking',
-                    onPressed: () => Navigator.pushNamed(context, '/followers'),
-                  ),
-                  const MyVerticalDivider(),
-                  CounterButton(
-                    number: 35,
-                    title: 'Followers',
-                    onPressed: () => Navigator.pushNamed(context, '/followers'),
-                  ),
-                  const MyVerticalDivider(),
-                  CounterButton(
-                    number: 48,
-                    title: 'Following',
-                    onPressed: () => Navigator.pushNamed(context, '/followers'),
-                  ),
-                ],
-              ),
-
-              const SizedBox(height: 80),
+              const SizedBox(height: 60),
             ],
           ),
           Padding(
@@ -103,35 +76,44 @@ class _TraProfilePageState extends State<AthProfilePage> {
             child: Column(
               children: [
                 // A B O U T
-                Container(
-                  padding: const EdgeInsets.all(15),
-                  decoration: BoxDecoration(
-                      color: Theme.of(context).colorScheme.outline,
-                      borderRadius: BorderRadius.circular(15)),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.end,
-                    children: [
-                      // Title
-                      Text(
-                        'درباره',
-                        style: Theme.of(context).textTheme.bodyLarge,
-                      ),
-
-                      const SizedBox(height: 5),
-
-                      // Bio
-                      Text(
-                        textDirection: TextDirection.rtl,
-                        'دارای قهرمانی کشوری و مدرک بین المللی مربی گری.',
-                        style: Theme.of(context).textTheme.headlineSmall,
-                      ),
-                    ],
-                  ),
+                const AboutSection(
+                  text: 'تمرین بدنسازی به مدت سه سال',
                 ),
 
                 const SizedBox(height: 40),
 
                 // S E T T I N G S
+
+                // Trainer related
+                SettingContainer(
+                  sections: [
+                    // My trainers
+                    SettingSection(
+                      icon: const Icon(CupertinoIcons.person_2_fill),
+                      text: Text(
+                        'مربی های من',
+                        style: Theme.of(context).textTheme.bodyMedium,
+                      ),
+                      action: const Icon(Icons.arrow_back_ios),
+                      onTap: () => Navigator.pushNamed(context, '/friends'),
+                    ),
+
+                    // Trainers sign up
+                    SettingSection(
+                      icon: const Icon(CupertinoIcons.square_pencil_fill),
+                      text: Text(
+                        'ثبت نام مربیان',
+                        style: Theme.of(context).textTheme.bodyMedium,
+                      ),
+                      action: const Icon(Icons.arrow_back_ios),
+                      onTap: () => Navigator.pushNamed(context, '/pay'),
+                    ),
+                  ],
+                ),
+
+                const SizedBox(height: 20),
+
+                // Appearance
                 SettingContainer(
                   sections: [
                     // Edit profile
@@ -145,27 +127,6 @@ class _TraProfilePageState extends State<AthProfilePage> {
                       onTap: () {
                         Navigator.pushNamed(context, '/editProfile');
                       },
-                    ),
-                  ],
-                ),
-
-                const SizedBox(height: 20),
-
-                // Appearance
-                SettingContainer(
-                  sections: [
-                    // Dark mode
-                    SettingSection(
-                      icon: const Icon(Icons.dark_mode),
-                      text: Text(
-                        'حالت شب',
-                        style: Theme.of(context).textTheme.bodyMedium,
-                      ),
-                      action: MySwitch(
-                        value: _isDarkMode,
-                        onChanged: toggleDarkMode,
-                      ),
-                      onTap: () => toggleDarkMode(!_isDarkMode),
                     ),
 
                     // Dark mode
