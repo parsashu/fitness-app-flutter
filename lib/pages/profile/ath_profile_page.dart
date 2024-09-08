@@ -9,14 +9,14 @@ import 'package:improwave/components/containers/setting_section.dart';
 import 'package:improwave/themes/theme_provider.dart';
 import 'package:provider/provider.dart';
 
-class ProfilePage extends StatefulWidget {
-  const ProfilePage({super.key});
+class AthProfilePage extends StatefulWidget {
+  const AthProfilePage({super.key});
 
   @override
-  State<ProfilePage> createState() => _ProfilePageState();
+  State<AthProfilePage> createState() => _TraProfilePageState();
 }
 
-class _ProfilePageState extends State<ProfilePage> {
+class _TraProfilePageState extends State<AthProfilePage> {
   // State variable to store the current theme mode
   bool _isDarkMode = false;
 
