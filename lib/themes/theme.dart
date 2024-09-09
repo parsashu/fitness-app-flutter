@@ -36,11 +36,11 @@ ThemeData lightMode = ThemeData(
     headlineMedium: TextStyle(fontSize: 24.0, fontWeight: FontWeight.bold, color: Colors.grey.shade900),
     headlineSmall: TextStyle(fontSize: 22.0, fontWeight: FontWeight.bold, color: Colors.grey.shade900),
     titleLarge: TextStyle(fontSize: 20.0, fontWeight: FontWeight.bold, color: Colors.grey.shade900),
-    titleMedium: TextStyle(fontSize: 18.0, fontWeight: FontWeight.normal, color: Colors.grey.shade900),  // verify page
+    titleMedium: TextStyle(fontSize: 18.0, fontWeight: FontWeight.normal, color: Colors.grey.shade900),  // Verify page
     titleSmall: TextStyle(fontSize: 16.0, fontWeight: FontWeight.normal, color: Colors.grey.shade900),
     bodyLarge: TextStyle(fontSize: 24.0, fontWeight: FontWeight.normal, color: Colors.grey.shade900),
     bodyMedium: TextStyle(fontSize: 20.0, fontWeight: FontWeight.normal, color: Colors.grey.shade900),
-    bodySmall: TextStyle(fontSize: 18.0, fontWeight: FontWeight.normal, color: Colors.grey.shade600),  // bio
+    bodySmall: TextStyle(fontSize: 18.0, fontWeight: FontWeight.normal, color: Colors.grey.shade600),  // Search bio
     labelLarge: TextStyle(fontSize: 22.0, fontWeight: FontWeight.normal, color: Colors.grey.shade500),
     labelMedium: TextStyle(fontSize: 20.0, fontWeight: FontWeight.normal, color: Colors.grey.shade600),
     labelSmall: TextStyle(fontSize: 18.0, fontWeight: FontWeight.normal, color: Colors.grey.shade500),

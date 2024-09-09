@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:improwave/pages/profile/ath_view_page.dart';
+import 'package:improwave/pages/profile/edit_personal.dart';
 import 'package:improwave/pages/profile/edit_profile.dart';
 import 'package:improwave/pages/profile/friends_page.dart';
 import 'package:improwave/pages/login/login_page.dart';
 import 'package:improwave/pages/main/main_page.dart';
 import 'package:improwave/pages/login/verify_page.dart';
 import 'package:improwave/pages/profile/pay_page.dart';
+import 'package:improwave/pages/profile/success_pay_page.dart';
 import 'package:improwave/pages/profile/tra_view_page.dart';
 import 'package:improwave/themes/theme_provider.dart';
 import 'package:improwave/utils/is_trainer_provider.dart';
@@ -49,7 +51,7 @@ class MainApp extends StatelessWidget {
           return Consumer<ThemeProvider>(
             builder: (context, themeProvider, child) {
               return MaterialApp(
-                  home: const MainPage(),
+                  home: const EditPersonal(),
                   theme: Provider.of<ThemeProvider>(context).themeData,
                   routes: {
                     
@@ -57,10 +59,12 @@ class MainApp extends StatelessWidget {
                     '/login': (context) => const LoginPage(),
                     '/verify': (context) => const VerifyPage(),
                     '/editProfile': (context) => const EditProfile(),
+                    '/editPersonal': (context) => const EditPersonal(),
                     '/friends': (context) => const FriendsPage(),
                     '/traView': (context) => const TraViewPage(),
                     '/athView': (context) => const AthViewPage(),
                     '/pay': (context) => const PayPage(),
+                    '/successPay': (context) => const SuccessPayPage(),
                   },
                   debugShowCheckedModeBanner: false);
             },

@@ -78,6 +78,11 @@ class _TraProfilePageState extends State<AthProfilePage> {
                 // A B O U T
                 const AboutSection(
                   text: 'تمرین بدنسازی به مدت سه سال',
+                  showPersonal: true,
+                  age: '20',
+                  weight: '78',
+                  height: '183',
+                  bmi: '23.3',
                 ),
 
                 const SizedBox(height: 40),
@@ -100,7 +105,7 @@ class _TraProfilePageState extends State<AthProfilePage> {
 
                     // Trainers sign up
                     SettingSection(
-                      icon: const Icon(CupertinoIcons.square_pencil_fill),
+                      icon: const Icon(Icons.edit_calendar),
                       text: Text(
                         'ثبت نام مربیان',
                         style: Theme.of(context).textTheme.bodyMedium,
@@ -126,6 +131,19 @@ class _TraProfilePageState extends State<AthProfilePage> {
                       action: const Icon(Icons.arrow_back_ios),
                       onTap: () {
                         Navigator.pushNamed(context, '/editProfile');
+                      },
+                    ),
+
+                    // Edit profile
+                    SettingSection(
+                      icon: const Icon(Icons.folder),
+                      text: Text(
+                        'ویرایش اطلاعات فردی',
+                        style: Theme.of(context).textTheme.bodyMedium,
+                      ),
+                      action: const Icon(Icons.arrow_back_ios),
+                      onTap: () {
+                        Navigator.pushNamed(context, '/editPersonal');
                       },
                     ),
 

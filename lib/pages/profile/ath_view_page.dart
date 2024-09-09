@@ -1,7 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:improwave/components/bars/back_app_bar.dart';
 import 'package:improwave/components/buttons/friend_button.dart';
+import 'package:improwave/components/buttons/unfriend_button.dart';
 import 'package:improwave/components/containers/about_section.dart';
+import 'package:improwave/utils/is_trainer_provider.dart';
+import 'package:provider/provider.dart';
+
+/* MERGABLE */
 
 class AthViewPage extends StatefulWidget {
   const AthViewPage({super.key});
@@ -11,16 +16,47 @@ class AthViewPage extends StatefulWidget {
 }
 
 class _ProfilePageState extends State<AthViewPage> {
-  bool isFollow = true;
+  bool isNotRequested = true;
+  bool isPending = false;
+  bool isFriend = true;
 
-  void toggleFollowButton() {
-    setState(() {
-      isFollow = !isFollow;
-    });
+  // Method to send friend request
+  void friendRequest() {
+    if (isFriend) {
+      // Unfriend
+      setState(() {
+        isFriend = false;
+        isNotRequested = true;
+      });
+    } else if (isPending) {
+      // Cancel the pending request
+      setState(() {
+        isPending = false;
+        isNotRequested = true;
+      });
+    } else {
+      // Start a new friend request
+      setState(() {
+        isNotRequested = false;
+        isPending = true;
+      });
+      // Accept example: delay for 2 seconds
+      Future.delayed(const Duration(seconds: 2), () {
+        if (mounted && isPending) {
+          setState(() {
+            isPending = false;
+            isFriend = true;
+          });
+        }
+      });
+    }
   }
 
   @override
   Widget build(BuildContext context) {
+    final bool isTrainer = Provider.of<IsTrainerProvider>(context).isTrainer;
+    final bool showPersonal = isTrainer && isFriend;
+
     return Scaffold(
       appBar: const BackAppBar(bright: false),
       body: ListView(
@@ -59,17 +95,25 @@ class _ProfilePageState extends State<AthViewPage> {
             padding: const EdgeInsets.symmetric(horizontal: 15),
             child: Column(
               children: [
-                // F
-                FriendButton(
-                  isFollow: isFollow,
-                  onTap: toggleFollowButton,
-                ),
+                // Button
+                if (!isFriend)
+                  FriendButton(
+                    isNotRequested: isNotRequested,
+                    onTap: friendRequest,
+                  )
+                else
+                  UnfriendButton(onTap: friendRequest),
 
                 const SizedBox(height: 40),
 
                 // About
-                const AboutSection(
+                AboutSection(
                   text: 'تمرین بدنسازی به مدت سه سال',
+                  showPersonal: showPersonal,
+                  age: '20',
+                  weight: '78',
+                  height: '183',
+                  bmi: '23.3',
                 ),
               ],
             ),

@@ -2,8 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:improwave/components/bars/back_app_bar.dart';
 import 'package:improwave/components/buttons/friend_button.dart';
 import 'package:improwave/components/buttons/counter_button.dart';
+import 'package:improwave/components/buttons/unfriend_button.dart';
 import 'package:improwave/components/containers/about_section.dart';
 import 'package:improwave/components/dividers/my_vertical_divider.dart';
+
+/* MERGABLE */
 
 class TraViewPage extends StatefulWidget {
   const TraViewPage({super.key});
@@ -13,12 +16,40 @@ class TraViewPage extends StatefulWidget {
 }
 
 class _ProfilePageState extends State<TraViewPage> {
-  bool isFollow = true;
+  bool isNotRequested = true;
+  bool isPending = false;
+  bool isFriend = false;
 
-  void toggleFollowButton() {
-    setState(() {
-      isFollow = !isFollow;
-    });
+  // Method to send friend request
+  void friendRequest() {
+    if (isFriend) {
+      // Unfriend
+      setState(() {
+        isFriend = false;
+        isNotRequested = true;
+      });
+    } else if (isPending) {
+      // Cancel the pending request
+      setState(() {
+        isPending = false;
+        isNotRequested = true;
+      });
+    } else {
+      // Start a new friend request
+      setState(() {
+        isNotRequested = false;
+        isPending = true;
+      });
+      // Accept example: delay for 2 seconds
+      Future.delayed(const Duration(seconds: 2), () {
+        if (mounted && isPending) {
+          setState(() {
+            isPending = false;
+            isFriend = true;
+          });
+        }
+      });
+    }
   }
 
   @override
@@ -77,11 +108,14 @@ class _ProfilePageState extends State<TraViewPage> {
             padding: const EdgeInsets.symmetric(horizontal: 15),
             child: Column(
               children: [
-                // Friend request button
-                FriendButton(
-                  isFollow: isFollow,
-                  onTap: toggleFollowButton,
-                ),
+                // Button
+                if (!isFriend)
+                  FriendButton(
+                    isNotRequested: isNotRequested,
+                    onTap: friendRequest,
+                  )
+                else
+                  UnfriendButton(onTap: friendRequest),
 
                 const SizedBox(height: 40),
 

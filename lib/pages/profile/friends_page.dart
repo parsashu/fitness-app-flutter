@@ -12,14 +12,9 @@ class FriendsPage extends StatelessWidget {
   Widget build(BuildContext context) {
     bool isTrainer = Provider.of<IsTrainerProvider>(context).isTrainer;
 
-    return DefaultTabController(
-      length: 2,
-      child: Scaffold(
-        appBar: const DividerAppBar(),
-        body: Expanded(
-          child: isTrainer ? const AthListSearch() : const TraListSearch(),
-        ),
-      ),
+    return Scaffold(
+      appBar: const DividerAppBar(),
+      body: isTrainer ? const AthListSearch() : const TraListSearch(),
     );
   }
 }

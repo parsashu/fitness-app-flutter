@@ -4,11 +4,11 @@ class FriendButton extends StatelessWidget {
   const FriendButton({
     super.key,
     required this.onTap,
-    this.isFollow = true,
+    this.isNotRequested = true,
   });
 
   final void Function()? onTap;
-  final bool isFollow;
+  final bool isNotRequested;
 
   @override
   Widget build(BuildContext context) {
@@ -18,12 +18,12 @@ class FriendButton extends StatelessWidget {
         width: 420,
         padding: const EdgeInsets.all(8),
         decoration: BoxDecoration(
-          color: isFollow
+          color: isNotRequested
               ? Colors.blue
               : Theme.of(context).colorScheme.inversePrimary,
           borderRadius: BorderRadius.circular(40),
         ),
-        child: isFollow
+        child: isNotRequested
             ? const Center(
                 child: Text(
                   'اضافه کردن',

@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:improwave/components/bars/back_app_bar.dart';
 import 'package:improwave/components/buttons/my_button.dart';
-import 'package:improwave/utils/is_trainer_provider.dart';
-import 'package:provider/provider.dart';
 
 class PayPage extends StatelessWidget {
   const PayPage({super.key});
@@ -18,9 +16,8 @@ class PayPage extends StatelessWidget {
           const Spacer(),
           MyButton(
             onTap: () {
-              Provider.of<IsTrainerProvider>(context, listen: false)
-                  .setTrainer(true);
               Navigator.pop(context);
+              Navigator.pushReplacementNamed(context, '/successPay');
             },
             text: 'پرداخت',
           ),
