@@ -11,9 +11,9 @@ class SuccessPayPage extends StatelessWidget {
     return Scaffold(
       body: Column(
         children: [
-          const SizedBox(height: 280),
+          const SizedBox(height: 320),
           Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 140, vertical: 30),
+            padding: const EdgeInsets.symmetric(horizontal: 160, vertical: 40),
             child: Image.asset('assets/images/tick_icon.png'),
           ),
           const Text(

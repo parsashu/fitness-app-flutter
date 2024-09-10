@@ -1,39 +1,15 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:improwave/components/buttons/counter_button.dart';
-import 'package:improwave/components/buttons/my_switch.dart';
 import 'package:improwave/components/containers/about_section.dart';
 import 'package:improwave/components/containers/editable_avatar.dart';
+import 'package:improwave/components/containers/settings/apperance_settings.dart';
+import 'package:improwave/components/containers/settings/logout.dart';
+import 'package:improwave/components/containers/settings/student_related.dart';
 import 'package:improwave/components/dividers/my_vertical_divider.dart';
-import 'package:improwave/components/buttons/setting_section.dart';
-import 'package:improwave/themes/theme_provider.dart';
-import 'package:provider/provider.dart';
 
-class TraProfilePage extends StatefulWidget {
+
+class TraProfilePage extends StatelessWidget {
   const TraProfilePage({super.key});
-
-  @override
-  State<TraProfilePage> createState() => _TraProfilePageState();
-}
-
-class _TraProfilePageState extends State<TraProfilePage> {
-  // State variable to store the current theme mode
-  bool _isDarkMode = false;
-
-  @override
-  void initState() {
-    super.initState();
-    // Initialize _isDarkMode based on the current theme
-    final themeProvider = Provider.of<ThemeProvider>(context, listen: false);
-    _isDarkMode = themeProvider.isDarkMode;
-  }
-
-  void toggleDarkMode(bool newValue) {
-    setState(() {
-      _isDarkMode = newValue;
-      Provider.of<ThemeProvider>(context, listen: false).toggleTheme();
-    });
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -92,96 +68,27 @@ class _TraProfilePageState extends State<TraProfilePage> {
               const SizedBox(height: 60),
             ],
           ),
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 15),
+          const Padding(
+            padding: EdgeInsets.symmetric(horizontal: 15),
             child: Column(
               children: [
-                // A B O U T
-                const AboutSection(
+                // About
+                AboutSection(
                   text: 'دارای قهرمانی کشوری و مدرک بین المللی مربی گری.',
                 ),
-
-                const SizedBox(height: 30),
-
-                // S E T T I N G S
+                SizedBox(height: 30),
 
                 // My studens
-                SettingSection(
-                  top: true,
-                  buttom: true,
-                  icon: Icon(
-                    CupertinoIcons.person_2_fill,
-                    color: Theme.of(context).colorScheme.secondary,
-                  ),
-                  text: Text(
-                    'شاگردهای من',
-                    style: Theme.of(context).textTheme.bodyMedium,
-                  ),
-                  onTap: () => Navigator.pushNamed(context, '/friends'),
-                ),
+                StudentRelated(),
+                SizedBox(height: 15),
 
-                const SizedBox(height: 15),
-
-                // Edit profile
-                SettingSection(
-                  top: true,
-                  icon: Icon(
-                    Icons.edit,
-                    color: Theme.of(context).colorScheme.secondary,
-                  ),
-                  text: Text(
-                    'ویرایش پروفایل',
-                    style: Theme.of(context).textTheme.bodyMedium,
-                  ),
-                  onTap: () {
-                    Navigator.pushNamed(context, '/editProfile');
-                  },
-                ),
-
-                // Dark mode
-                SettingSection(
-                  buttom: true,
-                  icon: Icon(
-                    Icons.dark_mode,
-                    color: Theme.of(context).colorScheme.secondary,
-                  ),
-                  text: Text(
-                    'حالت شب',
-                    style: Theme.of(context).textTheme.bodyMedium,
-                  ),
-                  action: MySwitch(
-                    value: _isDarkMode,
-                    onChanged: toggleDarkMode,
-                  ),
-                  onTap: () => toggleDarkMode(!_isDarkMode),
-                ),
-
-                const SizedBox(height: 15),
+                // Appearance
+                AppearanceSettings(),
+                SizedBox(height: 15),
 
                 // Logout
-                SettingSection(
-                  top: true,
-                  buttom: true,
-                  icon: Icon(
-                    CupertinoIcons.xmark,
-                    color: Theme.of(context).colorScheme.error,
-                  ),
-                  text: Text(
-                    'خروج',
-                    style: TextStyle(
-                      fontSize: 20,
-                      color: Theme.of(context).colorScheme.error,
-                    ),
-                  ),
-                  action: Icon(
-                    Icons.arrow_back_ios,
-                    size: 20,
-                    color: Theme.of(context).colorScheme.error,
-                  ),
-                  onTap: () =>
-                      Navigator.pushReplacementNamed(context, '/login'),
-                ),
-                const SizedBox(height: 10),
+                Logout(),
+                SizedBox(height: 10),
               ],
             ),
           ),
