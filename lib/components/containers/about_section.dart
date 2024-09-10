@@ -1,5 +1,7 @@
+import 'package:fluentui_system_icons/fluentui_system_icons.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:iconsax_plus/iconsax_plus.dart';
 
 class AboutSection extends StatelessWidget {
   const AboutSection({
@@ -59,11 +61,11 @@ class AboutSection extends StatelessWidget {
               padding: const EdgeInsets.symmetric(horizontal: 10),
               child: Column(              
                 children: [
-                  _buildInfoRow(context, CupertinoIcons.calendar, 'سن', age),
+                  _buildInfoRow(context, FluentIcons.calendar_12_regular, 'سن', age),
                   const SizedBox(height: 20),
-                  _buildInfoRow(context, Icons.timelapse_sharp, 'وزن', weight),
+                  _buildInfoRow(context, IconsaxPlusLinear.weight, 'وزن', weight),
                   const SizedBox(height: 20),
-                  _buildInfoRow(context, Icons.height, 'قد', height),
+                  _buildInfoRow(context, FluentIcons.ruler_16_regular, 'قد', height),
                   const SizedBox(height: 20),
                   _buildInfoRow(context, Icons.accessibility_new, 'BMI', bmi),
                 ],

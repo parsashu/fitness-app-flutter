@@ -5,8 +5,7 @@ import 'package:improwave/components/buttons/my_switch.dart';
 import 'package:improwave/components/containers/about_section.dart';
 import 'package:improwave/components/containers/editable_avatar.dart';
 import 'package:improwave/components/dividers/my_vertical_divider.dart';
-import 'package:improwave/components/containers/setting_container.dart';
-import 'package:improwave/components/containers/setting_section.dart';
+import 'package:improwave/components/buttons/setting_section.dart';
 import 'package:improwave/themes/theme_provider.dart';
 import 'package:provider/provider.dart';
 
@@ -102,83 +101,85 @@ class _TraProfilePageState extends State<TraProfilePage> {
                   text: 'دارای قهرمانی کشوری و مدرک بین المللی مربی گری.',
                 ),
 
-                const SizedBox(height: 40),
+                const SizedBox(height: 30),
 
                 // S E T T I N G S
 
                 // My studens
-                SettingContainer(
-                  sections: [
-                    SettingSection(
-                      icon: const Icon(CupertinoIcons.person_2_fill),
-                      text: Text(
-                        'شاگردهای من',
-                        style: Theme.of(context).textTheme.bodyMedium,
-                      ),
-                      action: const Icon(Icons.arrow_back_ios),
-                      onTap: () => Navigator.pushNamed(context, '/friends'),
-                    ),
-                  ],
+                SettingSection(
+                  top: true,
+                  buttom: true,
+                  icon: Icon(
+                    CupertinoIcons.person_2_fill,
+                    color: Theme.of(context).colorScheme.secondary,
+                  ),
+                  text: Text(
+                    'شاگردهای من',
+                    style: Theme.of(context).textTheme.bodyMedium,
+                  ),
+                  onTap: () => Navigator.pushNamed(context, '/friends'),
                 ),
 
-                const SizedBox(height: 20),
+                const SizedBox(height: 15),
 
-                // Appearance
-                SettingContainer(
-                  sections: [
-                    // Edit profile
-                    SettingSection(
-                      icon: const Icon(Icons.edit),
-                      text: Text(
-                        'ویرایش پروفایل',
-                        style: Theme.of(context).textTheme.bodyMedium,
-                      ),
-                      action: const Icon(Icons.arrow_back_ios),
-                      onTap: () {
-                        Navigator.pushNamed(context, '/editProfile');
-                      },
-                    ),
-
-                    // Dark mode
-                    SettingSection(
-                      icon: const Icon(Icons.dark_mode),
-                      text: Text(
-                        'حالت شب',
-                        style: Theme.of(context).textTheme.bodyMedium,
-                      ),
-                      action: MySwitch(
-                        value: _isDarkMode,
-                        onChanged: toggleDarkMode,
-                      ),
-                      onTap: () => toggleDarkMode(!_isDarkMode),
-                    ),
-                  ],
+                // Edit profile
+                SettingSection(
+                  top: true,
+                  icon: Icon(
+                    Icons.edit,
+                    color: Theme.of(context).colorScheme.secondary,
+                  ),
+                  text: Text(
+                    'ویرایش پروفایل',
+                    style: Theme.of(context).textTheme.bodyMedium,
+                  ),
+                  onTap: () {
+                    Navigator.pushNamed(context, '/editProfile');
+                  },
                 ),
 
-                const SizedBox(height: 20),
+                // Dark mode
+                SettingSection(
+                  buttom: true,
+                  icon: Icon(
+                    Icons.dark_mode,
+                    color: Theme.of(context).colorScheme.secondary,
+                  ),
+                  text: Text(
+                    'حالت شب',
+                    style: Theme.of(context).textTheme.bodyMedium,
+                  ),
+                  action: MySwitch(
+                    value: _isDarkMode,
+                    onChanged: toggleDarkMode,
+                  ),
+                  onTap: () => toggleDarkMode(!_isDarkMode),
+                ),
+
+                const SizedBox(height: 15),
 
                 // Logout
-                SettingContainer(
-                  sections: [
-                    SettingSection(
-                      icon: Icon(
-                        CupertinoIcons.xmark,
-                        color: Theme.of(context).colorScheme.error,
-                      ),
-                      text: Text(
-                        'خروج',
-                        style: TextStyle(
-                          color: Theme.of(context).colorScheme.error,
-                        ),
-                      ),
-                      action: Icon(
-                        Icons.arrow_back_ios,
-                        color: Theme.of(context).colorScheme.error,
-                      ),
-                      onTap: () =>
-                          Navigator.pushReplacementNamed(context, '/login'),
+                SettingSection(
+                  top: true,
+                  buttom: true,
+                  icon: Icon(
+                    CupertinoIcons.xmark,
+                    color: Theme.of(context).colorScheme.error,
+                  ),
+                  text: Text(
+                    'خروج',
+                    style: TextStyle(
+                      fontSize: 20,
+                      color: Theme.of(context).colorScheme.error,
                     ),
-                  ],
+                  ),
+                  action: Icon(
+                    Icons.arrow_back_ios,
+                    size: 20,
+                    color: Theme.of(context).colorScheme.error,
+                  ),
+                  onTap: () =>
+                      Navigator.pushReplacementNamed(context, '/login'),
                 ),
                 const SizedBox(height: 10),
               ],

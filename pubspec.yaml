@@ -19,6 +19,8 @@ dependencies:
   provider: 
   flutter_screenutil:
   image_picker: 
+  fluentui_system_icons:
+  iconsax_plus:
 
 dev_dependencies:
   flutter_test:

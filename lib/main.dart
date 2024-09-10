@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:improwave/pages/profile/ath_view_page.dart';
-import 'package:improwave/pages/profile/edit_personal.dart';
 import 'package:improwave/pages/profile/edit_profile.dart';
 import 'package:improwave/pages/profile/friends_page.dart';
 import 'package:improwave/pages/login/login_page.dart';
@@ -51,15 +50,13 @@ class MainApp extends StatelessWidget {
           return Consumer<ThemeProvider>(
             builder: (context, themeProvider, child) {
               return MaterialApp(
-                  home: const EditPersonal(),
+                  home: const MainPage(),
                   theme: Provider.of<ThemeProvider>(context).themeData,
                   routes: {
-                    
                     '/main': (context) => const MainPage(),
                     '/login': (context) => const LoginPage(),
                     '/verify': (context) => const VerifyPage(),
                     '/editProfile': (context) => const EditProfile(),
-                    '/editPersonal': (context) => const EditPersonal(),
                     '/friends': (context) => const FriendsPage(),
                     '/traView': (context) => const TraViewPage(),
                     '/athView': (context) => const AthViewPage(),

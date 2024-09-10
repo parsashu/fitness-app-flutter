@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class SearchProfile extends StatelessWidget {
@@ -16,14 +17,15 @@ class SearchProfile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return InkWell(
-      onTap: onTap,
+    return CupertinoButton(
+      onPressed: onTap,
+      padding: EdgeInsets.zero,
       child: Container(
         decoration: BoxDecoration(
           color: Theme.of(context).colorScheme.surfaceBright,
         ),
         child: Padding(
-          padding: const EdgeInsets.all(16),
+          padding: const EdgeInsets.symmetric(horizontal: 25, vertical: 20),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.end,
             children: [
