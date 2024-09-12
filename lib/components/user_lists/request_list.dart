@@ -5,10 +5,10 @@ class RequestList extends StatefulWidget {
   const RequestList({super.key});
 
   @override
-  _RequestListState createState() => _RequestListState();
+  RequestListState createState() => RequestListState();
 }
 
-class _RequestListState extends State<RequestList> {
+class RequestListState extends State<RequestList> {
   List<Map<String, dynamic>> requests = [
     for (int i = 1; i <= 5; i++)
       {
@@ -45,22 +45,37 @@ class _RequestListState extends State<RequestList> {
   }
 }
 
-class DismissibleFriendRequest extends StatelessWidget {
+class DismissibleFriendRequest extends StatefulWidget {
   final Map<String, dynamic> request;
   final VoidCallback onDismissed;
 
   const DismissibleFriendRequest({
-    required Key key,
+    super.key,
     required this.request,
     required this.onDismissed,
-  }) : super(key: key);
+  });
+
+  @override
+  State<DismissibleFriendRequest> createState() =>
+      _DismissibleFriendRequestState();
+}
+
+class _DismissibleFriendRequestState extends State<DismissibleFriendRequest> {
+  bool isAccepted = false;
+
+  // Method to accept friend request
+  void toggleAccept() {
+    setState(() {
+      isAccepted = !isAccepted;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
     return Dismissible(
-      key: key!,
+      key: widget.key!,
       direction: DismissDirection.endToStart,
-      onDismissed: (_) => onDismissed(),
+      onDismissed: (_) => widget.onDismissed(),
       background: Container(
         color: Colors.red,
         alignment: Alignment.centerRight,
@@ -68,9 +83,11 @@ class DismissibleFriendRequest extends StatelessWidget {
         child: const Icon(Icons.delete, color: Colors.white),
       ),
       child: FriendRequest(
-        name: request['name'],
-        avatar: request['avatar'],
-        isThisTrainer: request['isThisTrainer'],
+        name: widget.request['name'],
+        avatar: widget.request['avatar'],
+        isThisTrainer: widget.request['isThisTrainer'],
+        isAccepted: isAccepted,
+        onTap: toggleAccept,
       ),
     );
   }

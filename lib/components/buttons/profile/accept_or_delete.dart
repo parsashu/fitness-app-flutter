@@ -24,14 +24,22 @@ class AcceptOrDeleteButton extends StatelessWidget {
           borderRadius: BorderRadius.circular(40),
         ),
         child: Center(
-          child: isThisAccept
-              ? const Text(
-                  'تایید',
-                  style: TextStyle(
-                    color: Colors.white,
+          child: FittedBox(
+            child: isThisAccept
+                ? const Text(
+                    'تایید',
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  )
+                : const Text(
+                    'حذف',
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                    ),
                   ),
-                )
-              : const Text('حذف'),
+          ),
         ),
       ),
     );

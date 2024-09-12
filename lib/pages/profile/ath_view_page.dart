@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:improwave/components/bars/back_app_bar.dart';
 import 'package:improwave/components/buttons/profile/friend_button.dart';
-import 'package:improwave/components/buttons/profile/unfriend_button.dart';
+import 'package:improwave/components/buttons/profile/accept_or_delete.dart';
 import 'package:improwave/components/containers/about_section.dart';
 import 'package:improwave/utils/is_trainer_provider.dart';
 import 'package:provider/provider.dart';

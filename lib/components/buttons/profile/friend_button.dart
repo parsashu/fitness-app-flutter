@@ -29,9 +29,15 @@ class FriendButton extends StatelessWidget {
                   'اضافه کردن',
                   style: TextStyle(
                     color: Colors.white,
+                    fontWeight: FontWeight.bold,
                   ),
                 )
-              : const Text('فرستاده شد'),
+              : const Text(
+                  'فرستاده شد',
+                  style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
         ),
       ),
     );
