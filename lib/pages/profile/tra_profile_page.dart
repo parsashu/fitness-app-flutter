@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:improwave/components/buttons/counter_button.dart';
+import 'package:improwave/components/buttons/profile/counter_button.dart';
 import 'package:improwave/components/containers/about_section.dart';
 import 'package:improwave/components/containers/editable_avatar.dart';
 import 'package:improwave/components/containers/settings/apperance_settings.dart';

@@ -1,7 +1,7 @@
 import 'package:fluentui_system_icons/fluentui_system_icons.dart';
 import 'package:flutter/material.dart';
 import 'package:iconsax_plus/iconsax_plus.dart';
-import 'package:improwave/components/buttons/setting_section.dart';
+import 'package:improwave/components/containers/settings/setting_section.dart';
 import 'package:improwave/components/pickers/my_weight_picker.dart';
 
 class PersonalInfo extends StatefulWidget {

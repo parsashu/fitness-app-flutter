@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:improwave/components/bars/back_app_bar.dart';
-import 'package:improwave/components/buttons/friend_button.dart';
-import 'package:improwave/components/buttons/unfriend_button.dart';
+import 'package:improwave/components/buttons/profile/friend_button.dart';
+import 'package:improwave/components/buttons/profile/unfriend_button.dart';
 import 'package:improwave/components/containers/about_section.dart';
 import 'package:improwave/utils/is_trainer_provider.dart';
 import 'package:provider/provider.dart';
@@ -16,9 +16,16 @@ class AthViewPage extends StatefulWidget {
 }
 
 class _ProfilePageState extends State<AthViewPage> {
+  // Flag to determine if the user is sending a request or receiving
+  bool sending = true;
+
+  // Sending
   bool isNotRequested = true;
   bool isPending = false;
-  bool isFriend = true;
+  bool isFriend = false;
+
+  // Receiving
+  bool isThisAccept = true;
 
   // Method to send friend request
   void friendRequest() {
@@ -50,6 +57,14 @@ class _ProfilePageState extends State<AthViewPage> {
         }
       });
     }
+  }
+
+  // Method to accept friend request
+  void toggleAccept() {
+    setState(() {
+      isThisAccept = !isThisAccept;
+      isFriend = !isFriend;
+    });
   }
 
   @override
@@ -96,13 +111,23 @@ class _ProfilePageState extends State<AthViewPage> {
             child: Column(
               children: [
                 // Button
-                if (!isFriend)
-                  FriendButton(
-                    isNotRequested: isNotRequested,
-                    onTap: friendRequest,
-                  )
-                else
-                  UnfriendButton(onTap: friendRequest),
+                if (sending) ...[
+                  // Sending
+                  if (!isFriend)
+                    // Add
+                    FriendButton(
+                      isNotRequested: isNotRequested,
+                      onTap: friendRequest,
+                    )
+                  else
+                    // Delete
+                    AcceptOrDeleteButton(onTap: friendRequest),
+                ] else
+                  // Receiving
+                  AcceptOrDeleteButton(
+                    isThisAccept: isThisAccept,
+                    onTap: toggleAccept,
+                  ),
 
                 const SizedBox(height: 40),
 

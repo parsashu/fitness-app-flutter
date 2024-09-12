@@ -21,37 +21,33 @@ class FriendRequest extends StatelessWidget {
         const SizedBox(width: 20),
 
         // Accept
-        Flexible(
-          flex: 3,
-          child: SizedBox(
-            width: 95,
-            height: 40,
-            child: CupertinoButton(
-              padding: const EdgeInsets.symmetric(horizontal: 25),
-              onPressed: () {},
-              color: CupertinoColors.activeBlue,
-              borderRadius: BorderRadius.circular(40),
-              child: const Text(
-                
-                'تایید',
-                style: TextStyle(
-                  fontWeight: FontWeight.bold,
-                  color: Colors.white,
-                ),
+        SizedBox(
+          width: 100,
+          height: 35,
+          child: CupertinoButton(
+
+            padding: const EdgeInsets.symmetric(horizontal: 25),
+            onPressed: () {},
+            color: Colors.blue,         
+            borderRadius: BorderRadius.circular(40),
+            child: const Text(
+              
+              'تایید',
+              style: TextStyle(
+                fontSize: 16,
+                fontWeight: FontWeight.bold,
+                color: Colors.white,
               ),
             ),
           ),
         ),
 
         // Profile
-        Flexible(
-          flex: 9,
-          child: Expanded(
-            child: SearchProfile(
-              name: name,
-              avatar: avatar,
-              isThisTrainer: isThisTrainer,
-            ),
+        Expanded(
+          child: SearchProfile(
+            name: name,
+            avatar: avatar,
+            isThisTrainer: isThisTrainer,
           ),
         ),
       ],

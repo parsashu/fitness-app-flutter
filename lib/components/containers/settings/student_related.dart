@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:improwave/components/buttons/setting_section.dart';
+import 'package:improwave/components/containers/settings/setting_section.dart';
 
 class StudentRelated extends StatelessWidget {
   const StudentRelated({super.key});

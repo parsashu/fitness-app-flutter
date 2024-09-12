@@ -51,7 +51,7 @@ class MainApp extends StatelessWidget {
           return Consumer<ThemeProvider>(
             builder: (context, themeProvider, child) {
               return MaterialApp(
-                  home: const MainPage(),
+                  home: const AthViewPage(),
                   theme: Provider.of<ThemeProvider>(context).themeData,
                   routes: {
                     '/main': (context) => const MainPage(),

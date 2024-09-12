@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:improwave/components/buttons/my_switch.dart';
-import 'package:improwave/components/buttons/setting_section.dart';
+import 'package:improwave/components/buttons/profile/my_switch.dart';
+import 'package:improwave/components/containers/settings/setting_section.dart';
 import 'package:improwave/themes/theme_provider.dart';
 import 'package:provider/provider.dart';
 

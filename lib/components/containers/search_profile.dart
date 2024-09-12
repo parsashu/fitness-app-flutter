@@ -32,8 +32,7 @@ class SearchProfile extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.end,
             children: [
               // Text
-              Flexible(
-                flex: 11,
+              Expanded(
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.end,
                   children: [
@@ -41,7 +40,7 @@ class SearchProfile extends StatelessWidget {
                     Text(name,
                         textDirection: TextDirection.rtl,
                         style: Theme.of(context).textTheme.titleLarge),
-
+                
                     // Subtitle
                     if (bio != null) ...[
                       const SizedBox(height: 5),
@@ -57,17 +56,14 @@ class SearchProfile extends StatelessWidget {
                 ),
               ),
 
-              if (avatar != null) const SizedBox(width: 20),
-
               // Profile picture
-              if (avatar != null)
-                Flexible(
-                  flex: 3,
-                  child: CircleAvatar(
-                    radius: 38,
-                    backgroundImage: avatar,
-                  ),
+              if (avatar != null) ...[
+                const SizedBox(width: 20),
+                CircleAvatar(
+                  radius: 40,
+                  backgroundImage: avatar,
                 ),
+              ]
             ],
           ),
         ),

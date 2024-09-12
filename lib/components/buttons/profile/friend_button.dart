@@ -23,18 +23,16 @@ class FriendButton extends StatelessWidget {
               : Theme.of(context).colorScheme.inversePrimary,
           borderRadius: BorderRadius.circular(40),
         ),
-        child: isNotRequested
-            ? const Center(
-                child: Text(
+        child: Center(
+          child: isNotRequested
+              ? const Text(
                   'اضافه کردن',
                   style: TextStyle(
                     color: Colors.white,
                   ),
-                ),
-              )
-            : const Center(
-                child: Text('فرستاده شد'),
-              ),
+                )
+              : const Text('فرستاده شد'),
+        ),
       ),
     );
   }

@@ -10,7 +10,7 @@ class NotificationPage extends StatelessWidget {
     return Scaffold(
       backgroundColor: Theme.of(context).colorScheme.surfaceBright,
       appBar: const DividerAppBar(bright: true),
-      body: const SingleChildScrollView(
+      body:  const SingleChildScrollView(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.end,
           children: [
@@ -18,7 +18,9 @@ class NotificationPage extends StatelessWidget {
               padding: EdgeInsets.symmetric(horizontal: 20),
               child: Text(
                 'درخواست ها',
-                style: TextStyle(fontWeight: FontWeight.bold),
+                style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                ),
               ),
             ),
             SizedBox(height: 10),
