@@ -5,20 +5,22 @@ class SearchProfile extends StatelessWidget {
   const SearchProfile({
     super.key,
     required this.name,
-    required this.bio,
+    this.bio,
     this.avatar,
-    required this.onTap,
+    required this.isThisTrainer,
   });
 
   final String name;
-  final String bio;
+  final String? bio;
   final ImageProvider<Object>? avatar;
-  final void Function()? onTap;
+  final bool isThisTrainer;
 
   @override
   Widget build(BuildContext context) {
     return CupertinoButton(
-      onPressed: onTap,
+      onPressed: isThisTrainer
+          ? () => Navigator.pushNamed(context, '/traView')
+          : () => Navigator.pushNamed(context, '/athView'),
       padding: EdgeInsets.zero,
       child: Container(
         decoration: BoxDecoration(
@@ -39,23 +41,24 @@ class SearchProfile extends StatelessWidget {
                     Text(name,
                         textDirection: TextDirection.rtl,
                         style: Theme.of(context).textTheme.titleLarge),
-    
-                    const SizedBox(height: 5),
-    
+
                     // Subtitle
-                    Text(
-                      bio,
-                      textDirection: TextDirection.rtl,
-                      maxLines: 2,
-                      overflow: TextOverflow.ellipsis,
-                      style: Theme.of(context).textTheme.bodySmall,
-                    ),
+                    if (bio != null) ...[
+                      const SizedBox(height: 5),
+                      Text(
+                        bio!,
+                        textDirection: TextDirection.rtl,
+                        maxLines: 2,
+                        overflow: TextOverflow.ellipsis,
+                        style: Theme.of(context).textTheme.bodySmall,
+                      ),
+                    ],
                   ],
                 ),
               ),
-    
+
               if (avatar != null) const SizedBox(width: 20),
-    
+
               // Profile picture
               if (avatar != null)
                 Flexible(

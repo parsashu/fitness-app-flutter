@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:improwave/pages/home/notification_page.dart';
 import 'package:improwave/pages/profile/ath_view_page.dart';
 import 'package:improwave/pages/profile/edit_profile.dart';
 import 'package:improwave/pages/profile/friends_page.dart';
@@ -62,6 +63,7 @@ class MainApp extends StatelessWidget {
                     '/athView': (context) => const AthViewPage(),
                     '/pay': (context) => const PayPage(),
                     '/successPay': (context) => const SuccessPayPage(),
+                    '/notification': (context) => const NotificationPage(),
                   },
                   debugShowCheckedModeBanner: false);
             },

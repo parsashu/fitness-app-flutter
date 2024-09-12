@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:improwave/components/bars/nav_bar.dart';
-import 'package:improwave/pages/main/home_page.dart';
+import 'package:improwave/pages/home/home_page.dart';
 import 'package:improwave/pages/main/search_page.dart';
 import 'package:improwave/pages/profile/Ath_profile_page.dart';
 import 'package:improwave/pages/profile/tra_profile_page.dart';
@@ -16,7 +16,7 @@ class MainPage extends StatefulWidget {
 
 class _MainPageState extends State<MainPage> {
   // Default page
-  int _selectedIndex = 1;
+  int _selectedIndex = 0;
 
   void _onTabChange(int index) {
     setState(() {

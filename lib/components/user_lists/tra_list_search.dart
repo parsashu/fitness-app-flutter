@@ -24,9 +24,10 @@ class TraListSearch extends StatelessWidget {
                     name: 'مربی شماره $i',
                     bio:
                         'مربی شماره $i به شما کمک می کند تا به بدن ایده آل خود رسیده و این کار را بدون تفکر و تحقیق در این زمینه انجام داده پس برنامه های خود را به او بسپارید',
-                    avatar:
-                        const AssetImage('assets/images/example_profile.png'),
-                    onTap: () => Navigator.pushNamed(context, '/traView'),
+                    avatar: const AssetImage(
+                      'assets/images/example_profile.png',
+                    ),
+                    isThisTrainer: true,
                   ),
               ],
             ),

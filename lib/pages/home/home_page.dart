@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:improwave/components/buttons/notification_bell.dart';
 import 'package:improwave/components/icons/notification_label.dart';
 
 class HomePage extends StatefulWidget {
@@ -13,17 +14,11 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        actions: [
+        actions: const [
           Stack(
             children: [
-              IconButton(
-                onPressed: () {},
-                icon: const Icon(
-                  Icons.notifications_none_rounded,
-                  size: 35,
-                ),
-              ),
-              const NotificationDot()
+              NotificationBell(),
+              NotificationDot(),
             ],
           ),
         ],

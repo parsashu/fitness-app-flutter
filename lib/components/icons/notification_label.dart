@@ -6,11 +6,11 @@ class NotificationDot extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Positioned(
-      right: 11,
-      top: 11,
+      right: 12,
+      top: 12,
       child: Container(
-        width: 13,
-        height: 13,
+        width: 11,
+        height: 11,
         decoration: const BoxDecoration(
           color: Color.fromARGB(255, 209, 41, 29),
           shape: BoxShape.circle,

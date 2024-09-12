@@ -24,8 +24,9 @@ class AthListSearch extends StatelessWidget {
                     name: 'ورزشکار شماره $i',
                     bio: 'تمرین بدنسازی به مدت سه سال',
                     avatar: const AssetImage(
-                        'assets/images/example_athlete_profile.png'),
-                    onTap: () => Navigator.pushNamed(context, '/athView'),
+                      'assets/images/example_athlete_profile.png',
+                    ),
+                    isThisTrainer: false,
                   ),
               ],
             ),

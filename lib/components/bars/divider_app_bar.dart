@@ -8,7 +8,7 @@ class DividerAppBar extends StatelessWidget implements PreferredSizeWidget {
   final String title;
 
   @override
-  Size get preferredSize => const Size.fromHeight(50);
+  Size get preferredSize => const Size.fromHeight(55);
 
   @override
   Widget build(BuildContext context) {
