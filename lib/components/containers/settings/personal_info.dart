@@ -2,7 +2,9 @@ import 'package:fluentui_system_icons/fluentui_system_icons.dart';
 import 'package:flutter/material.dart';
 import 'package:iconsax_plus/iconsax_plus.dart';
 import 'package:improwave/components/containers/settings/setting_section.dart';
-import 'package:improwave/components/pickers/my_weight_picker.dart';
+import 'package:improwave/components/pickers/age_picker.dart';
+import 'package:improwave/components/pickers/height_picker.dart';
+import 'package:improwave/components/pickers/weight_picker.dart';
 
 class PersonalInfo extends StatefulWidget {
   const PersonalInfo({super.key});
@@ -12,7 +14,16 @@ class PersonalInfo extends StatefulWidget {
 }
 
 class _PersonalInfoState extends State<PersonalInfo> {
-  int _selectedWeight = 80;
+  int _selectedWeight = 0;
+  int _selectedHeight = 0;
+  int _selectedAge = 0;
+  double _bmi = 0;
+
+  void calcBmi() {
+    setState(() {
+      _bmi = 10000 * _selectedWeight / (_selectedHeight * _selectedHeight);
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -29,14 +40,15 @@ class _PersonalInfoState extends State<PersonalInfo> {
             'وزن',
             style: Theme.of(context).textTheme.bodyMedium,
           ),
-          value: '$_selectedWeight kg',
+          value: _selectedWeight == 0 ? '' : '$_selectedWeight kg',
           onTap: () => WeightPickerModal.show(
             context,
             _selectedWeight,
             (newWeight) {
               setState(() {
-                _selectedWeight = newWeight;
+                _selectedWeight = newWeight;               
               });
+              calcBmi();
             },
           ),
         ),
@@ -51,8 +63,17 @@ class _PersonalInfoState extends State<PersonalInfo> {
             'قد',
             style: Theme.of(context).textTheme.bodyMedium,
           ),
-          value: '183 cm',
-          onTap: () => (),
+          value: _selectedHeight == 0 ? '' : '$_selectedHeight cm',
+          onTap: () => HeightPickerModal.show(
+            context,
+            _selectedHeight,
+            (newHeight) {
+              setState(() {
+                _selectedHeight = newHeight;
+              });
+              calcBmi();
+            },
+          ),
         ),
 
         // Age
@@ -65,8 +86,16 @@ class _PersonalInfoState extends State<PersonalInfo> {
             'سن',
             style: Theme.of(context).textTheme.bodyMedium,
           ),
-          value: '20',
-          onTap: () => (),
+          value: _selectedAge == 0 ? '' : '$_selectedAge',
+          onTap: () => AgePickerModal.show(
+            context,
+            _selectedAge,
+            (newAge) {
+              setState(() {
+                _selectedAge = newAge;
+              });
+            },
+          ),
         ),
 
         // BMI
@@ -80,7 +109,11 @@ class _PersonalInfoState extends State<PersonalInfo> {
             'BMI',
             style: Theme.of(context).textTheme.bodyMedium,
           ),
-          value: '23.3',
+          action: const Icon(
+            size: 0,
+            Icons.circle,
+          ),
+          value: _bmi == 0 ? '' : _bmi.toStringAsFixed(2),
           onTap: () => (),
         ),
       ],

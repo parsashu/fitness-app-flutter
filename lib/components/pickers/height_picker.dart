@@ -2,38 +2,38 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/services.dart';
 
-class WeightPickerModal extends StatefulWidget {
-  final int initialWeight;
-  final ValueChanged<int> onWeightSelected;
+class HeightPickerModal extends StatefulWidget {
+  final int initialHeight;
+  final ValueChanged<int> onHeightSelected;
 
-  const WeightPickerModal({
+  const HeightPickerModal({
     super.key,
-    required this.initialWeight,
-    required this.onWeightSelected,
+    required this.initialHeight,
+    required this.onHeightSelected,
   });
 
   @override
-  State<WeightPickerModal> createState() => _WeightPickerModalState();
+  State<HeightPickerModal> createState() => _WeightPickerModalState();
 
-  static void show(BuildContext context, int initialWeight,
-      ValueChanged<int> onWeightSelected) {
+  static void show(BuildContext context, int initialHeight,
+      ValueChanged<int> onHeightSelected) {
     showCupertinoModalPopup(
       context: context,
-      builder: (context) => WeightPickerModal(
-        initialWeight: initialWeight,
-        onWeightSelected: onWeightSelected,
+      builder: (context) => HeightPickerModal(
+        initialHeight: initialHeight == 0 ? 180 : initialHeight,
+        onHeightSelected: onHeightSelected,
       ),
     );
   }
 }
 
-class _WeightPickerModalState extends State<WeightPickerModal> {
-  late int _tempSelectedWeight;
+class _WeightPickerModalState extends State<HeightPickerModal> {
+  late int _tempSelectedHeight;
 
   @override
   void initState() {
     super.initState();
-    _tempSelectedWeight = widget.initialWeight;
+    _tempSelectedHeight = widget.initialHeight;
   }
 
   @override
@@ -73,20 +73,20 @@ class _WeightPickerModalState extends State<WeightPickerModal> {
                     useMagnifier: true,
                     itemExtent: 37,
                     scrollController: FixedExtentScrollController(
-                      initialItem: widget.initialWeight - 10,
+                      initialItem: widget.initialHeight - 50,
                     ),
                     onSelectedItemChanged: (int selectedItem) {
                       setState(() {
-                        _tempSelectedWeight = selectedItem + 10;
+                        _tempSelectedHeight = selectedItem + 50;
                       });
                       HapticFeedback.selectionClick();
                     },
                     children: List<Widget>.generate(
-                      391,
+                      221,
                       (int index) {
                         return Center(
                           child: Text(
-                            '${index + 10}',
+                            '${index + 50}',
                             style: const TextStyle(fontSize: 20),
                           ),
                         );
@@ -94,7 +94,7 @@ class _WeightPickerModalState extends State<WeightPickerModal> {
                     ),
                   ),
 
-                  // Kg label - overflow problem
+                  // cm label - overflow problem
                   Positioned(
                     right: 0,
                     top: 0,
@@ -117,7 +117,7 @@ class _WeightPickerModalState extends State<WeightPickerModal> {
                       ),
                       child: const Center(
                         child: Text(
-                          'kg',
+                          'cm',
                           style: TextStyle(
                             fontSize: 20,
                             fontWeight: FontWeight.bold,
@@ -145,7 +145,7 @@ class _WeightPickerModalState extends State<WeightPickerModal> {
                 ),
               ),
               onPressed: () {
-                widget.onWeightSelected(_tempSelectedWeight);
+                widget.onHeightSelected(_tempSelectedHeight);
                 Navigator.of(context).pop();
               },
             ),

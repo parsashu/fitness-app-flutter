@@ -1,7 +1,7 @@
 import 'package:flutter/foundation.dart';
 
 class IsTrainerProvider with ChangeNotifier {
-  bool _isTrainer = true;
+  bool _isTrainer = false;
 
   bool get isTrainer => _isTrainer;
 

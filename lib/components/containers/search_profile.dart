@@ -27,7 +27,7 @@ class SearchProfile extends StatelessWidget {
           color: Theme.of(context).colorScheme.surfaceBright,
         ),
         child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 25, vertical: 20),
+          padding: const EdgeInsets.symmetric(horizontal: 25, vertical: 15),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.end,
             children: [
