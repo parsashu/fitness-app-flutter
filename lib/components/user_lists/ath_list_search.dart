@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:improwave/components/bars/search_bar.dart';
-import 'package:improwave/components/containers/search_profile.dart';
+import 'package:improwave/components/containers/profile_view.dart';
 
 class AthListSearch extends StatelessWidget {
   const AthListSearch({super.key});
@@ -13,21 +13,31 @@ class AthListSearch extends StatelessWidget {
           child: SingleChildScrollView(
             child: Column(
               children: [
+                // Search bar
                 Container(
                   padding:
                       const EdgeInsets.symmetric(horizontal: 14, vertical: 10),
                   color: Theme.of(context).colorScheme.surfaceBright,
                   child: const MySearchBar(),
                 ),
-                for (int i = 1; i < 9; i++)
-                  SearchProfile(
-                    name: 'ورزشکار شماره $i',
-                    bio: 'تمرین بدنسازی به مدت سه سال',
-                    avatar: const AssetImage(
-                      'assets/images/example_athlete_profile.png',
-                    ),
-                    isThisTrainer: false,
+
+                // Profiles
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 25),
+                  child: Column(
+                    children: [
+                      for (int i = 1; i < 9; i++)
+                        ProfileView(
+                          name: 'ورزشکار شماره $i',
+                          bio: 'تمرین بدنسازی به مدت سه سال',
+                          avatar: const AssetImage(
+                            'assets/images/example_athlete_profile.png',
+                          ),
+                          isThisTrainer: false,
+                        ),
+                    ],
                   ),
+                ),
               ],
             ),
           ),

@@ -3,7 +3,7 @@ import 'package:improwave/components/bars/nav_bar.dart';
 import 'package:improwave/pages/home/home_page.dart';
 import 'package:improwave/pages/profile/Ath_profile_page.dart';
 import 'package:improwave/pages/profile/tra_profile_page.dart';
-import 'package:improwave/pages/main/search_page.dart';
+import 'package:improwave/pages/search_page.dart';
 import 'package:improwave/utils/is_trainer_provider.dart';
 import 'package:provider/provider.dart';
 
@@ -15,7 +15,7 @@ class MainPage extends StatefulWidget {
 }
 
 class _MainPageState extends State<MainPage> {
-  int _selectedIndex = 2;
+  int _selectedIndex = 0;
 
   void _onTabChange(int index) {
     setState(() {

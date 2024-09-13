@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:improwave/components/buttons/profile/accept_or_delete.dart';
-import 'package:improwave/components/containers/search_profile.dart';
+import 'package:improwave/components/containers/profile_view.dart';
 
 class FriendRequest extends StatelessWidget {
   const FriendRequest({
@@ -37,7 +37,7 @@ class FriendRequest extends StatelessWidget {
 
         // Profile
         Expanded(
-          child: SearchProfile(
+          child: ProfileView(
             name: name,
             avatar: avatar,
             isThisTrainer: isThisTrainer,

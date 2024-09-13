@@ -7,18 +7,34 @@ class StudentRelated extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SettingSection(
-      top: true,
-      buttom: true,
-      icon: Icon(
-        CupertinoIcons.person_2_fill,
-        color: Theme.of(context).colorScheme.secondary,
-      ),
-      text: Text(
-        'شاگردهای من',
-        style: Theme.of(context).textTheme.bodyMedium,
-      ),
-      onTap: () => Navigator.pushNamed(context, '/friends'),
+    return Column(
+      children: [
+        SettingSection(
+          top: true,
+          icon: Icon(
+            CupertinoIcons.person_2_fill,
+            color: Theme.of(context).colorScheme.secondary,
+          ),
+          text: Text(
+            'شاگردهای من',
+            style: Theme.of(context).textTheme.bodyMedium,
+          ),
+          onTap: () => Navigator.pushNamed(context, '/friends'),
+        ),
+        SettingSection(
+          buttom: true,
+          icon: Icon(
+          CupertinoIcons.list_dash
+          ,
+            color: Theme.of(context).colorScheme.secondary,
+          ),
+          text: Text(
+            'برنامه های من',
+            style: Theme.of(context).textTheme.bodyMedium,
+          ),
+          onTap: () => Navigator.pushNamed(context, '/friends'),
+        ),
+      ],
     );
   }
 }

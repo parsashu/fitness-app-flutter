@@ -1,19 +1,21 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-class SearchProfile extends StatelessWidget {
-  const SearchProfile({
+class ProfileView extends StatelessWidget {
+  const ProfileView({
     super.key,
     required this.name,
     this.bio,
     this.avatar,
     required this.isThisTrainer,
+    this.bright = true,
   });
 
   final String name;
   final String? bio;
   final ImageProvider<Object>? avatar;
   final bool isThisTrainer;
+  final bool bright;
 
   @override
   Widget build(BuildContext context) {
@@ -24,10 +26,12 @@ class SearchProfile extends StatelessWidget {
       padding: EdgeInsets.zero,
       child: Container(
         decoration: BoxDecoration(
-          color: Theme.of(context).colorScheme.surfaceBright,
+          color: bright
+              ? Theme.of(context).colorScheme.surfaceBright
+              : Theme.of(context).colorScheme.surface,
         ),
         child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 25, vertical: 15),
+          padding: const EdgeInsets.symmetric(vertical: 15),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.end,
             children: [
@@ -40,7 +44,7 @@ class SearchProfile extends StatelessWidget {
                     Text(name,
                         textDirection: TextDirection.rtl,
                         style: Theme.of(context).textTheme.titleLarge),
-                
+    
                     // Subtitle
                     if (bio != null) ...[
                       const SizedBox(height: 5),
@@ -55,7 +59,7 @@ class SearchProfile extends StatelessWidget {
                   ],
                 ),
               ),
-
+    
               // Profile picture
               if (avatar != null) ...[
                 const SizedBox(width: 20),
@@ -63,7 +67,7 @@ class SearchProfile extends StatelessWidget {
                   radius: 40,
                   backgroundImage: avatar,
                 ),
-              ]
+              ],
             ],
           ),
         ),

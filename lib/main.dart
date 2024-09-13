@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:improwave/pages/home/notification_page.dart';
+import 'package:improwave/pages/main_page%20copy.dart';
 import 'package:improwave/pages/profile/ath_view_page.dart';
 import 'package:improwave/pages/profile/edit_profile.dart';
 import 'package:improwave/pages/profile/friends_page.dart';
 import 'package:improwave/pages/login/login_page.dart';
-import 'package:improwave/pages/main/main_page.dart';
 import 'package:improwave/pages/login/verify_page.dart';
 import 'package:improwave/pages/profile/pay_page.dart';
 import 'package:improwave/pages/profile/success_pay_page.dart';

@@ -13,6 +13,7 @@ class FriendsPage extends StatelessWidget {
     bool isTrainer = Provider.of<IsTrainerProvider>(context).isTrainer;
 
     return Scaffold(
+      backgroundColor: Theme.of(context).colorScheme.surfaceBright,
       appBar: const DividerAppBar(),
       body: isTrainer ? const AthListSearch() : const TraListSearch(),
     );

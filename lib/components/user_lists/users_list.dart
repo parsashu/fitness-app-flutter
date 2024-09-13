@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:improwave/components/containers/search_profile.dart';
+import 'package:improwave/components/containers/profile_view.dart';
 
 class UsersList extends StatelessWidget {
   const UsersList({super.key, required this.users});
 
-  final List<SearchProfile> users;
+  final List<ProfileView> users;
 
   @override
   Widget build(BuildContext context) {

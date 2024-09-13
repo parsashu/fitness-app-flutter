@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:improwave/components/buttons/notification_bell.dart';
+import 'package:improwave/components/containers/workout/workout_program.dart';
 import 'package:improwave/components/icons/notification_label.dart';
 
 class HomePage extends StatefulWidget {
@@ -23,7 +24,14 @@ class _HomePageState extends State<HomePage> {
           ),
         ],
       ),
-      body: const Center(child: Text('Home Page')),
+      body: Padding(
+        padding: const EdgeInsets.only(top:20, right: 10),
+        child: Column(            
+          children: [
+            WorkoutProgram()
+          ],
+        ),
+      ),
     );
   }
 }
