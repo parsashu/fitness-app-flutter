@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:improwave/components/buttons/notification_bell.dart';
 import 'package:improwave/components/containers/workout/workout_program.dart';
 import 'package:improwave/components/icons/notification_label.dart';
+import 'package:improwave/utils/select_image.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -24,11 +25,17 @@ class _HomePageState extends State<HomePage> {
           ),
         ],
       ),
-      body: const Padding(
-        padding: EdgeInsets.only(top: 20),
+      body: Padding(
+        padding: const EdgeInsets.only(top: 20),
         child: Column(
           children: [
-            WorkoutProgram(),
+            const WorkoutProgram(),
+            const SizedBox(height: 80),
+            SizedBox(
+              height: 200,
+              width: 350,
+              child: Image(image: getImage('شکم')),
+            )
           ],
         ),
       ),

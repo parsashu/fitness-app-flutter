@@ -14,108 +14,82 @@ pickImage(ImageSource source) async {
 }
 
 // Method to get image by title
-ImageProvider<Object> _getImage(String title) {
+ImageProvider<Object> getImage(String title) {
   var random = Random();
   String path = 'assets/images/workout/chest_workout.png';
-  final List<String> chestKeys = ['سینه'];
-  final List<String> backKeys = ['سینه'];
-  final List<String> shoulderKeys = ['سینه'];
-  final List<String> bicepKeys = ['سینه'];
-  final List<String> tricepKeys = ['سینه'];
-  final List<String> legKeys = ['سینه'];
-  final List<String> absKeys = ['سینه'];
-  final List<String> fullKeys = ['سینه'];
-  final List<String> cardioKeys = ['سینه'];
-  final List<String> chestPaths = [
-    'assets/images/workout/chest_workout.png',
-  ];
-  final List<String> backPaths = [
-    'assets/images/workout/back_workout.png',
-  ];
-  final List<String> shoulderPaths = [
-    'assets/images/workout/Shoulder.png',
-  ];
-  final List<String> bicepPaths = [
-    'assets/images/workout/bicep_workout.png',
-  ];
-  final List<String> tricepPaths = [
-    'assets/images/workout/tricep_workout.png',
-  ];
-  final List<String> legPaths = [
-    'assets/images/workout/leg_workout.png',
-  ];
-  final List<String> absPaths = [
-    'assets/images/workout/abs_workout.png',
-  ];
-  final List<String> fullPaths = [
-    'assets/images/workout/full_workout.png',
-  ];
-  final List<String> cardioPaths = [
-    'assets/images/workout/cardio_workout.png',
+
+  // Key words
+  final List keys = [
+    ["سینه"],
+    ["زیربغل"],
+    ["سرشانه"],
+    ["جلو بازو"],
+    ["پشت بازو"],
+    ["پا"],
+    ["شکم"],
+    ["فول بادی"],
+    ["هوازی"],
   ];
 
-  // Chest
-  for (var key in chestKeys) {
-    if (title.contains(key)) {
-      int index = random.nextInt(chestPaths.length);
-      path = chestPaths[index];
+  // Image paths
+  final List paths = [
+    // Chest
+    [
+      'assets/images/workout/chest_workout.png',
+      'assets/images/workout/chest_workout2.png',
+    ],
+    // Back
+    [
+      'assets/images/workout/back_workout.png',
+    ],
+    // Shoulder
+    [
+      'assets/images/workout/Shoulder.png',
+    ],
+    // Bicep
+    [
+      'assets/images/workout/bicep_workout.png',
+    ],
+    // Tricep
+    [
+      'assets/images/workout/tricep_workout.png',
+    ],
+    // Leg
+    [
+      'assets/images/workout/leg_workout.png',
+    ],
+    // Abs
+    [
+      'assets/images/workout/abs_workout.png',
+      'assets/images/workout/abs_workout2.png',
+    ],
+    // Full body
+    [
+      'assets/images/workout/full_workout.png',
+    ],
+    // Cardio
+    [
+      'assets/images/workout/cardio_workout.png',
+    ],
+  ];
+
+  // Check what key word is in title
+  for (int i = 0; i < keys.length; i++) {
+    List trainingKeys = keys[i];
+    for (String key in trainingKeys) {
+      if (title.contains(key)) {
+        // Return a random path accourding to key word
+        List trainingPaths = paths[i];
+        int index = random.nextInt(trainingPaths.length);
+        path = trainingPaths[index];
+        return AssetImage(path);
+      }
     }
   }
-  // Back
-  for (var key in backKeys) {
-    if (title.contains(key)) {
-      int index = random.nextInt(backPaths.length);
-      path = backPaths[index];
-    }
-  }
-  // Shoulder
-  for (var key in shoulderKeys) {
-    if (title.contains(key)) {
-      int index = random.nextInt (shoulderPaths.length);
-      path = shoulderPaths[index];
-    }
-  }
-  // Bicep
-  for (var key in bicepKeys) {
-    if (title.contains(key)) {
-      int index = random.nextInt(bicepPaths.length);
-      path = bicepPaths[index];
-    }
-  }
-  // Tricep
-  for (var key in tricepKeys) {
-    if (title.contains(key)) {
-      int index = random.nextInt(tricepPaths.length);
-      path = tricepPaths[index];
-    }
-  }
-  // Leg
-  for (var key in legKeys) {
-    if (title.contains(key)) {
-      int index = random.nextInt(legPaths.length);
-      path = legPaths[index];
-    }
-  }
-  // Abs
-  for (var key in absKeys) {
-    if (title.contains(key)) {
-      int index = random.nextInt(absPaths.length);
-      path = absPaths[index];
-    }
-  }
-  // Full body
-  for (var key in fullKeys) {
-    if (title.contains(key)) {
-      int index = random.nextInt(fullPaths.length);
-      path = fullPaths[index];
-    }
-  }
-  // Cardio
-  for (var key in cardioKeys) {
-    if (title.contains(key)) {
-      int index = random.nextInt(cardioPaths.length);
-      path = cardioPaths[index];
-    }
-  }
+  // Key words havn't found in title return a random path
+  int i = random.nextInt(paths.length);
+  int j = random.nextInt(paths[i].length);
+  path = paths[i][j];
   return AssetImage(path);
 }
+
