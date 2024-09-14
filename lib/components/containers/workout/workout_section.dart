@@ -1,16 +1,18 @@
-import 'dart:ui';
 import 'package:flutter/material.dart';
+import 'package:improwave/components/containers/my_frosted_glass.dart';
 import 'package:persian_fonts/persian_fonts.dart';
 
 class WorkoutSection extends StatefulWidget {
-  final VoidCallback onPressed;
-  final String title;
-
   const WorkoutSection({
     super.key,
     required this.onPressed,
     required this.title,
+    required this.image,
   });
+
+  final VoidCallback onPressed;
+  final String title;
+  final ImageProvider<Object> image;
 
   @override
   WorkoutSectionState createState() => WorkoutSectionState();
@@ -50,6 +52,8 @@ class WorkoutSectionState extends State<WorkoutSection>
     _animationController.reverse();
   }
 
+
+
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
@@ -60,63 +64,31 @@ class WorkoutSectionState extends State<WorkoutSection>
       child: ScaleTransition(
         scale: _scaleAnimation,
         child: Container(
-          width: 350,
-          height: 200,
-          margin: const EdgeInsets.symmetric(horizontal: 8),
+          margin: const EdgeInsets.symmetric(horizontal: 6),
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(20),
-            image: const DecorationImage(
-              image: AssetImage('assets/images/workout/leg_workout.png'),
+            image: DecorationImage(
+              image: widget.image,
               fit: BoxFit.cover,
             ),
           ),
-          child: Stack(
-            children: [
-              // Blur
-              Positioned(
-                left: 0,
-                right: 0,
-                bottom: 0,
-                height: 60,
-                child: ClipRRect(
-                  borderRadius: const BorderRadius.vertical(
-                    bottom: Radius.circular(20),
-                  ),
-                  child: BackdropFilter(
-                    filter: ImageFilter.blur(sigmaX: 3, sigmaY: 3),
-                    blendMode: BlendMode.darken,
-                    child: Container(
-                      decoration: BoxDecoration(
-                        gradient: LinearGradient(
-                          begin: Alignment.topCenter,
-                          end: Alignment.bottomCenter,
-                          colors: [
-                            Colors.transparent,
-                            Colors.black.withOpacity(0.3),
-                            Colors.black.withOpacity(0.5),
-                          ],
-                          stops: const [0.0, 0.4, 1.0],
-                        ),
-                      ),
-                    ),
-                  ),
+          child: Padding(
+            padding: const EdgeInsets.only(
+              top: 180,
+              bottom: 10,
+              left: 120,
+              right: 10,
+            ),
+            child: MyFrostedGlass(
+              child: Text(
+                widget.title,
+                style: PersianFonts.Vazir.copyWith(
+                  color: Colors.grey.shade200,
+                  fontSize: 24,
+                  fontWeight: FontWeight.bold,
                 ),
               ),
-
-              // Title
-              Positioned(
-                right: 30,
-                bottom: 20,
-                child: Text(
-                  widget.title,
-                  style: PersianFonts.Vazir.copyWith(
-                    color: Colors.grey.shade200,
-                    fontSize: 24,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-              ),
-            ],
+            ),
           ),
         ),
       ),

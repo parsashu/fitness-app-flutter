@@ -27,13 +27,16 @@ class AthListSearch extends StatelessWidget {
                   child: Column(
                     children: [
                       for (int i = 1; i < 9; i++)
-                        ProfileView(
-                          name: 'ورزشکار شماره $i',
-                          bio: 'تمرین بدنسازی به مدت سه سال',
-                          avatar: const AssetImage(
-                            'assets/images/example_athlete_profile.png',
+                        SizedBox(
+                          height: 115,
+                          child: ProfileView(
+                            name: 'ورزشکار شماره $i',
+                            bio: 'تمرین بدنسازی به مدت سه سال',
+                            avatar: const AssetImage(
+                              'assets/images/example_athlete_profile.png',
+                            ),
+                            isThisTrainer: false,
                           ),
-                          isThisTrainer: false,
                         ),
                     ],
                   ),

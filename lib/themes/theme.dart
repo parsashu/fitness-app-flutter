@@ -7,7 +7,7 @@ ThemeData lightMode = ThemeData(
   highlightColor: Colors.transparent,
   tabBarTheme: const TabBarTheme(splashFactory: NoSplash.splashFactory),
   colorScheme: ColorScheme.light(
-    surface: Colors.grey.shade300,  // Backgound 
+    surface: Colors.grey.shade200,  // Backgound 
     surfaceBright: Colors.white,
     primary: Colors.grey.shade800,
     primaryContainer: Colors.white,  // Containers

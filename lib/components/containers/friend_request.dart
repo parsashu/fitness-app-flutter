@@ -21,29 +21,32 @@ class FriendRequest extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-      children: [
-        const SizedBox(width: 20),
-
-        // Accept
-        SizedBox(
-          width: 100,
-          height: 38,
-          child: AcceptOrDeleteButton(
-            isThisAccept: !isAccepted,
-            onTap: onTap,
+    return SizedBox(
+      height: 115,
+      child: Row(
+        children: [
+          const SizedBox(width: 20),
+      
+          // Accept
+          SizedBox(
+            width: 100,
+            height: 38,
+            child: AcceptOrDeleteButton(
+              isThisAccept: !isAccepted,
+              onTap: onTap,
+            ),
           ),
-        ),
-
-        // Profile
-        Expanded(
-          child: ProfileView(
-            name: name,
-            avatar: avatar,
-            isThisTrainer: isThisTrainer,
+      
+          // Profile
+          Expanded(
+            child: ProfileView(
+              name: name,
+              avatar: avatar,
+              isThisTrainer: isThisTrainer,
+            ),
           ),
-        ),
-      ],
+        ],
+      ),
     );
   }
 }

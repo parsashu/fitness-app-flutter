@@ -10,9 +10,10 @@ class WorkoutProgram extends StatelessWidget {
     return Column(
       children: [
         // Name and trainer
-        const SizedBox(
+        Container(
           height: 90,
-          child: ProfileView(
+          padding: const EdgeInsets.only(right: 24),
+          child: const ProfileView(
             name: 'برنامه حجم', // Program name
             bio: 'Farbod Hajian', // Trainer name
             avatar: AssetImage('assets/images/example_profile.png'),
@@ -26,24 +27,38 @@ class WorkoutProgram extends StatelessWidget {
           height: 250,
           child: PageView(
             reverse: true,
-            padEnds: false,
+            clipBehavior: Clip.none,
             controller: PageController(viewportFraction: 0.9),
             children: [
               WorkoutSection(
                 onPressed: () {},
-                title: 'تمرین سینه',
+                title: 'سینه',
+                image:
+                    const AssetImage('assets/images/workout/chest_workout.png'),
               ),
               WorkoutSection(
                 onPressed: () {},
-                title: 'تمرین زیربغل',
+                title: 'سرشانه و زیربغل',
+                image:
+                    const AssetImage('assets/images/workout/back_workout.png'),
               ),
               WorkoutSection(
                 onPressed: () {},
-                title: 'تمرین سینه',
+                title: 'جلوبازو پشت بازو',
+                image:
+                    const AssetImage('assets/images/workout/bicep_workout.png'),
               ),
               WorkoutSection(
                 onPressed: () {},
-                title: 'تمرین سینه',
+                title: 'پا',
+                image:
+                    const AssetImage('assets/images/workout/leg_workout.png'),
+              ),
+              WorkoutSection(
+                onPressed: () {},
+                title: 'شکم',
+                image:
+                    const AssetImage('assets/images/workout/abs_workout2.png'),
               ),
             ],
           ),

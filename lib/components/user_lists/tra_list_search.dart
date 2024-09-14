@@ -27,14 +27,17 @@ class TraListSearch extends StatelessWidget {
                   child: Column(
                     children: [
                       for (int i = 1; i < 9; i++)
-                        ProfileView(
-                          name: 'مربی شماره $i',
-                          bio:
-                              'مربی شماره $i به شما کمک می کند تا به بدن ایده آل خود رسیده و این کار را بدون تفکر و تحقیق در این زمینه انجام داده پس برنامه های خود را به او بسپارید',
-                          avatar: const AssetImage(
-                            'assets/images/example_profile.png',
+                        SizedBox(
+                          height: 115,
+                          child: ProfileView(
+                            name: 'مربی شماره $i',
+                            bio:
+                                'مربی شماره $i به شما کمک می کند تا به بدن ایده آل خود رسیده و این کار را بدون تفکر و تحقیق در این زمینه انجام داده پس برنامه های خود را به او بسپارید',
+                            avatar: const AssetImage(
+                              'assets/images/example_profile.png',
+                            ),
+                            isThisTrainer: true,
                           ),
-                          isThisTrainer: true,
                         ),
                     ],
                   ),

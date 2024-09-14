@@ -38,6 +38,7 @@ class ProfileView extends StatelessWidget {
               // Text
               Expanded(
                 child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
                   crossAxisAlignment: CrossAxisAlignment.end,
                   children: [
                     // Title
@@ -63,9 +64,15 @@ class ProfileView extends StatelessWidget {
               // Profile picture
               if (avatar != null) ...[
                 const SizedBox(width: 20),
-                CircleAvatar(
-                  radius: 40,
-                  backgroundImage: avatar,
+                LayoutBuilder(
+                  builder: (context, constraints) {
+                    double radius = constraints.maxHeight / 2.1;
+
+                    return CircleAvatar(
+                      radius: radius,
+                      backgroundImage: avatar,
+                    );
+                  }
                 ),
               ],
             ],

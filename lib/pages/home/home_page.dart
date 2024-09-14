@@ -24,11 +24,11 @@ class _HomePageState extends State<HomePage> {
           ),
         ],
       ),
-      body: Padding(
-        padding: const EdgeInsets.only(top:20, right: 10),
-        child: Column(            
+      body: const Padding(
+        padding: EdgeInsets.only(top: 20),
+        child: Column(
           children: [
-            WorkoutProgram()
+            WorkoutProgram(),
           ],
         ),
       ),

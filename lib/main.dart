@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:improwave/pages/home/notification_page.dart';
-import 'package:improwave/pages/main_page%20copy.dart';
+import 'package:improwave/pages/main_page.dart';
 import 'package:improwave/pages/profile/ath_view_page.dart';
 import 'package:improwave/pages/profile/edit_profile.dart';
 import 'package:improwave/pages/profile/friends_page.dart';
@@ -14,7 +14,7 @@ import 'package:improwave/utils/is_trainer_provider.dart';
 import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:firebase_core/firebase_core.dart';
-import 'firebase_options.dart';
+import 'utils/firebase_options.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
