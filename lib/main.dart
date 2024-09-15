@@ -6,6 +6,7 @@ import 'package:improwave/pages/profile/edit_profile.dart';
 import 'package:improwave/pages/profile/friends_page.dart';
 import 'package:improwave/pages/login/login_page.dart';
 import 'package:improwave/pages/login/verify_page.dart';
+import 'package:improwave/pages/profile/my_programs.dart';
 import 'package:improwave/pages/profile/pay_page.dart';
 import 'package:improwave/pages/profile/success_pay_page.dart';
 import 'package:improwave/pages/profile/tra_view_page.dart';
@@ -59,6 +60,7 @@ class MainApp extends StatelessWidget {
                     '/verify': (context) => const VerifyPage(),
                     '/editProfile': (context) => const EditProfile(),
                     '/friends': (context) => const FriendsPage(),
+                    '/my_programs': (context) => const MyProgramsPage(),
                     '/traView': (context) => const TraViewPage(),
                     '/athView': (context) => const AthViewPage(),
                     '/pay': (context) => const PayPage(),

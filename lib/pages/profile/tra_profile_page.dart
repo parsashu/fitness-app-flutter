@@ -78,7 +78,7 @@ class TraProfilePage extends StatelessWidget {
                 ),
                 SizedBox(height: 30),
 
-                // My studens
+                // Student related settings
                 StudentRelated(),
                 SizedBox(height: 15),
 

@@ -1,9 +1,22 @@
 import 'package:flutter/cupertino.dart';
+import 'package:improwave/components/buttons/add_workout_section.dart';
 import 'package:improwave/components/containers/profile_view.dart';
-import 'package:improwave/components/containers/workout/workout_section.dart';
 
 class WorkoutProgram extends StatelessWidget {
-  const WorkoutProgram({super.key});
+  const WorkoutProgram({
+    super.key,
+    this.editable = false,
+    required this.programName,
+    required this.trainerName,
+    required this.trainerAvatar,
+    this.sections = const [],
+  });
+
+  final bool editable;
+  final String programName;
+  final String trainerName;
+  final ImageProvider<Object> trainerAvatar;
+  final List<Widget> sections;
 
   @override
   Widget build(BuildContext context) {
@@ -13,12 +26,11 @@ class WorkoutProgram extends StatelessWidget {
         Container(
           height: 90,
           padding: const EdgeInsets.only(right: 24),
-          child: const ProfileView(
-            name: 'برنامه حجم', // Program name
-            bio: 'Farbod Hajian', // Trainer name
-            avatar: AssetImage('assets/images/example_profile.png'),
+          child: ProfileView(
+            name: programName,
+            bio: trainerName,
+            avatar: trainerAvatar,
             isThisTrainer: true,
-            bright: false,
           ),
         ),
 
@@ -30,36 +42,9 @@ class WorkoutProgram extends StatelessWidget {
             clipBehavior: Clip.none,
             controller: PageController(viewportFraction: 0.9),
             children: [
-              WorkoutSection(
-                onPressed: () {},
-                title: 'سینه',
-                image:
-                    const AssetImage('assets/images/workout/chest_workout.png'),
-              ),
-              WorkoutSection(
-                onPressed: () {},
-                title: 'سرشانه و زیربغل',
-                image:
-                    const AssetImage('assets/images/workout/back_workout.png'),
-              ),
-              WorkoutSection(
-                onPressed: () {},
-                title: 'جلوبازو پشت بازو',
-                image:
-                    const AssetImage('assets/images/workout/bicep_workout.png'),
-              ),
-              WorkoutSection(
-                onPressed: () {},
-                title: 'پا',
-                image:
-                    const AssetImage('assets/images/workout/leg_workout.png'),
-              ),
-              WorkoutSection(
-                onPressed: () {},
-                title: 'شکم',
-                image:
-                    const AssetImage('assets/images/workout/abs_workout2.png'),
-              ),
+              ...sections,
+              // Add workout section
+              if (editable) AddWorkoutSection(onPressed: () {}),
             ],
           ),
         ),

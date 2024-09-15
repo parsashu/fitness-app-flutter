@@ -32,7 +32,7 @@ class StudentRelated extends StatelessWidget {
             'برنامه های من',
             style: Theme.of(context).textTheme.bodyMedium,
           ),
-          onTap: () => Navigator.pushNamed(context, '/friends'),
+          onTap: () => Navigator.pushNamed(context, '/my_programs'),
         ),
       ],
     );
