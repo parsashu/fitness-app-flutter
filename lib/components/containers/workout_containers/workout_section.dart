@@ -64,6 +64,8 @@ class WorkoutSectionState extends State<WorkoutSection>
       child: ScaleTransition(
         scale: _scaleAnimation,
         child: Container(
+          width: 202,
+          height: 300,
           margin: const EdgeInsets.symmetric(horizontal: 6),
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(20),

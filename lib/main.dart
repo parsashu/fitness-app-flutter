@@ -10,6 +10,8 @@ import 'package:improwave/pages/profile/my_programs.dart';
 import 'package:improwave/pages/profile/pay_page.dart';
 import 'package:improwave/pages/profile/success_pay_page.dart';
 import 'package:improwave/pages/profile/tra_view_page.dart';
+import 'package:improwave/pages/workout_pages/all_programs_page.dart';
+import 'package:improwave/pages/workout_pages/section_page.dart';
 import 'package:improwave/themes/theme_provider.dart';
 import 'package:improwave/utils/is_trainer_provider.dart';
 import 'package:provider/provider.dart';
@@ -66,6 +68,8 @@ class MainApp extends StatelessWidget {
                     '/pay': (context) => const PayPage(),
                     '/successPay': (context) => const SuccessPayPage(),
                     '/notification': (context) => const NotificationPage(),
+                    '/section': (context) => const SectionPage(),
+                    '/all_programs': (context) => const AllProgramsPage(),
                   },
                   debugShowCheckedModeBanner: false);
             },

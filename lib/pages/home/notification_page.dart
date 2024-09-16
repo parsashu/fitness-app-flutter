@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:improwave/components/bars/divider_app_bar.dart';
-import 'package:improwave/components/user_lists/request_list.dart';
+import 'package:improwave/components/lists/request_list.dart';
 
 class NotificationPage extends StatelessWidget {
   const NotificationPage({super.key});
@@ -10,7 +10,7 @@ class NotificationPage extends StatelessWidget {
     return Scaffold(
       backgroundColor: Theme.of(context).colorScheme.surfaceBright,
       appBar: const DividerAppBar(bright: true),
-      body:  const SingleChildScrollView(
+      body: const SingleChildScrollView(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.end,
           children: [

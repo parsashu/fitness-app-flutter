@@ -7,30 +7,35 @@ class SearchTabBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      color: Theme.of(context).colorScheme.surfaceBright,
-      child: TabBar(
-        labelPadding: const EdgeInsetsDirectional.only(bottom: 8),
-        indicatorColor: Colors.blue,
-        indicatorSize: TabBarIndicatorSize.tab,
-        tabs: [
-          // Followers
-          Tab(
-            child: Text(
-              'مربی',
-              style: Theme.of(context).textTheme.titleLarge,
-            ),
+    return TabBar(
+      labelPadding: const EdgeInsetsDirectional.only(bottom: 8),
+      indicatorColor: Colors.blue,
+      indicatorSize: TabBarIndicatorSize.tab,
+      tabs: [
+        // Workouts
+        Tab(
+          child: Text(
+            'تمرین ها',
+            style: Theme.of(context).textTheme.titleLarge,
           ),
+        ),
 
-          // Following
-          Tab(
-            child: Text(
-              'ورزشکار',
-              style: Theme.of(context).textTheme.titleLarge,
-            ),
+        // Trainer
+        Tab(
+          child: Text(
+            'مربی',
+            style: Theme.of(context).textTheme.titleLarge,
           ),
-        ],
-      ),
+        ),
+
+        // Athlete
+        Tab(
+          child: Text(
+            'ورزشکار',
+            style: Theme.of(context).textTheme.titleLarge,
+          ),
+        ),
+      ],
     );
   }
 }

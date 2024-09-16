@@ -32,18 +32,15 @@ class RequestListState extends State<RequestList> {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.only(right: 20),
-      child: Column(
-        children: [
-          for (int i = 0; i < requests.length; i++)
-            DismissibleFriendRequest(
-              key: ValueKey(requests[i]),
-              request: requests[i],
-              onDismissed: () => removeRequest(i),
-            ),
-        ],
-      ),
+    return Column(
+      children: [
+        for (int i = 0; i < requests.length; i++)
+          DismissibleFriendRequest(
+            key: ValueKey(requests[i]),
+            request: requests[i],
+            onDismissed: () => removeRequest(i),
+          ),
+      ],
     );
   }
 }

@@ -1,12 +1,14 @@
 import 'package:flutter/material.dart';
 
 class MySearchBar extends StatelessWidget {
-  const MySearchBar({super.key});
+  const MySearchBar({super.key, this.padding = true});
+
+  final bool padding;
 
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 5, vertical: 8),
+      padding: EdgeInsets.symmetric(horizontal: padding ? 5 : 0, vertical: 8),
       child: Directionality(
         textDirection: TextDirection.rtl,
         child: SearchBar(
