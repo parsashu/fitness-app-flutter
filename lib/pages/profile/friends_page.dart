@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:improwave/components/lists/tra_list_search.dart';
+import 'package:improwave/components/lists/profile_view_list.dart';
 import 'package:improwave/components/my_scaffold.dart';
 
 class FriendsPage extends StatelessWidget {

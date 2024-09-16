@@ -3,14 +3,82 @@ import 'package:improwave/components/bars/search_bar.dart';
 import 'package:improwave/components/containers/workout_containers/workout_program.dart';
 import 'package:improwave/components/containers/workout_containers/workout_section.dart';
 import 'package:improwave/components/my_scaffold.dart';
+import 'package:improwave/pages/workout_pages/all_programs_page.dart';
 
-class MyProgramsPage extends StatelessWidget {
+class MyProgramsPage extends StatefulWidget {
   const MyProgramsPage({super.key});
+
+  @override
+  State<MyProgramsPage> createState() => _MyProgramsPageState();
+}
+
+class _MyProgramsPageState extends State<MyProgramsPage> {
+  final ScrollController _scrollController = ScrollController();
+
+  // User's data
+  final String username = 'Farbod Hajian';
+  final AssetImage avatar =
+      const AssetImage('assets/images/example_profile.png');
+
+  // Program's data
+  // example = {'program name' : ['section 1 title', 'section 1 image path'], ['section 2 title', 'section 2 image path']}
+  Map top3programs = {
+    'برنامه حجم': [
+      ['سینه', 'assets/images/workout/chest_workout2.png'],
+      ['سرشانه و زیربغل', 'assets/images/workout/back_workout.png'],
+      ['جلوبازو پشت بازو', 'assets/images/workout/bicep_workout.png'],
+      ['پا', 'assets/images/workout/leg_workout.png'],
+      ['شکم', 'assets/images/workout/abs_workout2.png'],
+    ],
+    'تمرکزی پا': [
+      ['جلو پا', 'assets/images/workout/leg_workout3.png'],
+      ['پشت پا', 'assets/images/workout/leg_workout.png'],
+    ],
+    'افزایش قدرت': [
+      ['سرشانه و زیربغل', 'assets/images/workout/back_workout.png'],
+      ['جلوبازو پشت بازو', 'assets/images/workout/bicep_workout.png'],
+      ['شکم', 'assets/images/workout/abs_workout2.png'],
+    ],
+  };
+
+  // The program which got clicked in all programs page
+  final Map clickedProgram = {
+    'دوره کات': [
+      ['سرشانه و زیربغل', 'assets/images/workout/back_workout3.png'],
+      ['جلوبازو پشت بازو', 'assets/images/workout/bicep_workout.png'],
+      ['پا', 'assets/images/workout/leg_workout.png'],
+      ['شکم', 'assets/images/workout/abs_workout2.png'],
+    ]
+  };
+
+  // Method to push selected program from all programs to the top
+  void changeFirstProgram() {
+    setState(() {
+      // Remove the last program
+      top3programs.remove(top3programs.keys.last);
+      // Add clicked program
+      top3programs = {
+        ...clickedProgram,
+        ...top3programs,
+      };
+    });
+  }
+
+  // Method to scroll to the top when a program view got selected
+  void _scrollToTop() {
+    changeFirstProgram();
+    _scrollController.animateTo(
+      0,
+      duration: const Duration(milliseconds: 500),
+      curve: Curves.easeInOut,
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
     return MyScaffold(
       body: SingleChildScrollView(
+        controller: _scrollController,
         child: Column(
           children: [
             const Padding(
@@ -20,44 +88,19 @@ class MyProgramsPage extends StatelessWidget {
             const SizedBox(height: 15),
 
             // 3 latest programs
-            for (int i = 0; i < 3; i++) ...[
+            for (var program in top3programs.entries) ...[
               WorkoutProgram(
                 editable: true,
-                programName: 'برنامه حجم',
-                trainerName: 'Farbod Hajian',
-                trainerAvatar:
-                    const AssetImage('assets/images/example_profile.png'),
+                programName: program.key,
+                trainerName: username,
+                trainerAvatar: avatar,
                 sections: [
-                  WorkoutSection(
-                    onPressed: () {},
-                    title: 'سینه',
-                    image: const AssetImage(
-                        'assets/images/workout/chest_workout2.png'),
-                  ),
-                  WorkoutSection(
-                    onPressed: () {},
-                    title: 'سرشانه و زیربغل',
-                    image: const AssetImage(
-                        'assets/images/workout/back_workout.png'),
-                  ),
-                  WorkoutSection(
-                    onPressed: () {},
-                    title: 'جلوبازو پشت بازو',
-                    image: const AssetImage(
-                        'assets/images/workout/bicep_workout.png'),
-                  ),
-                  WorkoutSection(
-                    onPressed: () {},
-                    title: 'پا',
-                    image: const AssetImage(
-                        'assets/images/workout/leg_workout.png'),
-                  ),
-                  WorkoutSection(
-                    onPressed: () {},
-                    title: 'شکم',
-                    image: const AssetImage(
-                        'assets/images/workout/abs_workout2.png'),
-                  ),
+                  for (var section in program.value)
+                    WorkoutSection(
+                      onPressed: () {},
+                      title: section[0],
+                      image: AssetImage(section[1]),
+                    ),
                 ],
               ),
               const SizedBox(height: 30),
@@ -71,19 +114,27 @@ class MyProgramsPage extends StatelessWidget {
               trainerAvatar: AssetImage('assets/images/example_profile.png'),
             ),
 
-            const SizedBox(height: 40),
+            const SizedBox(height: 35),
 
-            // All workouts
-            GestureDetector(
-              onTap: () => Navigator.pushNamed(context, '/all_programs'),
-              child: Text(
-                'همه برنامه ها',
-                style: TextStyle(
-                    color: Theme.of(context).colorScheme.onTertiary,
-                    fontWeight: FontWeight.bold),
+            // All programs
+            if (top3programs.length >= 3)
+              GestureDetector(
+                onTap: () => Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => AllProgramsPage(
+                      onProgramSelected: _scrollToTop,
+                    ),
+                  ),
+                ),
+                child: Text(
+                  'همه برنامه ها',
+                  style: TextStyle(
+                      color: Theme.of(context).colorScheme.onTertiary,
+                      fontWeight: FontWeight.bold),
+                ),
               ),
-            ),
-            const SizedBox(height: 20),
+            const SizedBox(height: 25),
           ],
         ),
       ),
