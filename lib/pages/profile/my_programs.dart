@@ -5,6 +5,8 @@ import 'package:improwave/components/containers/workout_containers/workout_secti
 import 'package:improwave/components/my_scaffold.dart';
 import 'package:improwave/pages/workout_pages/all_programs_page.dart';
 
+// TODO: debug Map
+
 class MyProgramsPage extends StatefulWidget {
   const MyProgramsPage({super.key});
 
@@ -22,7 +24,7 @@ class _MyProgramsPageState extends State<MyProgramsPage> {
 
   // Program's data
   // example = {'program name' : ['section 1 title', 'section 1 image path'], ['section 2 title', 'section 2 image path']}
-  Map top3programs = {
+  Map top3Programs = {
     'برنامه حجم': [
       ['سینه', 'assets/images/workout/chest_workout2.png'],
       ['سرشانه و زیربغل', 'assets/images/workout/back_workout.png'],
@@ -55,11 +57,11 @@ class _MyProgramsPageState extends State<MyProgramsPage> {
   void changeFirstProgram() {
     setState(() {
       // Remove the last program
-      top3programs.remove(top3programs.keys.last);
+      top3Programs.remove(top3Programs.keys.last);
       // Add clicked program
-      top3programs = {
+      top3Programs = {
         ...clickedProgram,
-        ...top3programs,
+        ...top3Programs,
       };
     });
   }
@@ -88,7 +90,7 @@ class _MyProgramsPageState extends State<MyProgramsPage> {
             const SizedBox(height: 15),
 
             // 3 latest programs
-            for (var program in top3programs.entries) ...[
+            for (var program in top3Programs.entries) ...[
               WorkoutProgram(
                 editable: true,
                 programName: program.key,
@@ -117,7 +119,7 @@ class _MyProgramsPageState extends State<MyProgramsPage> {
             const SizedBox(height: 35),
 
             // All programs
-            if (top3programs.length >= 3)
+            if (top3Programs.length >= 3)
               GestureDetector(
                 onTap: () => Navigator.push(
                   context,

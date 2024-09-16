@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:improwave/components/bars/search_tab_bar.dart';
-import 'package:improwave/components/lists/tra_list_search.dart';
+import 'package:improwave/components/lists/profile_view_list.dart';
 import 'package:improwave/components/lists/workout_category_list.dart';
 
 class SearchPage extends StatefulWidget {
