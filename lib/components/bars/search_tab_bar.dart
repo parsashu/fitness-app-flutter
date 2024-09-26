@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:improwave/utils/is_trainer_provider.dart';
+import 'package:provider/provider.dart';
 
 class SearchTabBar extends StatelessWidget {
   const SearchTabBar({
@@ -7,6 +9,9 @@ class SearchTabBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // Flag to determine if user is trainer
+    bool isTrainer = context.watch<IsTrainerProvider>().isTrainer;
+
     return TabBar(
       labelPadding: const EdgeInsetsDirectional.only(bottom: 8),
       indicatorColor: Colors.blue,
@@ -20,18 +25,10 @@ class SearchTabBar extends StatelessWidget {
           ),
         ),
 
-        // Trainer
+        // Athlete or trainer
         Tab(
           child: Text(
-            'مربی',
-            style: Theme.of(context).textTheme.titleLarge,
-          ),
-        ),
-
-        // Athlete
-        Tab(
-          child: Text(
-            'ورزشکار',
+            isTrainer ? 'ورزشکار' : 'مربی',
             style: Theme.of(context).textTheme.titleLarge,
           ),
         ),

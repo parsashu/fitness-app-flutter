@@ -5,8 +5,6 @@ import 'package:improwave/components/containers/workout_containers/workout_secti
 import 'package:improwave/components/my_scaffold.dart';
 import 'package:improwave/pages/workout_pages/all_programs_page.dart';
 
-// TODO: debug Map
-
 class MyProgramsPage extends StatefulWidget {
   const MyProgramsPage({super.key});
 
@@ -23,46 +21,88 @@ class _MyProgramsPageState extends State<MyProgramsPage> {
       const AssetImage('assets/images/example_profile.png');
 
   // Program's data
-  // example = {'program name' : ['section 1 title', 'section 1 image path'], ['section 2 title', 'section 2 image path']}
-  Map top3Programs = {
-    'برنامه حجم': [
-      ['سینه', 'assets/images/workout/chest_workout2.png'],
-      ['سرشانه و زیربغل', 'assets/images/workout/back_workout.png'],
-      ['جلوبازو پشت بازو', 'assets/images/workout/bicep_workout.png'],
-      ['پا', 'assets/images/workout/leg_workout.png'],
-      ['شکم', 'assets/images/workout/abs_workout2.png'],
-    ],
-    'تمرکزی پا': [
-      ['جلو پا', 'assets/images/workout/leg_workout3.png'],
-      ['پشت پا', 'assets/images/workout/leg_workout.png'],
-    ],
-    'افزایش قدرت': [
-      ['سرشانه و زیربغل', 'assets/images/workout/back_workout.png'],
-      ['جلوبازو پشت بازو', 'assets/images/workout/bicep_workout.png'],
-      ['شکم', 'assets/images/workout/abs_workout2.png'],
-    ],
-  };
+  List top3Programs = [
+    {
+      'programName': 'برنامه حجم',
+      'programData': {
+        {'name': 'سینه', 'image': 'assets/images/workout/chest_workout2.png'},
+        {
+          'name': 'سرشانه و زیربغل',
+          'image': 'assets/images/workout/back_workout.png'
+        },
+        {
+          'name': 'جلوبازو پشت بازو',
+          'image': 'assets/images/workout/bicep_workout.png'
+        },
+        {'name': 'پا', 'image': 'assets/images/workout/leg_workout.png'},
+        {'name': 'شکم', 'image': 'assets/images/workout/abs_workout2.png'},
+      },
+    },
+    {
+      'programName': 'برنامه حجم',
+      'programData': {
+        {'name': 'سینه', 'image': 'assets/images/workout/chest_workout2.png'},
+        {
+          'name': 'سرشانه و زیربغل',
+          'image': 'assets/images/workout/back_workout.png'
+        },
+        {
+          'name': 'جلوبازو پشت بازو',
+          'image': 'assets/images/workout/bicep_workout.png'
+        },
+        {'name': 'پا', 'image': 'assets/images/workout/leg_workout.png'},
+        {'name': 'شکم', 'image': 'assets/images/workout/abs_workout2.png'},
+      },
+    },
+    {
+      'programName': 'برنامه حجم',
+      'programData': {
+        {'name': 'سینه', 'image': 'assets/images/workout/chest_workout2.png'},
+        {
+          'name': 'سرشانه و زیربغل',
+          'image': 'assets/images/workout/back_workout.png'
+        },
+        {
+          'name': 'جلوبازو پشت بازو',
+          'image': 'assets/images/workout/bicep_workout.png'
+        },
+        {'name': 'پا', 'image': 'assets/images/workout/leg_workout.png'},
+        {'name': 'شکم', 'image': 'assets/images/workout/abs_workout2.png'},
+      },
+    },
+  ];
 
   // The program which got clicked in all programs page
   final Map clickedProgram = {
-    'دوره کات': [
-      ['سرشانه و زیربغل', 'assets/images/workout/back_workout3.png'],
-      ['جلوبازو پشت بازو', 'assets/images/workout/bicep_workout.png'],
-      ['پا', 'assets/images/workout/leg_workout.png'],
-      ['شکم', 'assets/images/workout/abs_workout2.png'],
-    ]
+    'programName': 'برنامه کات',
+    'programData': {
+      {'name': 'سینه', 'image': 'assets/images/workout/chest_workout2.png'},
+      {
+        'name': 'سرشانه و زیربغل',
+        'image': 'assets/images/workout/back_workout.png'
+      },
+      {
+        'name': 'جلوبازو پشت بازو',
+        'image': 'assets/images/workout/bicep_workout.png'
+      },
+      {'name': 'پا', 'image': 'assets/images/workout/leg_workout.png'},
+      {'name': 'شکم', 'image': 'assets/images/workout/abs_workout2.png'},
+    },
   };
 
   // Method to push selected program from all programs to the top
   void changeFirstProgram() {
     setState(() {
       // Remove the last program
-      top3Programs.remove(top3Programs.keys.last);
+      top3Programs.removeLast();
       // Add clicked program
-      top3Programs = {
-        ...clickedProgram,
-        ...top3Programs,
-      };
+      top3Programs.insert(
+        0,
+        {
+          'programName': clickedProgram['programName'],
+          'programData': clickedProgram['programData'],
+        },
+      );
     });
   }
 
@@ -90,18 +130,18 @@ class _MyProgramsPageState extends State<MyProgramsPage> {
             const SizedBox(height: 15),
 
             // 3 latest programs
-            for (var program in top3Programs.entries) ...[
+            for (var program in top3Programs) ...[
               WorkoutProgram(
                 editable: true,
-                programName: program.key,
+                programName: program['programName'],
                 trainerName: username,
                 trainerAvatar: avatar,
                 sections: [
-                  for (var section in program.value)
+                  for (var section in program['programData'])
                     WorkoutSection(
                       onPressed: () {},
-                      title: section[0],
-                      image: AssetImage(section[1]),
+                      title: section['name'],
+                      image: AssetImage(section['image']),
                     ),
                 ],
               ),

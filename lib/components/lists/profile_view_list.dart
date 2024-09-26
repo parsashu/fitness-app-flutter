@@ -8,11 +8,13 @@ class ProfileViewList extends StatelessWidget {
     required this.names,
     required this.bios,
     required this.images,
+    this.isThisTrainer = true,
   });
 
   final List names;
   final List bios;
   final List images;
+  final bool isThisTrainer;
 
   @override
   Widget build(BuildContext context) {
@@ -43,7 +45,7 @@ class ProfileViewList extends StatelessWidget {
                         name: names[index - 1],
                         bio: bios[index - 1],
                         avatar: images[index - 1],
-                        isThisTrainer: true,
+                        isThisTrainer: isThisTrainer,
                       ),
                     ),
                   ],

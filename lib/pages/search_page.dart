@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:improwave/components/bars/search_tab_bar.dart';
 import 'package:improwave/components/lists/profile_view_list.dart';
 import 'package:improwave/components/lists/workout_category_list.dart';
+import 'package:improwave/utils/is_trainer_provider.dart';
+import 'package:provider/provider.dart';
 
 class SearchPage extends StatefulWidget {
   const SearchPage({super.key});
@@ -46,8 +48,11 @@ class _SearchPageState extends State<SearchPage> {
 
   @override
   Widget build(BuildContext context) {
+    // Flag to determine if user is trainer
+    bool isTrainer = context.watch<IsTrainerProvider>().isTrainer;
+
     return DefaultTabController(
-      length: 3,
+      length: 2,
       child: Scaffold(
         appBar: PreferredSize(
           // Tab bar height
@@ -66,18 +71,11 @@ class _SearchPageState extends State<SearchPage> {
                   // Workouts
                   const WorkoutCategoryList(),
 
-                  // Trainers
+                  // Athletes or trainers
                   ProfileViewList(
-                    names: traNames,
-                    bios: traBios,
-                    images: traImages,
-                  ),
-
-                  // Athletes
-                  ProfileViewList(
-                    names: athNames,
-                    bios: athBios,
-                    images: athImages,
+                    names: isTrainer ? athNames : traNames,
+                    bios: isTrainer ? athBios : traBios,
+                    images: isTrainer ? athImages : traImages,
                   ),
                 ],
               ),
