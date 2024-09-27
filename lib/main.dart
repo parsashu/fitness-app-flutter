@@ -10,7 +10,6 @@ import 'package:improwave/pages/workout_pages/my_programs.dart';
 import 'package:improwave/pages/profile/pay_page.dart';
 import 'package:improwave/pages/profile/success_pay_page.dart';
 import 'package:improwave/pages/profile/tra_view_page.dart';
-import 'package:improwave/pages/workout_pages/section_page.dart';
 import 'package:improwave/themes/theme_provider.dart';
 import 'package:improwave/utils/is_trainer_provider.dart';
 import 'package:provider/provider.dart';
@@ -55,7 +54,7 @@ class MainApp extends StatelessWidget {
           return Consumer<ThemeProvider>(
             builder: (context, themeProvider, child) {
               return MaterialApp(
-                home: const SectionPage(), // Home
+                home: const MainPage(), // Home
                 theme: Provider.of<ThemeProvider>(context).themeData,
                 routes: {
                   '/main': (context) => const MainPage(),
@@ -69,7 +68,6 @@ class MainApp extends StatelessWidget {
                   '/pay': (context) => const PayPage(),
                   '/successPay': (context) => const SuccessPayPage(),
                   '/notification': (context) => const NotificationPage(),
-                  '/section': (context) => const SectionPage(),
                 },
                 debugShowCheckedModeBanner: false,
               );

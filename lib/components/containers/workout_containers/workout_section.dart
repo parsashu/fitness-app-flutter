@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:improwave/components/containers/my_frosted_glass.dart';
+import 'package:improwave/pages/workout_pages/section_page.dart';
 import 'package:persian_fonts/persian_fonts.dart';
 
 class WorkoutSection extends StatefulWidget {
@@ -58,7 +59,17 @@ class WorkoutSectionState extends State<WorkoutSection>
       onTapDown: _handleTapDown,
       onTapUp: _handleTapUp,
       onTapCancel: _handleTapCancel,
-      onTap: widget.onPressed,
+      onTap: () {
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (context) => SectionPage(
+              title: widget.title,
+              image: widget.image,
+            ),
+          ),
+        );
+      },
       child: ScaleTransition(
         scale: _scaleAnimation,
         child: Container(

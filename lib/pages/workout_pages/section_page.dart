@@ -5,7 +5,14 @@ import 'package:improwave/components/dividers/ios_indicator.dart';
 import 'package:persian_fonts/persian_fonts.dart';
 
 class SectionPage extends StatelessWidget {
-  const SectionPage({super.key});
+  const SectionPage({
+    super.key,
+    required this.title,
+    required this.image,
+  });
+
+  final String title;
+  final ImageProvider<Object> image;
 
   @override
   Widget build(BuildContext context) {
@@ -17,8 +24,8 @@ class SectionPage extends StatelessWidget {
           // Background image fixed
           Padding(
             padding: const EdgeInsets.only(top: 100),
-            child: Image.asset(
-              'assets/images/workout/chest_workout2.png',
+            child: Image(
+              image: image,
               fit: BoxFit.cover,
               height: 300,
               width: double.infinity,
@@ -43,8 +50,8 @@ class SectionPage extends StatelessWidget {
                     children: [
                       // Background image
                       Positioned.fill(
-                        child: Image.asset(
-                          'assets/images/workout/chest_workout2.png',
+                        child: Image(
+                          image: image,
                           fit: BoxFit.cover,
                         ),
                       ),
@@ -54,7 +61,7 @@ class SectionPage extends StatelessWidget {
                         bottom: 15,
                         right: 25,
                         child: Text(
-                          'سینه',
+                          title,
                           style: PersianFonts.Vazir.copyWith(
                             color: Colors.white,
                             fontSize: 36,
