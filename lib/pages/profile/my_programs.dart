@@ -76,7 +76,7 @@ class _MyProgramsPageState extends State<MyProgramsPage> {
   final Map clickedProgram = {
     'programName': 'برنامه کات',
     'programData': {
-      {'name': 'سینه', 'image': 'assets/images/workout/chest_workout2.png'},
+      {'name': 'زیربغل', 'image': 'assets/images/workout/back_workout3.png'},
       {
         'name': 'سرشانه و زیربغل',
         'image': 'assets/images/workout/back_workout.png'

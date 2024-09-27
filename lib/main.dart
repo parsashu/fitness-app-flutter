@@ -18,6 +18,8 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'utils/firebase_options.dart';
 
+//TODO: responsive
+
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
@@ -53,7 +55,7 @@ class MainApp extends StatelessWidget {
           return Consumer<ThemeProvider>(
             builder: (context, themeProvider, child) {
               return MaterialApp(
-                  home: const MainPage(), // Home
+                  home: const SectionPage(), // Home
                   theme: Provider.of<ThemeProvider>(context).themeData,
                   routes: {
                     '/main': (context) => const MainPage(),
