@@ -31,6 +31,7 @@ class WorkoutProgram extends StatelessWidget {
             bio: trainerName,
             avatar: trainerAvatar,
             isThisTrainer: true,
+            editable: true,
           ),
         ),
 

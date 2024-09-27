@@ -1,3 +1,4 @@
+import 'package:fluentui_system_icons/fluentui_system_icons.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -9,6 +10,7 @@ class ProfileView extends StatelessWidget {
     this.avatar,
     required this.isThisTrainer,
     this.bright = true,
+    this.editable = false,
   });
 
   final String name;
@@ -16,6 +18,7 @@ class ProfileView extends StatelessWidget {
   final ImageProvider<Object>? avatar;
   final bool isThisTrainer;
   final bool bright;
+  final bool editable;
 
   @override
   Widget build(BuildContext context) {
@@ -42,10 +45,36 @@ class ProfileView extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.end,
                   children: [
                     // Title
-                    Text(name,
-                        textDirection: TextDirection.rtl,
-                        style: Theme.of(context).textTheme.titleLarge),
-    
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.end,
+                      children: [
+                        // Edit button
+                        if (editable) ...[
+                          SizedBox(
+                            height: 28,
+                            width: 55,
+                            child: IconButton(
+                              iconSize: 16,
+                              color: Theme.of(context)
+                                  .colorScheme
+                                  .onTertiaryFixedVariant,
+                              splashColor: Colors.transparent,
+                              highlightColor: Colors.transparent,
+                              onPressed: () {},
+                              icon: const Icon(FluentIcons.edit_16_filled),
+                            ),
+                          ),
+                        ],
+
+                        // Text
+                        Text(
+                          name,
+                          textDirection: TextDirection.rtl,
+                          style: Theme.of(context).textTheme.titleLarge,
+                        ),
+                      ],
+                    ),
+
                     // Subtitle
                     if (bio != null) ...[
                       const SizedBox(height: 5),
@@ -60,7 +89,7 @@ class ProfileView extends StatelessWidget {
                   ],
                 ),
               ),
-    
+
               // Profile picture
               if (avatar != null) ...[
                 const SizedBox(width: 20),
@@ -72,7 +101,7 @@ class ProfileView extends StatelessWidget {
                       radius: radius,
                       backgroundImage: avatar,
                     );
-                  }
+                  },
                 ),
               ],
             ],

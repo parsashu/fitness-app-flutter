@@ -27,6 +27,8 @@ class SectionPage extends StatelessWidget {
                 floating: false,
                 pinned: true,
                 backgroundColor: Colors.transparent,
+                automaticallyImplyLeading: false,
+                leading: SizedBox.shrink(),
               ),
               SliverToBoxAdapter(
                 child: Container(
