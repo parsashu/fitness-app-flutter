@@ -52,8 +52,6 @@ class WorkoutSectionState extends State<WorkoutSection>
     _animationController.reverse();
   }
 
-
-
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
@@ -74,6 +72,8 @@ class WorkoutSectionState extends State<WorkoutSection>
               fit: BoxFit.cover,
             ),
           ),
+
+          // Frosted glass
           child: Padding(
             padding: const EdgeInsets.only(
               top: 180,

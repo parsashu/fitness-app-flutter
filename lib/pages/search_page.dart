@@ -69,7 +69,7 @@ class _SearchPageState extends State<SearchPage> {
               child: TabBarView(
                 children: [
                   // Workouts
-                  const WorkoutCategoryList(),
+                  WorkoutCategoryList(),
 
                   // Athletes or trainers
                   ProfileViewList(

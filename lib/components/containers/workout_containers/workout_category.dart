@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:improwave/components/containers/my_frosted_glass.dart';
 import 'package:persian_fonts/persian_fonts.dart';
 
 class WorkoutCategory extends StatefulWidget {
@@ -61,35 +60,38 @@ class WorkoutCategoryState extends State<WorkoutCategory>
       onTap: widget.onPressed,
       child: ScaleTransition(
         scale: _scaleAnimation,
-        child: Container(
-          width: 202,
-          height: 300,
-          margin: const EdgeInsets.symmetric(horizontal: 6),
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(20),
-            image: DecorationImage(
-              image: widget.image,
-              fit: BoxFit.cover,
-            ),
-          ),
-          child: Padding(
-            padding: const EdgeInsets.only(
-              top: 180,
-              bottom: 10,
-              left: 120,
-              right: 10,
-            ),
-            child: MyFrostedGlass(
-              child: Text(
-                widget.title,
-                style: PersianFonts.Vazir.copyWith(
-                  color: Colors.grey.shade200,
-                  fontSize: 24,
-                  fontWeight: FontWeight.bold,
+        child: Column(
+          children: [
+            // Image
+            Container(
+              width: 180,
+              height: 180,
+              margin: const EdgeInsets.symmetric(horizontal: 6),
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(20),
+                border: Border.all(
+                  color: Theme.of(context).colorScheme.tertiary,
+                  width: 0.5,
+                ),
+                image: DecorationImage(
+                  image: widget.image,
+                  fit: BoxFit.cover,
                 ),
               ),
             ),
-          ),
+
+            const SizedBox(height: 10),
+
+            // Title
+            Text(
+              widget.title,
+              style: PersianFonts.Vazir.copyWith(
+                fontSize: 22,
+                fontWeight: FontWeight.bold,
+                color: Theme.of(context).colorScheme.onTertiaryFixedVariant,
+              ),
+            )
+          ],
         ),
       ),
     );
