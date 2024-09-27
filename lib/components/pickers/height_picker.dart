@@ -1,6 +1,7 @@
 // weight_picker_modal.dart
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/services.dart';
+import 'package:improwave/components/dividers/ios_indicator.dart';
 
 class HeightPickerModal extends StatefulWidget {
   final int initialHeight;
@@ -52,16 +53,8 @@ class _WeightPickerModalState extends State<HeightPickerModal> {
         top: false,
         child: Column(
           children: [
-            // iOS indicator
-            Container(
-              width: 70,
-              height: 4,
-              margin: const EdgeInsets.only(bottom: 10),
-              decoration: BoxDecoration(
-                color: CupertinoColors.systemGrey4,
-                borderRadius: BorderRadius.circular(2),
-              ),
-            ),
+            // IOS indicator
+            const IosIndicator(),
 
             // Numbers
             Expanded(

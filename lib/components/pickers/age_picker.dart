@@ -1,6 +1,7 @@
 // weight_picker_modal.dart
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/services.dart';
+import 'package:improwave/components/dividers/ios_indicator.dart';
 
 class AgePickerModal extends StatefulWidget {
   final int initialAge;
@@ -15,8 +16,8 @@ class AgePickerModal extends StatefulWidget {
   @override
   State<AgePickerModal> createState() => _AgePickerModalState();
 
-  static void show(BuildContext context, int initialAge,
-      ValueChanged<int> onAgeSelected) {
+  static void show(
+      BuildContext context, int initialAge, ValueChanged<int> onAgeSelected) {
     showCupertinoModalPopup(
       context: context,
       builder: (context) => AgePickerModal(
@@ -52,16 +53,8 @@ class _AgePickerModalState extends State<AgePickerModal> {
         top: false,
         child: Column(
           children: [
-            // iOS indicator
-            Container(
-              width: 70,
-              height: 4,
-              margin: const EdgeInsets.only(bottom: 10),
-              decoration: BoxDecoration(
-                color: CupertinoColors.systemGrey4,
-                borderRadius: BorderRadius.circular(2),
-              ),
-            ),
+            // IOS indicator
+            const IosIndicator(),
 
             // Numbers
             Expanded(
