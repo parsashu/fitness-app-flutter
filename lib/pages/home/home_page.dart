@@ -27,51 +27,40 @@ class _HomePageState extends State<HomePage> {
           ),
         ],
       ),
-      body: Column(
+      body: const Column(
         children: [
-          const SizedBox(height: 20),
+          SizedBox(height: 20),
 
           // Current program
           WorkoutProgram(
             programName: 'برنامه حجم',
             trainerName: 'Farbod Hajian',
-            trainerAvatar:
-                const AssetImage('assets/images/example_profile.png'),
+            trainerAvatar: AssetImage('assets/images/example_profile.png'),
             sections: [
               WorkoutSection(
-                onPressed: () => Navigator.pushNamed(context, '/section'),
                 title: 'سینه',
-                image:
-                    const AssetImage('assets/images/workout/chest_workout.png'),
+                image: AssetImage('assets/images/workout/chest_workout.png'),
               ),
               WorkoutSection(
-                onPressed: () => Navigator.pushNamed(context, '/section'),
                 title: 'سرشانه و زیربغل',
-                image:
-                    const AssetImage('assets/images/workout/back_workout.png'),
+                image: AssetImage('assets/images/workout/back_workout.png'),
               ),
               WorkoutSection(
-                onPressed: () => Navigator.pushNamed(context, '/section'),
                 title: 'جلوبازو پشت بازو',
-                image:
-                    const AssetImage('assets/images/workout/bicep_workout.png'),
+                image: AssetImage('assets/images/workout/bicep_workout.png'),
               ),
               WorkoutSection(
-                onPressed: () => Navigator.pushNamed(context, '/section'),
                 title: 'پا',
-                image:
-                    const AssetImage('assets/images/workout/leg_workout.png'),
+                image: AssetImage('assets/images/workout/leg_workout.png'),
               ),
               WorkoutSection(
-                onPressed: () => Navigator.pushNamed(context, '/section'),
                 title: 'شکم',
-                image:
-                    const AssetImage('assets/images/workout/abs_workout2.png'),
+                image: AssetImage('assets/images/workout/abs_workout2.png'),
               ),
             ],
           ),
 
-          const SizedBox(height: 80),
+          SizedBox(height: 80),
         ],
       ),
     );

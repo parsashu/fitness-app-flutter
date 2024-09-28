@@ -139,7 +139,6 @@ class _MyProgramsPageState extends State<MyProgramsPage> {
                 sections: [
                   for (var section in program['programData'])
                     WorkoutSection(
-                      onPressed: () => Navigator.pushNamed(context, '/section'),
                       title: section['name'],
                       image: AssetImage(section['image']),
                     ),

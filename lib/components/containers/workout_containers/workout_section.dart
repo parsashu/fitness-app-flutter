@@ -6,12 +6,10 @@ import 'package:persian_fonts/persian_fonts.dart';
 class WorkoutSection extends StatefulWidget {
   const WorkoutSection({
     super.key,
-    required this.onPressed,
     required this.title,
     required this.image,
   });
 
-  final VoidCallback onPressed;
   final String title;
   final ImageProvider<Object> image;
 
