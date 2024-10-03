@@ -4,6 +4,60 @@ import 'package:improwave/components/containers/workout_containers/workout_view.
 import 'package:improwave/components/dividers/ios_indicator.dart';
 import 'package:persian_fonts/persian_fonts.dart';
 
+// Workout data with proper type declaration
+final List<Map<String, String>> workoutData = [
+  {
+    "title": "پرس سینه",
+    "imagePath": "assets/images/workout/chest_workout.png",
+    "sets": "4 x 12"
+  },
+  {
+    "title": "پرس سینه شیبدار",
+    "imagePath": "assets/images/workout/chest_workout2.png",
+    "sets": "3 x 10"
+  },
+  {
+    "title": "فلای سینه با دمبل",
+    "imagePath": "assets/images/workout/chest_workout3.png",
+    "sets": "3 x 15"
+  },
+  {
+    "title": "پرس سینه دمبل",
+    "imagePath": "assets/images/workout/chest_workout4.png",
+    "sets": "4 x 10"
+  },
+  {
+    "title": "دیپ سینه",
+    "imagePath": "assets/images/workout/chest_workout5.png",
+    "sets": "3 x 12"
+  },
+  {
+    "title": "دیپ سینه",
+    "imagePath": "assets/images/workout/chest_workout6.png",
+    "sets": "3 x 12"
+  },
+  {
+    "title": "دیپ سینه",
+    "imagePath": "assets/images/workout/chest_workout6.png",
+    "sets": "3 x 12"
+  },
+  {
+    "title": "دیپ سینه",
+    "imagePath": "assets/images/workout/chest_workout6.png",
+    "sets": "3 x 12"
+  },
+  {
+    "title": "دیپ سینه",
+    "imagePath": "assets/images/workout/chest_workout6.png",
+    "sets": "3 x 12"
+  },
+  {
+    "title": "دیپ سینه",
+    "imagePath": "assets/images/workout/chest_workout6.png",
+    "sets": "3 x 12"
+  },
+];
+
 class SectionPage extends StatelessWidget {
   const SectionPage({
     super.key,
@@ -93,17 +147,15 @@ class SectionPage extends StatelessWidget {
                       const SizedBox(height: 15),
 
                       // Workout list
-                      ...List.generate(
-                        10,
-                        (index) {
+                      ...workoutData.map(
+                        (workout) {
                           return Padding(
                             padding:
                                 const EdgeInsets.only(bottom: 5, right: 20),
                             child: WorkoutView(
-                              title: 'پرس سینه',
-                              imagePath:
-                                  'assets/images/workout/chest_workout6.png',
-                              sets: '4 x 12',
+                              title: workout['title']!,
+                              imagePath: workout['imagePath']!,
+                              sets: workout['sets']!,
                               onPressed: () {},
                             ),
                           );
@@ -115,6 +167,7 @@ class SectionPage extends StatelessWidget {
               ),
             ],
           ),
+
           // Back button
           const Positioned(
             top: 40,

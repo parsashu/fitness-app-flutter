@@ -12,7 +12,6 @@ class WorkoutCategoryList extends StatelessWidget {
     'پشت بازو': 'assets/images/categories/triceps.png',
     'سرشانه': 'assets/images/categories/shoulders.png',
     'بالای پا': 'assets/images/categories/upper_legs.png',
-    'باسن': 'assets/images/categories/glutes.png',
     'پایین پا': 'assets/images/categories/lower_legs.png',
     'کر': 'assets/images/categories/core.png',
     'ساعد': 'assets/images/categories/forearms.png',

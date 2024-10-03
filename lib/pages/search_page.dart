@@ -76,6 +76,7 @@ class _SearchPageState extends State<SearchPage> {
                     names: isTrainer ? athNames : traNames,
                     bios: isTrainer ? athBios : traBios,
                     images: isTrainer ? athImages : traImages,
+                    isThisTrainer: !isTrainer,
                   ),
                 ],
               ),
