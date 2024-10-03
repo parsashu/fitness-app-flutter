@@ -20,7 +20,7 @@ class WorkoutView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 140,
+      height: 130,
       width: double.infinity,
       child: Column(
         children: [
@@ -77,8 +77,8 @@ class WorkoutView extends StatelessWidget {
                     borderRadius: BorderRadius.circular(20),
                     child: Image(
                       image: AssetImage(imagePath),
-                      width: 115,
-                      height: 115,
+                      width: 110,
+                      height: 110,
                       fit: BoxFit.cover,
                     ),
                   ),

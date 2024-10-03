@@ -17,7 +17,7 @@ class TraViewPage extends StatefulWidget {
 
 class _ProfilePageState extends State<TraViewPage> {
   // Flag to determine if the user is sending a request or receiving
-  bool sending = false;
+  bool sending = true;
 
   // Sending
   bool isNotRequested = true;

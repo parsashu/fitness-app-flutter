@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:improwave/pages/home/home_page.dart';
 import 'package:improwave/pages/home/notification_page.dart';
 import 'package:improwave/pages/main_page.dart';
 import 'package:improwave/pages/profile/ath_view_page.dart';
@@ -55,7 +54,7 @@ class MainApp extends StatelessWidget {
           return Consumer<ThemeProvider>(
             builder: (context, themeProvider, child) {
               return MaterialApp(
-                home: const HomePage(), // Home
+                home: const MainPage(), // Home
                 theme: Provider.of<ThemeProvider>(context).themeData,
                 routes: {
                   '/main': (context) => const MainPage(),

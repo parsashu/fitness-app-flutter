@@ -69,10 +69,6 @@ class WorkoutCategoryState extends State<WorkoutCategory>
               margin: const EdgeInsets.symmetric(horizontal: 6),
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(20),
-                border: Border.all(
-                  color: Theme.of(context).colorScheme.tertiary,
-                  width: 0.5,
-                ),
                 image: DecorationImage(
                   image: widget.image,
                   fit: BoxFit.cover,

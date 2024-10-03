@@ -1,21 +1,22 @@
 import 'package:flutter/material.dart';
 import 'package:improwave/components/bars/search_bar.dart';
 import 'package:improwave/components/containers/workout_containers/workout_category.dart';
+import 'package:improwave/pages/workout_pages/category_page.dart';
 
 class WorkoutCategoryList extends StatelessWidget {
   WorkoutCategoryList({super.key});
 
   final Map<String, String> categoryData = {
-    'سینه': 'assets/images/categories/chest.png',
-    'پشت': 'assets/images/categories/back.png',
-    'جلو بازو': 'assets/images/categories/biceps.png',
-    'پشت بازو': 'assets/images/categories/triceps.png',
-    'سرشانه': 'assets/images/categories/shoulders.png',
-    'بالای پا': 'assets/images/categories/upper_legs.png',
-    'پایین پا': 'assets/images/categories/lower_legs.png',
-    'کر': 'assets/images/categories/core.png',
-    'ساعد': 'assets/images/categories/forearms.png',
-    'هوازی': 'assets/images/categories/cardio.png',
+    'سینه': 'assets/images/categories/chest2.png',
+    'پشت': 'assets/images/categories/back2.png',
+    'جلو بازو': 'assets/images/categories/biceps2.png',
+    'پشت بازو': 'assets/images/categories/triceps2.png',
+    'سرشانه': 'assets/images/categories/shoulders2.png',
+    'بالای پا': 'assets/images/categories/upper_legs2.png',
+    'پایین پا': 'assets/images/categories/lower_legs2.png',
+    'کر': 'assets/images/categories/core2.png',
+    'ساعد': 'assets/images/categories/forearms2.png',
+    'هوازی': 'assets/images/categories/cardio2.png',
   };
 
   @override
@@ -36,11 +37,16 @@ class WorkoutCategoryList extends StatelessWidget {
                   // Categories
                   Wrap(
                     alignment: WrapAlignment.end,
-                    spacing: 20,
+                    spacing: 15,
                     runSpacing: 25,
                     children: categoryData.entries.map((entry) {
                       return WorkoutCategory(
-                        onPressed: () {},
+                        onPressed: () => Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => const CategoryPage(),
+                          ),
+                        ),
                         title: entry.key,
                         image: AssetImage(entry.value),
                       );

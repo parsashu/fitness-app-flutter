@@ -16,7 +16,7 @@ class MainPage extends StatefulWidget {
 
 class _MainPageState extends State<MainPage> {
   // Default page
-  int _selectedIndex = 1;
+  int _selectedIndex = 0;
 
   void _onTabChange(int index) {
     setState(() {

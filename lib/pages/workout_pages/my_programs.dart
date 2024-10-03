@@ -6,7 +6,14 @@ import 'package:improwave/components/my_scaffold.dart';
 import 'package:improwave/pages/workout_pages/all_programs_page.dart';
 
 class MyProgramsPage extends StatefulWidget {
-  const MyProgramsPage({super.key});
+  const MyProgramsPage({
+    super.key,
+    this.appBar = true,
+    this.editable = true,
+  });
+
+  final bool appBar;
+  final bool editable;
 
   @override
   State<MyProgramsPage> createState() => _MyProgramsPageState();
@@ -41,11 +48,11 @@ class _MyProgramsPageState extends State<MyProgramsPage> {
     {
       'programName': 'برنامه حجم',
       'programData': {
-        {'name': 'سینه', 'image': 'assets/images/workout/chest_workout2.png'},
         {
           'name': 'سرشانه و زیربغل',
           'image': 'assets/images/workout/back_workout.png'
         },
+        {'name': 'سینه', 'image': 'assets/images/workout/chest_workout2.png'},
         {
           'name': 'جلوبازو پشت بازو',
           'image': 'assets/images/workout/bicep_workout.png'
@@ -57,14 +64,14 @@ class _MyProgramsPageState extends State<MyProgramsPage> {
     {
       'programName': 'برنامه حجم',
       'programData': {
+        {
+          'name': 'جلوبازو پشت بازو',
+          'image': 'assets/images/workout/bicep_workout.png'
+        },
         {'name': 'سینه', 'image': 'assets/images/workout/chest_workout2.png'},
         {
           'name': 'سرشانه و زیربغل',
           'image': 'assets/images/workout/back_workout.png'
-        },
-        {
-          'name': 'جلوبازو پشت بازو',
-          'image': 'assets/images/workout/bicep_workout.png'
         },
         {'name': 'پا', 'image': 'assets/images/workout/leg_workout.png'},
         {'name': 'شکم', 'image': 'assets/images/workout/abs_workout2.png'},
@@ -74,9 +81,9 @@ class _MyProgramsPageState extends State<MyProgramsPage> {
 
   // The program which got clicked in all programs page
   final Map clickedProgram = {
-    'programName': 'برنامه کات',
+    'programName': 'دوره کات دو ماهه',
     'programData': {
-      {'name': 'زیربغل', 'image': 'assets/images/workout/back_workout3.png'},
+      {'name': 'پشت', 'image': 'assets/images/workout/back_workout3.png'},
       {
         'name': 'سرشانه و زیربغل',
         'image': 'assets/images/workout/back_workout.png'
@@ -119,10 +126,12 @@ class _MyProgramsPageState extends State<MyProgramsPage> {
   @override
   Widget build(BuildContext context) {
     return MyScaffold(
+      appBar: widget.appBar,
       body: SingleChildScrollView(
         controller: _scrollController,
         child: Column(
           children: [
+            // Search bar
             const Padding(
               padding: EdgeInsets.symmetric(horizontal: 15),
               child: MySearchBar(),
@@ -132,7 +141,7 @@ class _MyProgramsPageState extends State<MyProgramsPage> {
             // 3 latest programs
             for (var program in top3Programs) ...[
               WorkoutProgram(
-                editable: true,
+                editable: widget.editable,
                 programName: program['programName'],
                 trainerName: username,
                 trainerAvatar: avatar,
@@ -148,14 +157,16 @@ class _MyProgramsPageState extends State<MyProgramsPage> {
             ],
 
             // Add program
-            const WorkoutProgram(
-              editable: true,
-              programName: 'برنامه جدید',
-              trainerName: 'Farbod Hajian',
-              trainerAvatar: AssetImage('assets/images/example_profile.png'),
-            ),
-
-            const SizedBox(height: 35),
+            if (widget.editable) ...[
+              WorkoutProgram(
+                editable: widget.editable,
+                programName: 'برنامه جدید',
+                trainerName: 'Farbod Hajian',
+                trainerAvatar:
+                    const AssetImage('assets/images/example_profile.png'),
+              ),
+              const SizedBox(height: 35),
+            ],
 
             // All programs
             if (top3Programs.length >= 3)

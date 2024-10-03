@@ -5,6 +5,7 @@ import 'package:improwave/components/buttons/scroll_totop_button.dart';
 import 'package:improwave/components/containers/workout_containers/workout_view.dart';
 import 'package:improwave/components/my_scaffold.dart';
 
+// TODO: fix
 class CategoryPage extends StatefulWidget {
   const CategoryPage({super.key});
 
