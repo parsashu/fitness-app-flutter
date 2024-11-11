@@ -17,7 +17,6 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'utils/firebase_options.dart';
 
-//TODO: responsive
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
