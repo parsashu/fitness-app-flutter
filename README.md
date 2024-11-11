@@ -1,5 +1,7 @@
 # ImproWave
 
+![App Demo](assets/gifs/app_demo.gif)
+
 ImproWave is a Flutter mobile application designed to provide a seamless user experience across different workout, profile, and login-related features. This project leverages Firebase, shared preferences, and state management with `Provider` to deliver a comprehensive and user-friendly application.
 
 ## Features
